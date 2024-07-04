@@ -10,7 +10,7 @@ with the virtual environment tool as follows. Note that we name our virtual envi
 anything you want.
 
 ```
-ython3 -m venv gpcvenv
+python3 -m venv gpcvenv
 source gpcvenv/bin/activate
 pip install --upgrade pip
 pip install genophenocorr ## do this in the genophenocorr directory until we can do PyPI
