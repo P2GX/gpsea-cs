@@ -14,6 +14,8 @@ dist/
 downloads/
 eggs/
 .eggs/
+gpcvenv/
+*.genophenocorr_cache/
 lib/
 lib64/
 parts/
