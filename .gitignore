@@ -16,6 +16,7 @@ eggs/
 .eggs/
 gpcvenv/
 *.genophenocorr_cache/
+*.gpsea_cache/
 lib/
 lib64/
 parts/
