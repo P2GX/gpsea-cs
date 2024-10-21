@@ -1,6 +1,6 @@
 import io
 import typing
-
+from .summarizer import SignificantResults
 
 def open_text_io_handle_for_reading(
     file: typing.Union[io.IOBase, str],
@@ -50,3 +50,11 @@ def open_text_io_handle_for_writing(
             return io.TextIOWrapper(file, encoding=encoding)
 
     raise ValueError(f"Unsupported type {type(file)}")
+
+
+def construct_legend_boilerplate(sig_results: SignificantResults) -> str:
+    sentences = list()
+    if sig_results.total_tested_fet is not None and sig_results.total_tested_fet > 0:
+        sentences.append(f"Total Fisher Exact Tests performed: {sig_results.total_tested_fet}.")
+
+    return " ".join(sentences)

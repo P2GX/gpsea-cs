@@ -30,33 +30,67 @@ def format_term_id(
         return term_id.value
 
 
-class FetTestResult:
+class SigTestResult:
+    """
+    Represent the salient data about a statistically significant Genotype Phenotype Correlation.
+    """
+
     def __init__(self,
+                 test_type: StatTest,
                  hpo_item: str,
-                 with_hpo: str,
-                 without_hpo: str,
+                 geno_a: str,
+                 geno_b: str,
+                 with_geno_a: str,
+                 with_geno_b: str,
                  p_value: float,
                  adj_p_value: float,
                  gt_pred: str
                  ):
+        self._test_type = test_type
         self._hpo_item = hpo_item
-        self._with_hpo = with_hpo
-        self._without_hpo = without_hpo
+        self._geno_a = geno_a
+        self._geno_b = geno_b
+        self._with_geno_a = with_geno_a
+        self._with_geno_b = with_geno_b
         self._p_value = p_value
         self._adj_p_value = adj_p_value
         self._gt_pred = gt_pred
+
+    @property
+    def test_type(self) -> StatTest:
+        return self._test_type
+
+    def get_test_type(self) -> StatTest:
+        if self._test_type == StatTest.FET:
+            return "FET"
+        elif self._test_type == StatTest.T_TEST:
+            return "t test"
+        elif self._test_type == StatTest.U_TEST:
+            return "U test"
+        elif self._test_type == StatTest.LOG_RANK:
+            return "log rank"
+        else:
+            raise ValueError(f"Unknown test type {self._test_type}")
 
     @property
     def hpo_item(self) -> str:
         return self._hpo_item
 
     @property
-    def with_hpo(self) -> str:
-        return self._with_hpo
+    def geno_a(self) -> str:
+        return self._geno_a
 
     @property
-    def without_hpo(self) -> str:
-        return self._without_hpo
+    def geno_b(self) -> str:
+        return self._geno_b
+
+    @property
+    def with_geno_a(self) -> str:
+        return self._with_geno_a
+
+    @property
+    def with_geno_b(self) -> str:
+        return self._with_geno_b
 
     @property
     def p_value(self) -> float:
@@ -78,13 +112,12 @@ class SignificantResults:
 
     def __init__(self,
                  hpo: hpotk.MinimalOntology):
-        self._fet_significant_results = list()
         self._hpo = hpo
         self._significant_results = list()
-        self._n_usable_fet = 0
-        self._total_tested_fet = 0
+        self._n_usable_fet = None
+        self._total_tested_fet = None
 
-    def fisher_exact_test(self, result: HpoTermAnalysisResult) -> typing.List[FetTestResult]:
+    def fisher_exact_test(self, result: HpoTermAnalysisResult) -> typing.List[SigTestResult]:
         """
         The result is typically a list of Fisher Exact Test results. We will keep only
         those with an adjusted p value of 0.05 or lower. We first add the values to
@@ -113,6 +146,7 @@ class SignificantResults:
             for gt_cat in count.columns:
                 cnt = count.loc[ph_predicate.present_phenotype_category, gt_cat]
                 total = gt_totals[gt_cat]
+                df.loc[ph_predicate.phenotype, (gt_cat, "Genotype")] = str(gt_cat)
                 df.loc[ph_predicate.phenotype, (gt_cat, "Count")] = f"{cnt}/{total}"
                 pct = 0 if total == 0 else round(cnt * 100 / total)
                 df.loc[ph_predicate.phenotype, (gt_cat, "Percent")] = f"{pct}%"
@@ -135,31 +169,51 @@ class SignificantResults:
         if result.corrected_pvals is None:
             raise ValueError("corrected p vals are not set for FET")
         df = df.sort_values(by=[("", corrected_p_val_col_name), ("", p_val_col_name)]).loc[with_p_value.index]
+        self._total_tested_fet = df.shape[0] # row count
         gt_pred = result.gt_predicate.display_question()
         for idx, row in df.iterrows():
             hpo_item = str(idx)
-            geno_a_ratio = row.iloc[0]
-            geno_a_perc = row.iloc[1]
-            geno_b_ratio = row.iloc[2]
-            geno_b_perc = row.iloc[3]
-            p_val = row.iloc[4]
-            adj_p_val = row.iloc[5]
+            geno_a = row.iloc[0]
+            geno_a_ratio = row.iloc[1]
+            geno_a_perc = row.iloc[2]
+            geno_b = row.iloc[3]
+            geno_b_ratio = row.iloc[4]
+            geno_b_perc = row.iloc[5]
+            p_val = row.iloc[6]
+            adj_p_val = row.iloc[7]
             if p_val is None or np.isnan(p_val):
                 continue
             elif p_val > 0.05:
                 continue
             else:
-                with_hp = f"{geno_a_ratio} ({geno_a_perc}%)"
-                without_hp = f"{geno_b_ratio} ({geno_b_perc}%)"
-                fet_tr = FetTestResult(hpo_item=hpo_item,
-                                       with_hpo=with_hp,
-                                       without_hpo=without_hp,
+                with_geno_a = f"{geno_a_ratio} ({geno_a_perc}%)"
+                with_geno_b = f"{geno_b_ratio} ({geno_b_perc}%)"
+                fet_tr = SigTestResult(test_type=StatTest.FET,
+                                       hpo_item=hpo_item,
+                                       geno_a = geno_a,
+                                       geno_b = geno_b,
+                                       with_geno_a = with_geno_a,
+                                       with_geno_b = with_geno_b,
                                        p_value=p_val,
                                        adj_p_value=adj_p_val,
                                        gt_pred=gt_pred)
                 fet_test_results.append(fet_tr)
-        print(f"extracted {len(fet_test_results)} significant results")
-        self._fet_significant_results = fet_test_results
+        print(f"extracted {len(fet_test_results)} FET significant results")
+        self._significant_results = fet_test_results
+
+
+    @property
+    def n_usable_fet(self):
+        return self._n_usable_fet
+
+    @property
+    def total_tested_fet(self):
+        return self._total_tested_fet
+
+    @property
+    def significant_results(self):
+        return self._significant_results
+
 
 
 class GpseaSummarizer:
@@ -170,6 +224,7 @@ class GpseaSummarizer:
                  cohort: Cohort,
                  tx_id: str,
                  hpo: hpotk.MinimalOntology,
+                 sig_results: SignificantResults,
                  ):
         """
         :param version: version of GPSEA used for the analysis
@@ -190,6 +245,7 @@ class GpseaSummarizer:
         self._cohort = cohort
         self._hpo = hpo
         self._fet_significant_results = list()
+        self._significant_results = sig_results
 
     @property
     def gpsea_version(self):
@@ -203,4 +259,6 @@ class GpseaSummarizer:
     def hpo_version(self):
         return self._hpo.version
 
-
+    @property
+    def significant_results(self):
+        return self._significant_results

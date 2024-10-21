@@ -3,7 +3,7 @@ import io
 import abc
 from .summarizer import GpseaSummarizer
 from jinja2 import Environment, PackageLoader
-from .util import open_text_io_handle_for_writing, open_text_io_handle_for_reading
+from .util import open_text_io_handle_for_writing, open_text_io_handle_for_reading, construct_legend_boilerplate
 
 
 class GpseaReport(metaclass=abc.ABCMeta):
@@ -85,12 +85,28 @@ class HtmlVisualizer:
             summarizer: GpseaSummarizer,
     ) -> typing.Mapping[str, typing.Any]:
 
-        hpo_counts = list()
         gpsea_version = summarizer.gpsea_version
         hpo_version = summarizer.hpo_version
+        sig_res_list = list()
+        for sres in summarizer.significant_results.significant_results:
+            sig_res_list.append({
+                "test": sres.get_test_type(),
+                "hpo": sres.hpo_item,
+                "geno_a": sres.geno_a,
+                "geno_b": sres.geno_b,
+                "with_a": sres.with_geno_a,
+                "with_b": sres.with_geno_b,
+                "pval": sres.p_value,
+                "adj_pval": sres.adj_p_value,
+            })
+
+        caption = construct_legend_boilerplate(summarizer.significant_results)
         # The following dictionary is used by the Jinja2 HTML template
         return {
             "gpsea_version": gpsea_version,
             "hpo_version": hpo_version,
+            "caption": caption,
+            "sig_res_list": sig_res_list,
+            "n_sig_res": len(sig_res_list),
         }
 
