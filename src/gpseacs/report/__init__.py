@@ -1,6 +1,6 @@
 
-from ._api import GPSEAAnalysisResult
+from ._api import GPSEAAnalysisResult, GPSEAAnalysisResultSummarizer
 
 __all__ = [
-    "GPSEAAnalysisResult"
+    "GPSEAAnalysisResult", "GPSEAAnalysisResultSummarizer",
 ]
