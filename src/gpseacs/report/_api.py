@@ -8,9 +8,10 @@ from gpsea.analysis import MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisRe
 class GPAnalysisResult:
 
     @staticmethod
-    def mono(
+    def from_mono(
         result: MonoPhenotypeAnalysisResult,
         xrefs: typing.Optional[typing.Iterable[str]] = None,
+        interpretation: typing.Optional[str] = None,
     ) -> "GPAnalysisResult":
         if xrefs is None:
             xrefs = {}
@@ -21,12 +22,14 @@ class GPAnalysisResult:
         return GPAnalysisResult(
             result=result,
             xrefs=xrefs,
+            interpretation=interpretation,
         )
 
     @staticmethod
-    def multi(
+    def from_multi(
         result: MultiPhenotypeAnalysisResult,
         xrefs: typing.Optional[typing.Mapping[str, typing.Iterable[str]]] = None,
+        interpretation: typing.Optional[str] = None,
     ) -> "GPAnalysisResult":
         if xrefs is None:
             xrefs = {}
@@ -34,17 +37,20 @@ class GPAnalysisResult:
         return GPAnalysisResult(
             result=result,
             xrefs=xrefs,
+            interpretation=interpretation,
         )
 
     def __init__(
         self,
         result: typing.Union[MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult],
         xrefs: typing.Mapping[str, typing.Collection[str]],
+        interpretation: typing.Optional[str],
     ):
         assert isinstance(result, (MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult))
         self._result = result
 
         self._xrefs = dict(xrefs)
+        self._interpretation = interpretation
 
     @property
     def result(self) -> typing.Union[MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult]:
@@ -56,6 +62,10 @@ class GPAnalysisResult:
         Get mapping from phenotype `variable_name` to G/P association cross references.
         """
         return self._xrefs
+
+    @property
+    def interpretation(self) -> typing.Optional[str]:
+        return self._interpretation
 
     def is_mono(self) -> bool:
         return isinstance(self._result, MonoPhenotypeAnalysisResult)
@@ -70,13 +80,11 @@ class GpseaAnalysisReport:
         self,
         cohort: Cohort,
         results: typing.Iterable[GPAnalysisResult],
-        interpretation: typing.Optional[str] = None,
     ):
         self._cohort = cohort
         for i, r in enumerate(results):
             assert isinstance(r, GPAnalysisResult), f"#{i} must be `GPAnalysisResult`"
         self._results = tuple(results)
-        self._interpretation = interpretation
 
     @property
     def cohort(self) -> Cohort:
@@ -85,10 +93,6 @@ class GpseaAnalysisReport:
     @property
     def results(self) -> typing.Collection[GPAnalysisResult]:
         return self._results
-    
-    @property
-    def interpretation(self) -> typing.Optional[str]:
-        return self._interpretation
 
 
 class GPSEAAnalysisResultSummarizer(metaclass=abc.ABCMeta):
