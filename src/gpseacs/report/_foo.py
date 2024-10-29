@@ -3,7 +3,7 @@ from typing import TextIO
 from gpsea.analysis import MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult
 from gpsea.model import Cohort
 
-from ._api import GPSEAAnalysisResultSummarizer, GPSEAAnalysisResult
+from ._api import GPSEAAnalysisResultSummarizer, GpseaAnalysisReport
 
 
 class FooGPSEAAnalysisResultSummarizer(GPSEAAnalysisResultSummarizer):
@@ -13,7 +13,7 @@ class FooGPSEAAnalysisResultSummarizer(GPSEAAnalysisResultSummarizer):
     
     def summarize_result(
         self,
-        result: GPSEAAnalysisResult,
+        result: GpseaAnalysisReport,
         out: TextIO,
     ):
         self._summarize_cohort(
