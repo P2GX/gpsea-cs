@@ -78,13 +78,19 @@ class GpseaAnalysisReport:
     
     def __init__(
         self,
+        name: str,
         cohort: Cohort,
         results: typing.Iterable[GPAnalysisResult],
     ):
+        self._name = name
         self._cohort = cohort
         for i, r in enumerate(results):
             assert isinstance(r, GPAnalysisResult), f"#{i} must be `GPAnalysisResult`"
         self._results = tuple(results)
+
+    @property
+    def name(self) -> str:
+        return self._name
 
     @property
     def cohort(self) -> Cohort:
