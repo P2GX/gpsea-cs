@@ -102,9 +102,36 @@
 
   {% endfor %}
   {% else %}
-  <p>No Fisher Exact Test performed.</p>
+ 
   {% endif %}
-
+  {% if n_mono_results > 0 %}
+  {% for mono_result in mono_result_list %}
+  <table>
+    <caption style="color: black;">
+        {{mono_result.test_name}} to compare  {{ mono_result.a_genotype }} and {{ mono_result.b_genotype }} with respect to {{mono_result.variable_name}}.
+    </caption>
+        <tbody>
+            <tr class="strng">
+              <th>Description</th>
+              <th>Variable</th>
+                <th>Genotype (A)</th>
+                <th>Genotype (B)</th>
+              
+              <th>p value</th>
+            </tr>
+            <tr>
+              <td class="lft">{{ mono_result.description }}</td>
+              <td class="lft">{{mono_result.variable_name}}</td>
+                <td class="lft">{{ mono_result.a_genotype }}</td>
+                <td class="lft">{{ mono_result.b_genotype }}</td>
+                <td class="lft">{{mono_result.pval}}</td>
+            </tr>
+          </tbody>
+    </table>
+  {% endfor %}
+  {% else %}
+  
+  {% endif %}
 
 
 

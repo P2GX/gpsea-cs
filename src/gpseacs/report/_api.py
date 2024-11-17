@@ -74,7 +74,6 @@ class GPAnalysisResultSummary:
     ):
         assert isinstance(result, (MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult))
         self._result = result
-
         self._xrefs = dict(xrefs)
         self._interpretation = interpretation
 
@@ -119,10 +118,14 @@ class GpseaAnalysisReport:
             for i, r in enumerate(fet_results):
                 assert isinstance(r, MultiPhenotypeAnalysisResult), f"#{i} must be `MultiPhenotypeAnalysisResult but was {type(r)}`"
             self._fet_results = tuple(fet_results)
+        else:
+            self._fet_results = None
         if mono_results is not None:
             for i, r in enumerate(mono_results):
                 assert isinstance(r, MonoPhenotypeAnalysisResult), f"#{i} must be `MonoPhenotypeAnalysisResult`"
             self._mono_results = tuple(mono_results)
+        else:
+            self._mono_results = None
         self._caption = generate_cohort_summary(cohort=cohort, gene_symbol=gene_symbol, mane_tx_id=mane_tx_id, mane_protein_id=mane_protein_id, caption=caption)
 
 
@@ -283,7 +286,28 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         html = self._cohort_template.render(context)
         return HtmlGpseaNotebookSummarizer(html)
 
-    
+
+    def mono_test(self, result: MonoPhenotypeAnalysisResult) -> typing.Dict[str, object]:
+        """
+        This function prepares the results of the t test, the U test, and the log rank test for output.
+        """
+        test_result = dict()
+        test_result["a_genotype"] = result.gt_predicate.group_labels[0]
+        test_result["b_genotype"] = result.gt_predicate.group_labels[1]
+
+        ptype = result.phenotype
+        test_result["name"] = ptype.name
+        if ptype.name == "Measurement":
+            test_result["test_name"] = "t-test"
+        else:
+            test_result["test_name"] = ptype.name
+        test_result["description"] = ptype.description
+        test_result["variable_name"] = ptype.variable_name
+        test_result["pval"] = result.pval
+        
+        return test_result
+
+
     def fisher_exact_test(self, result: MultiPhenotypeAnalysisResult) -> typing.Tuple[typing.Dict[str,object], typing.List[typing.Dict[str, object]]]:
         """
         The result is typically a list of Fisher Exact Test results. We will keep only
@@ -368,7 +392,6 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             
         general_info["n_sig_results"] = len(sig_result_list)
         general_info["n_tests_performed"] = result.total_tests
-        print(f"extracted {len(fet_test_results)} FET significant results")
         return general_info, sig_result_list
     
     
@@ -377,14 +400,33 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             self,
             report: GpseaAnalysisReport,
     ) -> typing.Mapping[str, typing.Any]:
-        
-        fet_results = report.fet_results
-        n_fet_results = len(fet_results)
         fet_result_list = list()
-        for fres in fet_results:
-            general_info, sig_result_list = self.fisher_exact_test(fres)
-            fet_result_list.append({"general_info": general_info, "sig_result_list": sig_result_list})
-        n_fet_results = len(fet_result_list)
+        mono_result_list = list()
+        fet_results = report.fet_results
+        if fet_results is not None:
+            n_fet_results = len(fet_results)
+            
+            for fres in fet_results:
+                general_info, sig_result_list = self.fisher_exact_test(fres)
+                fet_result_list.append({"general_info": general_info, "sig_result_list": sig_result_list})
+            n_fet_results = len(fet_result_list)
+        else:
+            n_fet_results = 0
+        if report.mono_results is not None:
+            n_mono_results = len(report.mono_results)
+            for mres in report.mono_results:
+                test_result = self.mono_test(mres)
+                print(test_result)
+                mono_result_list.append({"a_genotype": test_result["a_genotype"], 
+                                         "b_genotype": test_result["b_genotype"], 
+                                         "name": test_result["name"],
+                                         "test_name": test_result["test_name"],
+                                         "description": test_result["description"],
+                                         "variable_name": test_result["variable_name"], 
+                                         "pval": test_result["pval"],
+                })
+        else:
+            n_mono_results = 0
 
         return {
             "cohort_name": report.name,
@@ -393,4 +435,6 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             "gpsea_version": self._gpsea_version,
             "n_fet_results": n_fet_results,
             "fet_result_list": fet_result_list,
+            "n_mono_results": n_mono_results,
+            "mono_result_list": mono_result_list,
             }
