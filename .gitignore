@@ -168,3 +168,9 @@ cython_debug/
 venv/
 
 **/.gpsea_cache/
+**/*.pickle
+supplement/supplement.aux
+supplement/supplement.fdb_latexmk
+supplement/supplement.fls
+supplement/supplement.out
+supplement/supplement.pdf

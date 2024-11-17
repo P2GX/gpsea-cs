@@ -3,11 +3,12 @@ import io
 import typing
 import pandas as pd
 import numpy as np
+import matplotlib
 
 import hpotk
 from gpsea.model import Cohort
 from gpsea.analysis import MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult
-from .util import open_text_io_handle_for_writing
+from .util import open_text_io_handle_for_writing, process_latex
 from jinja2 import Environment, PackageLoader
 
 
@@ -24,7 +25,14 @@ def format_term_id(
         return f"{term_name} [{term_id.value}]"
     else:
         return term_id.value
-    
+
+def format_p_value(p_value):
+    if p_value > 0.001:
+        # Format with 3 significant digits
+        return f"{p_value:.3f}"
+    else:
+        # Format in scientific notation with 2 significant digits
+        return f"{p_value:.2e}" 
 
 class GPAnalysisResultSummary:
     """
@@ -126,8 +134,13 @@ class GpseaAnalysisReport:
             self._mono_results = tuple(mono_results)
         else:
             self._mono_results = None
-        self._caption = generate_cohort_summary(cohort=cohort, gene_symbol=gene_symbol, mane_tx_id=mane_tx_id, mane_protein_id=mane_protein_id, caption=caption)
-
+        self._caption = generate_cohort_summary(cohort=cohort, caption=caption)
+        n_variants = len(set(cohort.all_variants()))
+        gene_caption, latex_gene_caption = generate_gene_summary(n_variants=n_variants, gene_symbol=gene_symbol, mane_tx_id=mane_tx_id, mane_protein_id=mane_protein_id)
+        self._gene_caption = gene_caption
+        self._latex_gene_caption = latex_gene_caption
+        n_variants = len(set(cohort.all_variants()))
+        
 
 
     @property
@@ -149,11 +162,16 @@ class GpseaAnalysisReport:
     @property
     def caption(self) -> str:
         return self._caption
+    
+    @property
+    def gene_caption(self) -> str:
+        return self._gene_caption
+    
+    @property
+    def latex_gene_caption(self) -> str:
+        return self._latex_gene_caption
 
 def generate_cohort_summary(cohort, 
-                            gene_symbol:str = None, 
-                            mane_tx_id:str = None, 
-                            mane_protein_id:str = None, 
                             caption:str= None) -> str:
     disease_id_to_name = dict()
     for d in cohort.all_diseases():
@@ -189,16 +207,28 @@ def generate_cohort_summary(cohort,
             d_name = disease_id_to_name.get(d_id)
             disease_items.append(f"{d_name} ({d_id}) ({d_count} individuals)")
         disease_desc = f"Disease diagnoses: {', '.join(disease_items)}."
-    n_variants = len(set(cohort.all_variants()))
-    if gene_symbol is None or mane_tx_id is None or mane_protein_id is None:
-        variants = f"A total of {n_variants} unique variant alleles were found."
-    else:
-        variants = f"A total of {n_variants} unique variant alleles were found in {gene_symbol} (transcript: {mane_tx_id}, protein id: {mane_protein_id})."
+    
+        
     if caption is None:
-        return f"{counts} {n_hpo_terms} {disease_desc} {variants}"
+        return f"{counts} {n_hpo_terms} {disease_desc}"
     else:
-        return f"{counts} {n_hpo_terms} {disease_desc} {variants} {caption}"
+        return f"{counts} {n_hpo_terms} {disease_desc} {caption}"
 
+
+def generate_gene_summary(n_variants:int,
+                          gene_symbol: str=None, 
+                          mane_tx_id: str=None,
+                          mane_protein_id: str=None
+                          ):
+    if gene_symbol is None:
+        variants = f"A total of {n_variants} unique variant alleles were found."
+        latex_variants = f"A total of {n_variants} unique variant alleles were found."
+    else:
+        ltx = mane_tx_id.replace("_", "\\_")
+        lprot = mane_protein_id.replace("_", "\\_")
+        variants = f"A total of {n_variants} unique variant alleles were found in {gene_symbol} (transcript: {mane_tx_id}, protein id: {mane_protein_id})."
+        latex_variants = f"A total of {n_variants} unique variant alleles were found in \\textit{{{gene_symbol}}} (transcript: \\texttt{{{ltx}}}, protein id: \\texttt{{{lprot}}})."
+    return variants, latex_variants
 
 class GpseaReportSummarizer(metaclass=abc.ABCMeta):
     """
@@ -303,7 +333,7 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             test_result["test_name"] = ptype.name
         test_result["description"] = ptype.description
         test_result["variable_name"] = ptype.variable_name
-        test_result["pval"] = result.pval
+        test_result["pval"] = format_p_value(result.pval)
         
         return test_result
 
@@ -365,29 +395,30 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         if result.corrected_pvals is None:
             raise ValueError("corrected p vals are not set for FET")
         df = df.sort_values(by=[("", corrected_p_val_col_name), ("", p_val_col_name)]).loc[with_p_value.index]
+        columns_index = result.all_counts[0].columns
+        category_a = columns_index[0]
+        category_b = columns_index[1]
         for idx, row in df.iterrows():
             hpo_item = str(idx)
-            geno_a = row.iloc[0]
-            geno_a_ratio = row.iloc[1]
-            geno_a_perc = row.iloc[2]
-            geno_b = row.iloc[3]
-            geno_b_ratio = row.iloc[4]
-            geno_b_perc = row.iloc[5]
-            p_val = row.iloc[6]
-            adj_p_val = row.iloc[7]
+            geno_a_ratio = row[(category_a, "Count")]
+            geno_a_perc = row[(category_a, "Percent")]
+            geno_b_ratio = row[(category_b, "Count")]
+            geno_b_perc = row[(category_b, "Percent")]
+            p_val = row[("", "p values")]
+            adj_p_val = row[("", "Corrected p values")]
             if p_val is None or np.isnan(p_val):
                 continue
             elif p_val > 0.05:
                 continue
             else:
-                with_geno_a = f"{geno_a_ratio} ({geno_a_perc}%)"
-                with_geno_b = f"{geno_b_ratio} ({geno_b_perc}%)"
+                with_geno_a = f"{geno_a_ratio} ({geno_a_perc})"
+                with_geno_b = f"{geno_b_ratio} ({geno_b_perc})"
                 sig_result_list.append({
                     "hpo_item": hpo_item,
                     "with_geno_a": with_geno_a,
                     "with_geno_b": with_geno_b,
-                    "pval": p_val,
-                    "adj_pval": adj_p_val,
+                    "pval": format_p_value(p_val),
+                    "adj_pval": format_p_value(adj_p_val),
                 })
             
         general_info["n_sig_results"] = len(sig_result_list)
@@ -431,6 +462,8 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         return {
             "cohort_name": report.name,
             "caption": report.caption,
+            "gene_caption": report.gene_caption,
+            "latex_gene_caption": report.latex_gene_caption,
             "hpo_version": self._hpo.version,
             "gpsea_version": self._gpsea_version,
             "n_fet_results": n_fet_results,
@@ -438,3 +471,11 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             "n_mono_results": n_mono_results,
             "mono_result_list": mono_result_list,
             }
+    
+    def process_latex(self, 
+                      report: GpseaAnalysisReport,
+                      mpt_fig: matplotlib.figure.Figure=None):
+        context = self._prepare_context(report)
+        latex = process_latex(context, mpt_fig=mpt_fig)
+        return latex
+        

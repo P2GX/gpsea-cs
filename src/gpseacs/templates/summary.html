@@ -72,11 +72,34 @@
 
 <body>
   <h1>{{cohort_name}} Summary</h1>
-  <p>{{caption}} HPO version: {{hpo_version}}. GPSEA version: {{gpsea_version}}.</p>
+  <p>{{caption}} {{gene_caption}} HPO version: {{hpo_version}}. GPSEA version: {{gpsea_version}}.</p>
   {% if n_fet_results > 0 %}
   {% for fet_res in fet_result_list %}
     {%if fet_res.general_info.n_sig_results > 0 %}
-      <p>Got results</p>
+    <table>
+      <caption style="color: black;">
+          Fisher Exact Test performed to compare HPO annotation frequency with respect to {{ fet_res.general_info.a_genotype }} and {{ fet_res.general_info.b_genotype }}. Total of
+          {{fet_res.general_info.n_tests_performed}} tests were performed.
+      </caption>
+          <tbody>
+              <tr class="strng">
+                  <th>HPO Term</th>
+                  <th>{{ fet_res.general_info.a_genotype }}</th>
+                  <th>{{ fet_res.general_info.b_genotype }}</th>
+                  <th>p-val</th>
+                  <th>adj. p-val</th>
+              </tr>
+              {% for row in fet_res.sig_result_list %}
+              <tr>
+                  <td class="lft">{{ row.hpo_item}}</td>
+                  <td class="lft">{{ row.with_geno_a}}</td>
+                  <td class="lft">{{ row.with_geno_b}}</td>
+                  <td class="lft">{{ row.pval}}</td>
+                  <td class="lft">{{ row.adj_pval}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+      </table>
       {% else %}
       <table>
         <caption style="color: black;">
