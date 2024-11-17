@@ -88,9 +88,9 @@ class HtmlVisualizer:
         gpsea_version = summarizer.gpsea_version
         hpo_version = summarizer.hpo_version
         sig_res_list = list()
-        for sres in summarizer.significant_results.significant_results:
+        for sres in summarizer.significant_results.sig_test_results:
             sig_res_list.append({
-                "test": sres.get_test_type(),
+                "test": sres.get_test_type_as_str(),
                 "hpo": sres.hpo_item,
                 "geno_a": sres.geno_a,
                 "geno_b": sres.geno_b,
@@ -100,7 +100,7 @@ class HtmlVisualizer:
                 "adj_pval": sres.adj_p_value,
             })
 
-        caption = construct_legend_boilerplate(summarizer.significant_results)
+        caption = construct_legend_boilerplate(summarizer)
         # The following dictionary is used by the Jinja2 HTML template
         return {
             "gpsea_version": gpsea_version,

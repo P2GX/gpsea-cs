@@ -60,7 +60,7 @@ class SigTestResult:
     def test_type(self) -> StatTest:
         return self._test_type
 
-    def get_test_type(self) -> StatTest:
+    def get_test_type_as_str(self) -> str:
         if self._test_type == StatTest.FET:
             return "FET"
         elif self._test_type == StatTest.T_TEST:
@@ -107,7 +107,7 @@ class SigTestResult:
 
 class SignificantResults:
     """
-    Represents the significant results for any of the four tests (FET, t test, U test, log rank test) 
+    Represents the significant results for any of the four tests (FET, t test, U test, log rank test)
     """
 
     def __init__(self,
@@ -117,7 +117,7 @@ class SignificantResults:
         self._n_usable_fet = None
         self._total_tested_fet = None
 
-    def fisher_exact_test(self, result: HpoTermAnalysisResult) -> typing.List[SigTestResult]:
+    def fisher_exact_test(self, result: HpoTermAnalysisResult) -> None:
         """
         The result is typically a list of Fisher Exact Test results. We will keep only
         those with an adjusted p value of 0.05 or lower. We first add the values to
@@ -133,7 +133,7 @@ class SignificantResults:
         # Column index: multiindex of counts and percentages for all genotype predicate groups
         gt_idx = pd.MultiIndex.from_product(
             iterables=(result.gt_predicate.get_categories(), ("Count", "Percent")),
-            names=(result.gt_predicate.get_question_base(), None),
+            names=result.gt_predicate.group_labels,
         )
 
         # We'll fill this frame with data
@@ -170,7 +170,6 @@ class SignificantResults:
             raise ValueError("corrected p vals are not set for FET")
         df = df.sort_values(by=[("", corrected_p_val_col_name), ("", p_val_col_name)]).loc[with_p_value.index]
         self._total_tested_fet = df.shape[0] # row count
-        gt_pred = result.gt_predicate.display_question()
         for idx, row in df.iterrows():
             hpo_item = str(idx)
             geno_a = row.iloc[0]
@@ -196,10 +195,10 @@ class SignificantResults:
                                        with_geno_b = with_geno_b,
                                        p_value=p_val,
                                        adj_p_value=adj_p_val,
-                                       gt_pred=gt_pred)
+                                       gt_pred=result.gt_predicate)
                 fet_test_results.append(fet_tr)
         print(f"extracted {len(fet_test_results)} FET significant results")
-        self._significant_results = fet_test_results
+        self._significant_results.append(fet_test_results)
 
 
     @property
@@ -211,7 +210,7 @@ class SignificantResults:
         return self._total_tested_fet
 
     @property
-    def significant_results(self):
+    def sig_test_results(self) -> typing.List[SigTestResult]:
         return self._significant_results
 
 
@@ -237,7 +236,7 @@ class GpseaSummarizer:
         :param hpo: Human Phenotype Ontology (object)
         :type hpo: hpotk.MinimalOntology
 
-    
+
         """
         self._version = version
         self._caption = caption
@@ -250,6 +249,10 @@ class GpseaSummarizer:
     @property
     def gpsea_version(self):
         return self._version
+
+    @property
+    def caption(self):
+        return self._caption
 
     @property
     def tx_id(self):
