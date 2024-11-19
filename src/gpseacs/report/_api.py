@@ -1,5 +1,6 @@
 import abc
 import io
+import re
 import typing
 import pandas as pd
 import numpy as np
@@ -8,7 +9,7 @@ import matplotlib
 import hpotk
 from gpsea.model import Cohort
 from gpsea.analysis import MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisResult
-from .util import open_text_io_handle_for_writing, process_latex
+from .util import open_text_io_handle_for_writing, process_latex_template
 from jinja2 import Environment, PackageLoader
 
 
@@ -117,20 +118,20 @@ class GpseaAnalysisReport:
             mane_tx_id:str,
             mane_protein_id: str,
             caption: str,
-            fet_results: typing.Iterable[MultiPhenotypeAnalysisResult]=None,
-            mono_results: typing.Iterable[MonoPhenotypeAnalysisResult]=None,  
+            fet_results: typing.Iterable[GPAnalysisResultSummary]=None,
+            mono_results: typing.Iterable[GPAnalysisResultSummary]=None,  
     ):
         self._name = name
         self._cohort = cohort
         if fet_results is not None:
             for i, r in enumerate(fet_results):
-                assert isinstance(r, MultiPhenotypeAnalysisResult), f"#{i} must be `MultiPhenotypeAnalysisResult but was {type(r)}`"
+                assert isinstance(r, GPAnalysisResultSummary), f"#{i} must be `GPAnalysisResultSummary` but was {type(r)}"
             self._fet_results = tuple(fet_results)
         else:
             self._fet_results = None
         if mono_results is not None:
             for i, r in enumerate(mono_results):
-                assert isinstance(r, MonoPhenotypeAnalysisResult), f"#{i} must be `MonoPhenotypeAnalysisResult`"
+                assert isinstance(r, GPAnalysisResultSummary), f"#{i} must be `GPAnalysisResultSummary` but was {type(r)}"
             self._mono_results = tuple(mono_results)
         else:
             self._mono_results = None
@@ -152,11 +153,11 @@ class GpseaAnalysisReport:
         return self._cohort
 
     @property
-    def fet_results(self) -> typing.Collection[MultiPhenotypeAnalysisResult]:
+    def fet_results(self) -> typing.Collection[GPAnalysisResultSummary]:
         return self._fet_results
     
     @property
-    def mono_results(self) -> typing.Collection[MonoPhenotypeAnalysisResult]:
+    def mono_results(self) -> typing.Collection[GPAnalysisResultSummary]:
         return self._mono_results
 
     @property
@@ -317,10 +318,11 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         return HtmlGpseaNotebookSummarizer(html)
 
 
-    def mono_test(self, result: MonoPhenotypeAnalysisResult) -> typing.Dict[str, object]:
+    def mono_test(self, gps: GpseaReportSummarizer) -> typing.Dict[str, object]:
         """
         This function prepares the results of the t test, the U test, and the log rank test for output.
         """
+        result: MonoPhenotypeAnalysisResult = gps.result
         test_result = dict()
         test_result["a_genotype"] = result.gt_predicate.group_labels[0]
         test_result["b_genotype"] = result.gt_predicate.group_labels[1]
@@ -334,17 +336,52 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         test_result["description"] = ptype.description
         test_result["variable_name"] = ptype.variable_name
         test_result["pval"] = format_p_value(result.pval)
+        test_result["xrefs"] =self.get_mono_xref_string(gps.xrefs)
+        test_result["interpretation"] = gps.interpretation.replace("%", "\\%")
         
         return test_result
 
 
-    def fisher_exact_test(self, result: MultiPhenotypeAnalysisResult) -> typing.Tuple[typing.Dict[str,object], typing.List[typing.Dict[str, object]]]:
+    def get_hpo_xref_string(self, xref_d, hpo_item):
+        """
+        For some of the tests, we supply a PMID. We will use this to create citations in the supplement with bibtex
+        \\cite{PMID_1234},\\cite{PMID_7654}. If we cannot find anything, return "-". We will need to manually add the 
+        corresponding items to a bibtex "bib" file.
+        """
+        hpo_regex = r"HP:\d{7}"
+        match = re.search(hpo_regex, hpo_item)
+        if match:
+            hpo_id = match.group()
+            if hpo_id in xref_d:
+                pmid_tuple = xref_d.get(hpo_id)
+                items = ["\\cite{" + p.replace("PMID:", "PMID_") + "}"  for p in pmid_tuple]
+                return ",".join(items)
+        return "-" # couldn't find anything
+    
+    def get_mono_xref_string(self, xref_d) -> str:
+        """
+        For the "mono" tests, there is only one test, thus we do not need to match the key
+        """
+        xrefs = list()
+        for pmid_tuple in xref_d.values():
+            items = ["\\cite{" + p.replace("PMID:", "PMID_") + "}"  for p in pmid_tuple.values()]
+            if len(items) > 0:
+                xrefs.extend(items)
+        if len(xrefs) > 0:
+            return ",".join(xrefs)
+        else:
+            return "-"
+
+    def fisher_exact_test(self, gps: GpseaReportSummarizer) -> typing.Tuple[typing.Dict[str,object], typing.List[typing.Dict[str, object]]]:
         """
         The result is typically a list of Fisher Exact Test results. We will keep only
         those with an adjusted p value of 0.05 or lower. We first add the values to
         a pandas dataframe for convenience, and transfer data for signficiant values
         to TestResult objects to simplify display.
         """
+        result = gps.result
+        interpretation = gps.interpretation
+        xrefs = gps.xrefs
         assert isinstance(result, MultiPhenotypeAnalysisResult)
         general_info = dict()
         sig_result_list = list()
@@ -408,11 +445,12 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             adj_p_val = row[("", "Corrected p values")]
             if p_val is None or np.isnan(p_val):
                 continue
-            elif p_val > 0.05:
+            elif adj_p_val > 0.05:
                 continue
             else:
                 with_geno_a = f"{geno_a_ratio} ({geno_a_perc})"
                 with_geno_b = f"{geno_b_ratio} ({geno_b_perc})"
+                xref_for_hpo = self.get_hpo_xref_string(xref_d=xrefs, hpo_item=hpo_item)
                 sig_result_list.append({
                     "hpo_item": hpo_item,
                     "with_geno_a": with_geno_a,
@@ -447,7 +485,6 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             n_mono_results = len(report.mono_results)
             for mres in report.mono_results:
                 test_result = self.mono_test(mres)
-                print(test_result)
                 mono_result_list.append({"a_genotype": test_result["a_genotype"], 
                                          "b_genotype": test_result["b_genotype"], 
                                          "name": test_result["name"],
@@ -455,6 +492,8 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
                                          "description": test_result["description"],
                                          "variable_name": test_result["variable_name"], 
                                          "pval": test_result["pval"],
+                                         "interpretation": test_result["interpretation"],
+                                         "xrefs": test_result["xrefs"],
                 })
         else:
             n_mono_results = 0
@@ -476,6 +515,6 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
                       report: GpseaAnalysisReport,
                       mpt_fig: matplotlib.figure.Figure=None):
         context = self._prepare_context(report)
-        latex = process_latex(context, mpt_fig=mpt_fig)
+        latex = process_latex_template(context, mpt_fig=mpt_fig)
         return latex
         
