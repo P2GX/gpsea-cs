@@ -174,3 +174,5 @@ supplement/supplement.fdb_latexmk
 supplement/supplement.fls
 supplement/supplement.out
 supplement/supplement.pdf
+supplement/supplement.bbl
+supplement/supplement.blg

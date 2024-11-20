@@ -3,12 +3,10 @@
 \usepackage{times}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{hyperref}
-\usepackage{fancyvrb}
 \usepackage{subcaption}  % For subfigures (panels A, B, C)% Adds support for breaklines
 \usepackage{float}
-\usepackage{xcolor}
-\usepackage{caption}
+
+\usepackage[font=small, justification=raggedright,labelfont=bf]{caption}
 \usepackage[margin=1in]{geometry} % Set all margins to 1 inch
 
 
@@ -21,10 +19,15 @@
 \begin{document}
 \thispagestyle{empty}
 
-\input{tex/ABCB7_summary}
+
+\include{tex/ABCB7_summary}
+\include{tex/ACADM_summary}
+\include{tex/AIRE_summary}
 
 
 
-\input{tex/FBN1_summary}
+\bibliography{references}
+\bibliographystyle{unsrt}
+
 
 \end{document}

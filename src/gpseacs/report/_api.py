@@ -333,11 +333,15 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             test_result["test_name"] = "t-test"
         else:
             test_result["test_name"] = ptype.name
-        test_result["description"] = ptype.description
+        descr = ptype.description
+        ## convert: Compute time until onset of Chronic mucocutaneous candidiasis
+        descr = descr.replace("Compute time until onset of ", "Survival analysis: ")
+        test_result["description"] = descr
         test_result["variable_name"] = ptype.variable_name
         test_result["pval"] = format_p_value(result.pval)
         test_result["xrefs"] =self.get_mono_xref_string(gps.xrefs)
-        test_result["interpretation"] = gps.interpretation.replace("%", "\\%")
+        interp = gps.interpretation or ""
+        test_result["interpretation"] = interp.replace("%", "\\%")
         
         return test_result
 
