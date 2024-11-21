@@ -2,6 +2,7 @@ import io
 import os
 import typing
 import matplotlib
+import matplotlib.figure
 
 def open_text_io_handle_for_reading(
     file: typing.Union[io.IOBase, str],
@@ -170,9 +171,41 @@ def format_for_latex(p_value):
         return p_value
 
 
-def process_latex_template(context_d: typing.Dict, 
-                  mpt_fig: matplotlib.figure.Figure=None):
+def output_figure_draft(mpt_fig: matplotlib.figure.Figure, 
+                        outname: str, 
+                        output_dir: str,
+                        caption: str) -> None:
+    lines = list()
+    lines.append("\\begin{figure}[htbp]")
+    lines.append("\\centering")
+    # save figure to output directory
+    output_file = os.path.join(output_dir, outname)
+    if not os.path.isdir(output_dir):
+        raise FileNotFoundError(f"Could not find output directory at {output_dir}")
+    # Save the figure
+    mpt_fig.tight_layout()
+    mpt_fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
+    mpt_fig.savefig(output_file, format='pdf', bbox_inches='tight', pad_inches=0)
+    print(f"Figure saved to {output_file}")
+    latex_output_path = os.path.join("img", outname)
+    # Subpanel 1: An image
+    lines.append("\\begin{subfigure}[b]{0.95\\textwidth}")
+    lines.append("\\centering")
+    lines.append(f"\\includegraphics[width=\\textwidth]{{ {latex_output_path}}} ")
+    lines.append("\\captionsetup{justification=raggedright,singlelinecheck=false}")
+    lines.append(f"\\caption{{{caption}}}")
+    lines.append("\\end{subfigure}")
+    lines.append("")
+    lines.append("\\vspace{2em}")
+    lines.append("")
 
+def process_latex_template(context_d: typing.Dict, 
+                  protein_fig: matplotlib.figure.Figure=None,
+                  stats_fig: matplotlib.figure.Figure=None):
+    """
+    Create a draft LaTeX file and output figures to the supplement directory.
+    We will then manually polish the output according the details of the analysis if needed.
+    """
     output_dir = "../../supplement/img/"
     cohort = context_d.get("cohort_name").replace(" ", "_")
     cohort_name = context_d.get("cohort_name")
@@ -181,28 +214,18 @@ def process_latex_template(context_d: typing.Dict,
     lines = list()
     lines.append("\\begin{figure}[htbp]")
     lines.append("\\centering")
-    if mpt_fig is not None:
+    if protein_fig is not None:
         # save figure to output directory
         outname = f"{cohort}_protein_diagram-draft.pdf"
         output_file = os.path.join(output_dir, outname)
-        if not os.path.isdir(output_dir):
-            raise FileNotFoundError(f"Could not find output directory at {output_dir}")
-        # Save the figure
-        mpt_fig.tight_layout()
-        mpt_fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
-        mpt_fig.savefig(output_file, format='pdf', bbox_inches='tight', pad_inches=0)
-        print(f"Figure saved to {output_file}")
-        latex_output_path = os.path.join("img", outname)
-        # Subpanel 1: An image
-        lines.append("\\begin{subfigure}[b]{0.95\\textwidth}")
-        lines.append("\\centering")
-        lines.append(f"\\includegraphics[width=\\textwidth]{{ {latex_output_path}}} ")
-        lines.append("\\captionsetup{justification=raggedright,singlelinecheck=false}")
-        lines.append(f"\\caption{{Distribution of variants in {cohort_name}}}")
-        lines.append("\\end{subfigure}")
-        lines.append("")
-        lines.append("\\vspace{2em}")
-        lines.append("")
+        capt = f"Distribution of variants in {cohort_name}"
+        output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+    if stats_fig is not None:
+        outname = f"{cohort}_stats-draft.pdf"
+        output_file = os.path.join(output_dir, outname)
+        capt = f"TODO adapt caption {cohort_name}"
+        output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+        
     ## now show FET results, if any
     fet_results = context_d.get("fet_result_list")
     n_fet= context_d.get("n_fet_results")

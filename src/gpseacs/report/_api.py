@@ -519,6 +519,6 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
                       report: GpseaAnalysisReport,
                       mpt_fig: matplotlib.figure.Figure=None):
         context = self._prepare_context(report)
-        latex = process_latex_template(context, mpt_fig=mpt_fig)
+        latex = process_latex_template(context, protein_fig=mpt_fig)
         return latex
         
