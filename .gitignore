@@ -177,3 +177,10 @@ supplement/supplement.pdf
 supplement/supplement.bbl
 supplement/supplement.blg
 supplement/supplement.aux
+
+supplement/*.aux
+supplement/*.bbl
+supplement/*.blg
+supplement/*.fdb_latexmk
+supplement/*.fls
+tex/*.aux
