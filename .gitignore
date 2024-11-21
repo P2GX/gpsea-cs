@@ -169,10 +169,11 @@ venv/
 
 **/.gpsea_cache/
 **/*.pickle
-supplement/supplement.aux
-supplement/supplement.fdb_latexmk
-supplement/supplement.fls
-supplement/supplement.out
+**/..aux
+**/.fdb_latexmk
+**/.fls
+**/.out
 supplement/supplement.pdf
 supplement/supplement.bbl
 supplement/supplement.blg
+supplement/supplement.aux
