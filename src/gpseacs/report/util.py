@@ -198,6 +198,7 @@ def output_figure_draft(mpt_fig: matplotlib.figure.Figure,
     lines.append("")
     lines.append("\\vspace{2em}")
     lines.append("")
+    return lines
 
 def process_latex_template(context_d: typing.Dict, 
                   protein_fig: matplotlib.figure.Figure=None,
@@ -209,22 +210,20 @@ def process_latex_template(context_d: typing.Dict,
     output_dir = "../../supplement/img/"
     cohort = context_d.get("cohort_name").replace(" ", "_")
     cohort_name = context_d.get("cohort_name")
-    interpretation = context_d.get("interpretation")
-    xrefs = context_d.get("xrefs")
     lines = list()
     lines.append("\\begin{figure}[htbp]")
     lines.append("\\centering")
     if protein_fig is not None:
         # save figure to output directory
         outname = f"{cohort}_protein_diagram-draft.pdf"
-        output_file = os.path.join(output_dir, outname)
         capt = f"Distribution of variants in {cohort_name}"
-        output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+        figure_lines = output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+        lines.extend(figure_lines)
     if stats_fig is not None:
         outname = f"{cohort}_stats-draft.pdf"
-        output_file = os.path.join(output_dir, outname)
         capt = f"TODO adapt caption {cohort_name}"
-        output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+        figure_lines = output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+        lines.extend(figure_lines)
         
     ## now show FET results, if any
     fet_results = context_d.get("fet_result_list")

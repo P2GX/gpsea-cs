@@ -384,14 +384,10 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         to TestResult objects to simplify display.
         """
         result = gps.result
-        interpretation = gps.interpretation
         xrefs = gps.xrefs
         assert isinstance(result, MultiPhenotypeAnalysisResult)
         general_info = dict()
         sig_result_list = list()
-        fet_test_results = list()
-        n_usable_fet = result.n_usable
-        total_tested = result.total_tests
         # Row index: a list of tested HPO terms
         pheno_idx = pd.Index(result.phenotypes)
         # Column index: multiindex of counts and percentages for all genotype predicate groups
@@ -401,15 +397,11 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         )
         general_info["a_genotype"] = result.gt_predicate.group_labels[0]
         general_info["b_genotype"] = result.gt_predicate.group_labels[1]
-
-
-        # We'll fill this frame with data
         df = pd.DataFrame(index=pheno_idx, columns=gt_idx)
 
         for ph_predicate, count in zip(result.pheno_predicates, result.all_counts):
             # Sum across the phenotype categories (collapse the rows).
             gt_totals = count.sum()
-
             for gt_cat in count.columns:
                 cnt = count.loc[ph_predicate.present_phenotype_category, gt_cat]
                 total = gt_totals[gt_cat]
@@ -516,9 +508,10 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             }
     
     def process_latex(self, 
-                      report: GpseaAnalysisReport,
-                      mpt_fig: matplotlib.figure.Figure=None):
+                    report: GpseaAnalysisReport,
+                    protein_fig: matplotlib.figure.Figure=None,
+                    stats_fig: matplotlib.figure.Figure=None):
         context = self._prepare_context(report)
-        latex = process_latex_template(context, protein_fig=mpt_fig)
+        latex = process_latex_template(context, protein_fig=protein_fig, stats_fig=stats_fig)
         return latex
         
