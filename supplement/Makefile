@@ -8,3 +8,4 @@ sup:
 
 clean:
 	rm *.aux
+	cd tex; make clean
