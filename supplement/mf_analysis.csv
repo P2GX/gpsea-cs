@@ -1,3 +1,4 @@
-﻿Cohort,n.sig.results,comment,more severe
-ACBD6,0,"Nominally significant result: Aggressivebehavior (HP:0000718), F:3/16, 19%; M:11/21, 52%, p=0.048",na
-ANKRD11,1,phenotype score,M
+﻿Cohort,size,n.sig.results,comment,more severe
+ACBD6,45,0,"Nominally significant result: Aggressivebehavior (HP:0000718), F:3/16, 19%; M:11/21, 52%, p=0.048",na
+ANKRD11,337,1,phenotype score,M
+ASPM,22,0,,
