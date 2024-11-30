@@ -184,3 +184,4 @@ supplement/*.blg
 supplement/*.fdb_latexmk
 supplement/*.fls
 tex/*.aux
+test.*
