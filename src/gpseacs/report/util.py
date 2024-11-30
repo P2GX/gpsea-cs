@@ -4,6 +4,17 @@ import typing
 import matplotlib
 import matplotlib.figure
 
+
+class NonSigFetResult:
+    def __init__(self, genoA, genoB, n_tests):
+        self._geno_A = genoA
+        self._geno_B = genoB
+        self._n_tests = n_tests
+
+    def get_row(self):
+        items = [self._geno_A, self._geno_B, str(self._n_tests), "0"]
+        return " & ".join(items)
+
 def open_text_io_handle_for_reading(
     file: typing.Union[io.IOBase, str],
     encoding: str = "utf-8",
@@ -54,19 +65,11 @@ def open_text_io_handle_for_writing(
     raise ValueError(f"Unsupported type {type(file)}")
 
 
-def get_no_sig_fet_result_table(fet_d) -> typing.List[str]:
-    general_info = fet_d.get("general_info") # dictionary of general results
-    a_geno = general_info.get("a_genotype")
-    b_geno = general_info.get("b_genotype")
-    total_tests = general_info.get("n_tests_performed")
-    latex_caption = f"""\
-        Fisher Exact Test performed to compare HPO annotation frequency with respect to {a_geno} and {b_geno}."""
-    interpr = fet_d.get("interpretation")
-    if interpr is not None and len(interpr) > 1:
-        latex_caption + interpr
-    header = ["Genotype (A)", "Genotype (B)", "total tests performed", "significant results"]
-    row = [a_geno, b_geno, str(total_tests), "0"]
+def get_no_sig_fet_result_table(nse_list: typing.List[NonSigFetResult]) -> typing.List[str]:
     latex_rows = list()
+    header = ["Genotype (A)", "Genotype (B)", "total tests performed", "significant results"]
+    latex_caption = f"""\
+            Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes."""
     latex_rows.append("\\begin{subfigure}[b]{0.95\\textwidth}")
     latex_rows.append("\\centering")
     latex_rows.append("\\resizebox{\\textwidth}{!}{")
@@ -74,7 +77,12 @@ def get_no_sig_fet_result_table(fet_d) -> typing.List[str]:
     latex_rows.append("\\toprule")
     latex_rows.append(" & ".join(header) + "\\\\")
     latex_rows.append("\\midrule")
-    latex_rows.append(" & ".join(row) + "\\\\")    
+    for nsres in nse_list:
+        a_geno = nsres._geno_A
+        b_geno = nsres._geno_B
+        total_tests = str(nsres._n_tests)
+        row = [a_geno, b_geno, total_tests, "0"]
+        latex_rows.append(" & ".join(row) + "\\\\")    
     latex_rows.append("\\bottomrule")       
     latex_rows.append("\\end{tabular}")
     latex_rows.append("}")
@@ -176,8 +184,6 @@ def output_figure_draft(mpt_fig: matplotlib.figure.Figure,
                         output_dir: str,
                         caption: str) -> None:
     lines = list()
-    lines.append("\\begin{figure}[htbp]")
-    lines.append("\\centering")
     # save figure to output directory
     output_file = os.path.join(output_dir, outname)
     if not os.path.isdir(output_dir):
@@ -228,9 +234,22 @@ def process_latex_template(context_d: typing.Dict,
     ## now show FET results, if any
     fet_results = context_d.get("fet_result_list")
     n_fet= context_d.get("n_fet_results")
+    non_sig_fet = list()
     if n_fet > 0:
         for result in fet_results:
-            lines.extend(get_fet_result_table(result))
+            sig_result_list = result.get("sig_result_list")
+            if len(sig_result_list) == 0:
+                general_info = result.get("general_info") # dictionary of general results
+                a_geno = general_info.get("a_genotype")
+                b_geno = general_info.get("b_genotype")
+                total_tests = general_info.get("n_tests_performed")
+                nsigfet = NonSigFetResult(genoA=a_geno, genoB=b_geno, n_tests=total_tests)
+                non_sig_fet.append(nsigfet)
+            else:
+                lines.extend(get_fet_result_table(result))
+    
+    if len(non_sig_fet) > 0:
+        lines.extend(get_no_sig_fet_result_table(non_sig_fet))
 
     mono_results = context_d.get("mono_result_list")
     n_mono = context_d.get("n_mono_results")

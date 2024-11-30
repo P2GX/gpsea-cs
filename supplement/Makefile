@@ -9,3 +9,4 @@ sup:
 clean:
 	rm *.aux
 	cd tex; make clean
+	cd img; make clean
