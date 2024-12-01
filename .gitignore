@@ -177,6 +177,7 @@ supplement/supplement.pdf
 supplement/supplement.bbl
 supplement/supplement.blg
 supplement/supplement.aux
+supplement/supplement.synctex.gz
 
 supplement/*.aux
 supplement/*.bbl
