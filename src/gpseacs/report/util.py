@@ -218,6 +218,7 @@ def process_latex_template(context_d: typing.Dict,
     cohort_name = context_d.get("cohort_name")
     lines = list()
     lines.append("\\begin{figure}[htbp]")
+    lines.append(f"\\section*{{ {cohort_name}}}")
     lines.append("\\centering")
     if protein_fig is not None:
         # save figure to output directory
