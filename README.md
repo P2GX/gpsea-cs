@@ -1,6 +1,6 @@
 # genotype phenotype correlation case studies (gpc-cs)
 
-This repository presents case studies using the [genophenocorr](https://github.com/monarch-initiative/genophenocorr) Python library
+This repository presents case studies using the [GPSEA](https://github.com/monarch-initiative/GPSEA) Python library
 to explore genotype phenotype correlations in Mendelian disease.
 
 ## Set up
