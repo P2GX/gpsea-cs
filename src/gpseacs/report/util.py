@@ -229,7 +229,7 @@ def process_latex_template(context_d: typing.Dict,
     if stats_fig is not None:
         outname = f"{cohort}_stats-draft.pdf"
         capt = f"TODO adapt caption {cohort_name}"
-        figure_lines = output_figure_draft(mpt_fig=protein_fig, outname=outname, output_dir=output_dir, caption=capt)
+        figure_lines = output_figure_draft(mpt_fig=stats_fig, outname=outname, output_dir=output_dir, caption=capt)
         lines.extend(figure_lines)
         
     ## now show FET results, if any
