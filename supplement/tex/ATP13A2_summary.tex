@@ -1,0 +1,52 @@
+\begin{figure}[htbp]
+\section*{ ATP13A2}
+\centering
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ img/ATP13A2_protein_diagram.pdf} 
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{Distribution of variants in ATP13A2}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+HPO term & OMIM:606693 & OMIM:617225 & p-value & adj. p-value\\
+\midrule
+Bradykinesia [HP:0002067] & 29/31 (94\%) & 4/10 (40\%) & 0.001 & 0.013\\
+Parkinsonism [HP:0001300] & 27/27 (100\%) & 3/11 (27\%) & $3.37\times 10^{-6}$ & $8.10\times 10^{-5}$\\
+\bottomrule
+\end{tabular}
+}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to 
+Kufor-Rakeb syndrome (OMIM:606693) and Spastic paraplegia 78, autosomal recessive (OMIM:617225).
+Total of 24 tests were performed. }
+\end{subfigure}
+\vspace{2em}
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Genotype (A) & Genotype (B) & total tests performed & significant results\\
+\midrule
+missense/missense OR missense/other & other/other & 25 & 0\\
+\bottomrule
+\end{tabular}
+}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{             Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes. }
+\end{subfigure}
+
+\vspace{2em}
+
+\caption{The cohort comprised 44 individuals (17 females, 27 males). A total of 68 HPO terms were used to annotate the cohort. 
+Disease diagnoses: Kufor-Rakeb syndrome (OMIM:606693) (33 individuals), Spastic paraplegia 78, autosomal recessive (OMIM:617225) 
+(11 individuals). As expected, the frequency of Parkinsonian manifestations is higher in Kufor-Rakeb syndrome,
+ a rare autosomal recessive form of juvenile-onset atypical Parkinson disease. A total of 48 unique variant alleles were found in \textit{ATP13A2} (transcript: \texttt{NM\_022089.4}, protein id: \texttt{NP\_071372.1}).}
+\end{figure}
