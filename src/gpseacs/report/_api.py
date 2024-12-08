@@ -117,7 +117,7 @@ class GpseaAnalysisReport:
             gene_symbol:str,
             mane_tx_id:str,
             mane_protein_id: str,
-            caption: str,
+            caption: str="to do.",
             fet_results: typing.Iterable[GPAnalysisResultSummary]=None,
             mono_results: typing.Iterable[GPAnalysisResultSummary]=None,  
     ):
