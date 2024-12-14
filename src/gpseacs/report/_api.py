@@ -33,7 +33,7 @@ def format_p_value(p_value):
         return f"{p_value:.3f}"
     else:
         # Format in scientific notation with 2 significant digits
-        return f"{p_value:.2e}" 
+        return f"{p_value:.2e}"
 
 class GPAnalysisResultSummary:
     """
@@ -119,7 +119,7 @@ class GpseaAnalysisReport:
             mane_protein_id: str,
             caption: str="to do.",
             fet_results: typing.Iterable[GPAnalysisResultSummary]=None,
-            mono_results: typing.Iterable[GPAnalysisResultSummary]=None,  
+            mono_results: typing.Iterable[GPAnalysisResultSummary]=None,
     ):
         self._name = name
         self._cohort = cohort
@@ -141,7 +141,7 @@ class GpseaAnalysisReport:
         self._gene_caption = gene_caption
         self._latex_gene_caption = latex_gene_caption
         n_variants = len(set(cohort.all_variants()))
-        
+
 
 
     @property
@@ -155,7 +155,7 @@ class GpseaAnalysisReport:
     @property
     def fet_results(self) -> typing.Collection[GPAnalysisResultSummary]:
         return self._fet_results
-    
+
     @property
     def mono_results(self) -> typing.Collection[GPAnalysisResultSummary]:
         return self._mono_results
@@ -163,16 +163,16 @@ class GpseaAnalysisReport:
     @property
     def caption(self) -> str:
         return self._caption
-    
+
     @property
     def gene_caption(self) -> str:
         return self._gene_caption
-    
+
     @property
     def latex_gene_caption(self) -> str:
         return self._latex_gene_caption
 
-def generate_cohort_summary(cohort, 
+def generate_cohort_summary(cohort,
                             caption:str= None) -> str:
     disease_id_to_name = dict()
     for d in cohort.all_diseases():
@@ -208,8 +208,8 @@ def generate_cohort_summary(cohort,
             d_name = disease_id_to_name.get(d_id)
             disease_items.append(f"{d_name} ({d_id}) ({d_count} individuals)")
         disease_desc = f"Disease diagnoses: {', '.join(disease_items)}."
-    
-        
+
+
     if caption is None:
         return f"{counts} {n_hpo_terms} {disease_desc}"
     else:
@@ -217,7 +217,7 @@ def generate_cohort_summary(cohort,
 
 
 def generate_gene_summary(n_variants:int,
-                          gene_symbol: str=None, 
+                          gene_symbol: str=None,
                           mane_tx_id: str=None,
                           mane_protein_id: str=None
                           ):
@@ -243,7 +243,7 @@ class GpseaReportSummarizer(metaclass=abc.ABCMeta):
             caption: str,
             cohort: Cohort,
             result_list: typing.List[GpseaAnalysisReport],
-            
+
     ):
         pass
 
@@ -324,8 +324,8 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         """
         result: MonoPhenotypeAnalysisResult = gps.result
         test_result = dict()
-        test_result["a_genotype"] = result.gt_predicate.group_labels[0]
-        test_result["b_genotype"] = result.gt_predicate.group_labels[1]
+        test_result["a_genotype"] = result.gt_clf.class_labels[0]
+        test_result["b_genotype"] = result.gt_clf.class_labels[1]
 
         ptype = result.phenotype
         test_result["name"] = ptype.name
@@ -342,14 +342,14 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         test_result["xrefs"] =self.get_mono_xref_string(gps.xrefs)
         interp = gps.interpretation or ""
         test_result["interpretation"] = interp.replace("%", "\\%")
-        
+
         return test_result
 
 
     def get_hpo_xref_string(self, xref_d, hpo_item):
         """
         For some of the tests, we supply a PMID. We will use this to create citations in the supplement with bibtex
-        \\cite{PMID_1234},\\cite{PMID_7654}. If we cannot find anything, return "-". We will need to manually add the 
+        \\cite{PMID_1234},\\cite{PMID_7654}. If we cannot find anything, return "-". We will need to manually add the
         corresponding items to a bibtex "bib" file.
         """
         hpo_regex = r"HP:\d{7}"
@@ -361,7 +361,7 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
                 items = ["\\cite{" + p.replace("PMID:", "PMID_") + "}"  for p in pmid_tuple]
                 return ",".join(items)
         return "-" # couldn't find anything
-    
+
     def get_mono_xref_string(self, xref_d) -> str:
         """
         For the "mono" tests, there is only one test, thus we do not need to match the key
@@ -392,14 +392,14 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         pheno_idx = pd.Index(result.phenotypes)
         # Column index: multiindex of counts and percentages for all genotype predicate groups
         gt_idx = pd.MultiIndex.from_product(
-            iterables=(result.gt_predicate.get_categories(), ("Count", "Percent")),
-            names=result.gt_predicate.group_labels,
+            iterables=(result.gt_clf.get_categories(), ("Count", "Percent")),
+            names=result.gt_clf.class_labels,
         )
-        general_info["a_genotype"] = result.gt_predicate.group_labels[0]
-        general_info["b_genotype"] = result.gt_predicate.group_labels[1]
+        general_info["a_genotype"] = result.gt_clf.class_labels[0]
+        general_info["b_genotype"] = result.gt_clf.class_labels[1]
         df = pd.DataFrame(index=pheno_idx, columns=gt_idx)
 
-        for ph_predicate, count in zip(result.pheno_predicates, result.all_counts):
+        for ph_predicate, count in zip(result.pheno_clfs, result.all_counts):
             # Sum across the phenotype categories (collapse the rows).
             gt_totals = count.sum()
             for gt_cat in count.columns:
@@ -454,13 +454,13 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
                     "pval": format_p_value(p_val),
                     "adj_pval": format_p_value(adj_p_val),
                 })
-            
+
         general_info["n_sig_results"] = len(sig_result_list)
         general_info["n_tests_performed"] = result.total_tests
         return general_info, sig_result_list
-    
-    
-    
+
+
+
     def _prepare_context(
             self,
             report: GpseaAnalysisReport,
@@ -470,7 +470,7 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         fet_results = report.fet_results
         if fet_results is not None:
             n_fet_results = len(fet_results)
-            
+
             for fres in fet_results:
                 general_info, sig_result_list = self.fisher_exact_test(fres)
                 fet_result_list.append({"general_info": general_info, "sig_result_list": sig_result_list})
@@ -481,12 +481,12 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             n_mono_results = len(report.mono_results)
             for mres in report.mono_results:
                 test_result = self.mono_test(mres)
-                mono_result_list.append({"a_genotype": test_result["a_genotype"], 
-                                         "b_genotype": test_result["b_genotype"], 
+                mono_result_list.append({"a_genotype": test_result["a_genotype"],
+                                         "b_genotype": test_result["b_genotype"],
                                          "name": test_result["name"],
                                          "test_name": test_result["test_name"],
                                          "description": test_result["description"],
-                                         "variable_name": test_result["variable_name"], 
+                                         "variable_name": test_result["variable_name"],
                                          "pval": test_result["pval"],
                                          "interpretation": test_result["interpretation"],
                                          "xrefs": test_result["xrefs"],
@@ -506,12 +506,12 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
             "n_mono_results": n_mono_results,
             "mono_result_list": mono_result_list,
             }
-    
-    def process_latex(self, 
+
+    def process_latex(self,
                     report: GpseaAnalysisReport,
                     protein_fig: matplotlib.figure.Figure=None,
                     stats_fig: matplotlib.figure.Figure=None):
         context = self._prepare_context(report)
         latex = process_latex_template(context, protein_fig=protein_fig, stats_fig=stats_fig)
         return latex
-        
+

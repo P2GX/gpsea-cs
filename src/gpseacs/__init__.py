@@ -3,5 +3,5 @@ GPSEA-CS is a repository with examples for GPSEA. This package is designed to st
 summary output for each example notebook.
 """
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
