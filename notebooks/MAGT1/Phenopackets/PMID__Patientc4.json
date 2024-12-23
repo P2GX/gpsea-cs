@@ -1,0 +1,253 @@
+{
+  "id": "PMID_Patient_c4",
+  "subject": {
+    "id": "Patient c4",
+    "timeAtLastEncounter": {
+      "age": {
+        "iso8601duration": "P39Y"
+      }
+    },
+    "sex": "MALE"
+  },
+  "phenotypicFeatures": [
+    {
+      "type": {
+        "id": "HP:0002716",
+        "label": "Lymphadenopathy"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0001744",
+        "label": "Splenomegaly"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002665",
+        "label": "Lymphoma"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0034685",
+        "label": "Abnormal liver enzyme activity or concentration"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0005404",
+        "label": "Increased B cell count"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0002851",
+        "label": "Elevated proportion of CD4-negative, CD8-negative, alpha-beta regulatory T cells"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0004315",
+        "label": "Decreased circulating IgG concentration"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0020072",
+        "label": "Persistent EBV viremia"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0003236",
+        "label": "Elevated circulating creatine kinase concentration"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0032218",
+        "label": "Decreased proportion of CD4-positive T cells"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0000246",
+        "label": "Sinusitis"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0033432",
+        "label": "Opportunistic viral infection"
+      }
+    },
+    {
+      "type": {
+        "id": "HP:0005425",
+        "label": "Recurrent sinopulmonary infections"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0032163",
+        "label": "Molluscum contagiosum"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0001973",
+        "label": "Autoimmune thrombocytopenia"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0200043",
+        "label": "Verrucae"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0002720",
+        "label": "Decreased circulating IgA concentration"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0033222",
+        "label": "Decreased CD4:CD8 ratio"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0410255",
+        "label": "Transient neutropenia"
+      },
+      "excluded": true
+    },
+    {
+      "type": {
+        "id": "HP:0000388",
+        "label": "Otitis media"
+      },
+      "excluded": true
+    }
+  ],
+  "interpretations": [
+    {
+      "id": "Patient c4",
+      "progressStatus": "SOLVED",
+      "diagnosis": {
+        "disease": {
+          "id": "OMIM:300853",
+          "label": "Immunodeficiency, X-linked, with magnesium defect, Epstein-Barr virus infection and neoplasia"
+        },
+        "genomicInterpretations": [
+          {
+            "subjectOrBiosampleId": "Patient c4",
+            "interpretationStatus": "CAUSATIVE",
+            "variantInterpretation": {
+              "variationDescriptor": {
+                "id": "var_BzELJEKnWLMoDrsskrOEcQLhn",
+                "geneContext": {
+                  "valueId": "HGNC:28880",
+                  "symbol": "MAGT1"
+                },
+                "expressions": [
+                  {
+                    "syntax": "hgvs.c",
+                    "value": "NM_032121.5:c.409C>T"
+                  },
+                  {
+                    "syntax": "hgvs.g",
+                    "value": "NC_000023.11:g.77870885G>A"
+                  }
+                ],
+                "vcfRecord": {
+                  "genomeAssembly": "hg38",
+                  "chrom": "chrX",
+                  "pos": "77870885",
+                  "ref": "G",
+                  "alt": "A"
+                },
+                "moleculeContext": "genomic",
+                "allelicState": {
+                  "id": "GENO:0000135",
+                  "label": "heterozygous"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "diseases": [
+    {
+      "term": {
+        "id": "OMIM:300853",
+        "label": "Immunodeficiency, X-linked, with magnesium defect, Epstein-Barr virus infection and neoplasia"
+      }
+    }
+  ],
+  "metaData": {
+    "created": "2024-11-28T10:45:51.181195735Z",
+    "createdBy": "ORCID:0009-0000-1737-4234",
+    "resources": [
+      {
+        "id": "geno",
+        "name": "Genotype Ontology",
+        "url": "http://purl.obolibrary.org/obo/geno.owl",
+        "version": "2022-03-05",
+        "namespacePrefix": "GENO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/GENO_"
+      },
+      {
+        "id": "hgnc",
+        "name": "HUGO Gene Nomenclature Committee",
+        "url": "https://www.genenames.org",
+        "version": "06/01/23",
+        "namespacePrefix": "HGNC",
+        "iriPrefix": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/"
+      },
+      {
+        "id": "omim",
+        "name": "An Online Catalog of Human Genes and Genetic Disorders",
+        "url": "https://www.omim.org",
+        "version": "January 4, 2023",
+        "namespacePrefix": "OMIM",
+        "iriPrefix": "https://www.omim.org/entry/"
+      },
+      {
+        "id": "so",
+        "name": "Sequence types and features ontology",
+        "url": "http://purl.obolibrary.org/obo/so.obo",
+        "version": "2021-11-22",
+        "namespacePrefix": "SO",
+        "iriPrefix": "http://purl.obolibrary.org/obo/SO_"
+      },
+      {
+        "id": "hp",
+        "name": "human phenotype ontology",
+        "url": "http://purl.obolibrary.org/obo/hp.owl",
+        "version": "2024-08-13",
+        "namespacePrefix": "HP",
+        "iriPrefix": "http://purl.obolibrary.org/obo/HP_"
+      }
+    ],
+    "phenopacketSchemaVersion": "2.0",
+    "externalReferences": [
+      {
+        "id": "PMID:",
+        "reference": "https://pubmed.ncbi.nlm.nih.gov/",
+        "description": "Atypical phenotype of predominant autoimmune cytopenia and impaired perforin glycosylation and expression and in XMEN Syndrome"
+      }
+    ]
+  }
+}
