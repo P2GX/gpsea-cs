@@ -1,0 +1,8 @@
+#cohort	individuals	females	males	n_unknown_sex	total_hpo	total_measurements	hpo_version	gpsea_version	n_total_individual_count	n_alive	n_deceased	n_unknown_vital	n_with_age_of_last_encounter	n_with_onset	n_diseases	disease_string
+ABCB7	18	0	18	0	52	0	2024-12-12	0.9.1	18	0	0	18	0	8	1	Anemia, sideroblastic, and spinocerebellar ataxia
+ACADM	115	0	0	115	0	31	2024-12-12	0.9.1	115	0	0	115	0	0	1	Acyl-CoA dehydrogenase, medium chain, deficiency of
+ACBD6	45	22	23	0	79	0	2023-10-09	0.9.1	45	0	0	45	0	0	1	Neurodevelopmental disorder with progressive movement abnormalities
+AIRE	58	31	27	0	47	0	2024-12-12	0.9.1	58	56	2	0	2	57	1	Autoimmune polyendocrinopathy syndrome , type I, with or without reversible metaphyseal dysplasia
+ATP13A2	44	17	27	0	69	0	2024-12-12	0.9.1	44	0	0	44	0	44	2	Spastic paraplegia 78, autosomal recessive; Kufor-Rakeb syndrome
+ITPR1	170	65	41	64	196	0	2024-12-12	0.9.1	170	113	1	56	1	144	3	Spinocerebellar ataxia 15; Gillespie syndrome; Spinocerebellar ataxia 29, congenital nonprogressive
+PTPN11	70	27	33	10	69	0	2024-12-12	0.9.1	70	0	0	70	0	35	3	Noonan syndrome 1; LEOPARD syndrome 1; Metachondromatosis

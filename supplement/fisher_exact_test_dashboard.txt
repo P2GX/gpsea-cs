@@ -1,0 +1,19 @@
+#cohort_name	total_hpo_testable	total_hpo_tested	a_genotype	b_genotype	nsig
+ABCB7	149	12	ABC transmembrane type-1	Other region	0
+ABCB7	149	10	p.Gly682Ser	Other variant	0
+ACBD6	275	50	ACB/ACB OR ACB/other	other/other	0
+ACBD6	275	52	missense/missense OR missense/other	other/other	0
+ACBD6	275	49	FEMALE	MALE	0
+AIRE	189	12	R257*/R257* OR R257*/other	other/other	0
+ATP13A2	190	25	missense/missense OR missense/other	other/other	0
+ATP13A2	190	24	OMIM:606693	OMIM:617225	2
+ATP13A2	202	25	OMIM:606693	OMIM:617225	2
+ATP13A2	202	26	missense/missense OR missense/other	other/other	0
+ITPR1	466	11	FEMALE	MALE	0
+ITPR1	466	21	SV Deletion	other	8
+ITPR1	466	25	GS Hotspot	other	5
+ITPR1	466	24	IP3 binding	other	7
+PTPN11	280	6	FEMALE	MALE	0
+PTPN11	280	7	Tyr279Cys	Other	0
+PTPN11	280	5	TK domain N term	TK domain C term	0
+PTPN11	280	3	Missense	Other	3
