@@ -1,0 +1,85 @@
+\begin{figure}[htbp]
+\section*{ MPV17}
+\centering
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ img/MPV17_protein_diagram.pdf} 
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{Distribution of variants in MPV17}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+HPO term & Pro98Leu/Pro98Leu & other/other OR Pro98Leu/other & p-value & adj. p-value\\
+\midrule
+Peripheral axonal neuropathy [HP:0003477] & 3/3 (100\%) & 1/22 (5\%) & 0.002 & 0.033\\
+\bottomrule
+\end{tabular}
+}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to Pro98Leu/Pro98Leu and other/other OR Pro98Leu/other. Total of
+        19 tests were performed.}
+\end{subfigure}
+\vspace{2em}
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Genotype (A) & Genotype (B) & total tests performed & significant results\\
+\midrule
+missense/missense OR missense/other & other/other & 23 & 0\\
+Arg50Gln/Arg50Gln OR Arg50Gln/other & other/other & 21 & 0\\
+FEMALE & MALE & 24 & 0\\
+\bottomrule
+\end{tabular}
+}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes.}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}[b]{0.95\textwidth}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Description & Variable & Genotype (A) & Genotype (B) & p-value & xrefs\\
+\midrule
+Compute time until postnatal death & Age of death & Pro98Leu/Pro98Leu & other/other OR Pro98Leu/other & 0.010 & -\\
+\bottomrule
+\end{tabular}
+}
+\caption{Age of death to compare Pro98Leu/Pro98Leu and other/other OR Pro98Leu/other with respect to Age of death.}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}[b]{0.95\textwidth}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Description & Variable & Genotype (A) & Genotype (B) & p-value & xrefs\\
+\midrule
+Compute time until OMIM:256810 onset & Onset of OMIM:256810 & missense/missense OR missense/other & other/other & 0.002 & -\\
+\bottomrule
+\end{tabular}
+}
+\caption{ Onset of OMIM:256810 to compare missense/missense OR missense/other and other/other with respect to Onset of OMIM:256810. }
+\end{subfigure}
+
+\vspace{2em}
+
+\caption{ The cohort comprised 60 individuals (30 females, 30 males). 39 of these individuals were reported to be deceased. 
+A total of 156 HPO terms were used to annotate the cohort. Disease diagnosis: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type) (OMIM:256810). 
+GPCs in MPV17 are poorly understood \cite{PMID_27536553}. Clinically, patients homozygous for p.R50Q or compound heterozygous for the
+ p.G94R and p.P98L mutations have a better prognosis, with all the other mutations associated with early death if not treated by liver transplantation \cite{PMID_20074988}.
+A total of 72 unique variant alleles were found in \textit{MPV17} (transcript: \texttt{NM\_002437.5}, protein id: \texttt{NP\_002428.1}).}
+\end{figure}

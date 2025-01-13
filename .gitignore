@@ -165,5 +165,24 @@ cython_debug/
 #.idea/
 .idea
 .DS_Store
+venv/
 
 **/.gpsea_cache/
+**/*.pickle
+**/..aux
+**/.fdb_latexmk
+**/.fls
+**/.out
+supplement/supplement.pdf
+supplement/supplement.bbl
+supplement/supplement.blg
+supplement/supplement.aux
+supplement/supplement.synctex.gz
+
+supplement/*.aux
+supplement/*.bbl
+supplement/*.blg
+supplement/*.fdb_latexmk
+supplement/*.fls
+tex/*.aux
+test.*

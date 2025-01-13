@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cohort</title>
+    <style>
+    table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 0.9em;
+      font-family: sans-serif;
+      min-width: 400px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .table .column-1 {
+      text-align: left;
+    }
+    th {
+      background-color: LightSkyBlue;
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 2px;
+      font-weight: bold;
+      font-size: 120%;
+      min-width: 100px;
+      border: 1px solid #ddd;
+      padding: 8px;
+        
+    }
+
+    tr {
+      border: 1px solid #dddddd;
+    }
+
+    td {
+      padding: 2px;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .table td, tr {
+      text-align: right;
+    }
+
+    .lft {
+      text-align: left;
+    }
+
+    div {
+      display: block;
+      width: 100%;
+      padding-right: 1%;
+      margin-bottom: 20px; /* Add margin to separate divs */
+    }
+
+    p {
+      width: 75%;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      padding-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>{{cohort_name}} Summary</h1>
+  <p>{{caption}} {{gene_caption}} HPO version: {{hpo_version}}. GPSEA version: {{gpsea_version}}.</p>
+  {% if n_fet_results > 0 %}
+  {% for fet_res in fet_result_list %}
+    {%if fet_res.general_info.n_sig_results > 0 %}
+    <table>
+      <caption style="color: black;">
+          Fisher Exact Test performed to compare HPO annotation frequency with respect to {{ fet_res.general_info.a_genotype }} and {{ fet_res.general_info.b_genotype }}. Total of
+          {{fet_res.general_info.n_tests_performed}} tests were performed.
+      </caption>
+          <tbody>
+              <tr class="strng">
+                  <th>HPO Term</th>
+                  <th>{{ fet_res.general_info.a_genotype }}</th>
+                  <th>{{ fet_res.general_info.b_genotype }}</th>
+                  <th>p-val</th>
+                  <th>adj. p-val</th>
+              </tr>
+              {% for row in fet_res.sig_result_list %}
+              <tr>
+                  <td class="lft">{{ row.hpo_item}}</td>
+                  <td class="lft">{{ row.with_geno_a}}</td>
+                  <td class="lft">{{ row.with_geno_b}}</td>
+                  <td class="lft">{{ row.pval}}</td>
+                  <td class="lft">{{ row.adj_pval}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+      </table>
+      {% else %}
+      <table>
+        <caption style="color: black;">
+            Fisher Exact Test performed to compare HPO annotation frequency with respect to {{ fet_res.general_info.a_genotype }} and {{ fet_res.general_info.b_genotype }}.
+        </caption>
+            <tbody>
+                <tr class="strng">
+                    <th>Genotype (A)</th>
+                    <th>Genotype (B)</th>
+                  <th>Tests performed</th>
+                  <th>Significant tests</th>
+                </tr>
+                
+                <tr>
+                    <td class="lft">{{ fet_res.general_info.a_genotype }}</td>
+                    <td class="lft">{{ fet_res.general_info.b_genotype }}</td>
+                    <td class="lft">{{ fet_res.general_info.n_tests_performed }}</td>
+                    <td class="lft">0</td>
+                </tr>
+              </tbody>
+        </table>
+      {% endif %}
+
+  {% endfor %}
+  {% else %}
+ 
+  {% endif %}
+  {% if n_mono_results > 0 %}
+  {% for mono_result in mono_result_list %}
+  <table>
+    <caption style="color: black;">
+        {{mono_result.test_name}} to compare  {{ mono_result.a_genotype }} and {{ mono_result.b_genotype }} with respect to {{mono_result.variable_name}}.
+    </caption>
+        <tbody>
+            <tr class="strng">
+              <th>Description</th>
+              <th>Variable</th>
+                <th>Genotype (A)</th>
+                <th>Genotype (B)</th>
+              
+              <th>p value</th>
+            </tr>
+            <tr>
+              <td class="lft">{{ mono_result.description }}</td>
+              <td class="lft">{{mono_result.variable_name}}</td>
+                <td class="lft">{{ mono_result.a_genotype }}</td>
+                <td class="lft">{{ mono_result.b_genotype }}</td>
+                <td class="lft">{{mono_result.pval}}</td>
+            </tr>
+          </tbody>
+    </table>
+  {% endfor %}
+  {% else %}
+  
+  {% endif %}
+
+
+
+</body>
+</html>
