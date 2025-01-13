@@ -1,3 +1,0 @@
-#cohort	a_genotype	b_genotype	name	test_name	description	variable_name	pval	interpretation	xrefs
-ACADM	K329Q/K329Q	K329Q/other OR other/other	Measurement	t-test	Value of MCAD Activity% [LOINC:74892-1]	LOINC:74892-1	6.12e-10	Mean MCAD activity for K329/K329: 0.52\%, and for K329/other or other/other: 13.23\%	PMID:33580884
-ACADM	Y67H/Y67H OR Y67H/other	other/other	Measurement	t-test	Value of MCAD Activity% [LOINC:74892-1]	LOINC:74892-1	2.01e-05	Mean MCAD activity for Y67H/Y67H: 18.60\%, and for Y67H/other or other/other: 7.68\%	PMID:33580884

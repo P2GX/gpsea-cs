@@ -12,6 +12,8 @@ from gpsea.analysis import MonoPhenotypeAnalysisResult, MultiPhenotypeAnalysisRe
 from .util import open_text_io_handle_for_writing, process_latex_template
 from jinja2 import Environment, PackageLoader
 
+from ._summarizer import NotebookDashboard
+
 
 def format_term_id(
         hpo: hpotk.MinimalOntology,
@@ -140,7 +142,23 @@ class GpseaAnalysisReport:
         gene_caption, latex_gene_caption = generate_gene_summary(n_variants=n_variants, gene_symbol=gene_symbol, mane_tx_id=mane_tx_id, mane_protein_id=mane_protein_id)
         self._gene_caption = gene_caption
         self._latex_gene_caption = latex_gene_caption
-        n_variants = len(set(cohort.all_variants()))
+        self._n_variants = len(set(cohort.all_variants()))
+        self._disease_id_to_name = {d.identifier.value: d.name for d in cohort.all_diseases()}
+        self._n_female = cohort.count_females()
+        self._n_male = cohort.count_males()
+        self._n_unknown = cohort.count_unknown_sex()
+        self._n_individuals = cohort.total_patient_count 
+        self._n_total_individual_count = cohort.total_patient_count
+        self._n_hpo_terms = cohort.count_distinct_hpo_terms()
+        self._n_alive = cohort.count_alive()
+        self._n_deceased = cohort.count_deceased()
+        self._n_with_age_of_last_encounter = cohort.count_with_age_of_last_encounter()
+        self._n_with_onset = cohort.count_with_disease_onset()
+        self._n_unknown_vital = cohort.count_unknown_vital_status()
+        self._n_measurements = len(cohort.list_measurements())
+        self._n_diseases = cohort.count_distinct_diseases()
+        self._disease_string = "; ".join(self._disease_id_to_name.values())
+        self._disease_id_string = "; ".join(self._disease_id_to_name.keys())
 
 
 
@@ -167,6 +185,73 @@ class GpseaAnalysisReport:
     @property
     def gene_caption(self) -> str:
         return self._gene_caption
+    
+    @property
+    def n_variants(self) -> str:
+        return self._n_variants
+    
+    @property
+    def n_female(self) -> str:
+        return self._n_female
+
+    @property
+    def n_male(self) -> str:
+        return self._n_male
+
+    @property
+    def n_unknown_sex(self) -> str:
+        return self._n_unknown 
+
+    @property
+    def n_total_individual_count(self) -> str:
+        return self._n_total_individual_count
+    @property
+    def disease_id_to_name(self) -> str:
+        return self._disease_id_to_name
+
+    @property
+    def n_diseases(self):
+        return self._n_diseases
+
+    @property
+    def disease_string(self):
+        return self._disease_string
+
+    @property
+    def n_individuals(self):
+        return self._cohort.total_patient_count
+
+    @property
+    def n_total_individual_count(self):
+        return self._cohort.total_patient_count
+
+    @property
+    def n_hpo_terms(self):
+        return self._cohort.count_distinct_hpo_terms()
+
+    @property
+    def n_alive(self):
+        return self._cohort.count_alive()
+
+    @property
+    def n_deceased(self):
+        return self._cohort.count_deceased()
+
+    @property
+    def n_with_age_of_last_encounter(self):
+        return self._cohort.count_with_age_of_last_encounter()
+
+    @property
+    def n_with_onset(self):
+        return self._cohort.count_with_disease_onset()
+
+    @property
+    def n_unknown_vital(self):
+        return self._cohort.count_unknown_vital_status()
+
+    @property
+    def n_measurements(self):
+        return len(self._cohort.all_measurements())
 
     @property
     def latex_gene_caption(self) -> str:
@@ -299,6 +384,7 @@ class HtmlGpseaNotebookSummarizer(GpseaReport):
 
 
 
+
 class GpseaNotebookSummarizer(GpseaReportSummarizer):
 
     def __init__(self, hpo: hpotk.MinimalOntology, gpsea_version:str, alpha=0.05):
@@ -315,6 +401,8 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
     ):
         context = self._prepare_context(report)
         html = self._cohort_template.render(context)
+        dashboardSummarizer = NotebookDashboard()
+        dashboardSummarizer.update_dashboard(context)
         return HtmlGpseaNotebookSummarizer(html)
 
 
@@ -461,19 +549,29 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
 
 
 
+    def _get_all_fisher_result(self, fresult):
+        total_hpo_testable = len(fresult.result._n_usable)
+        filtered_out = fresult.result.n_filtered_out()
+        total_hpo_tested = total_hpo_testable - filtered_out
+        a_genotype = fresult.result.gt_clf.class_labels[0]
+        b_genotype = fresult.result.gt_clf.class_labels[1]
+        nsig = int(fresult.result.n_significant_for_alpha())
+        return {"total_hpo_testable":total_hpo_testable, "total_hpo_tested":total_hpo_tested,
+                "a_genotype":a_genotype, "b_genotype":b_genotype, "nsig": nsig}
+
     def _prepare_context(
             self,
             report: GpseaAnalysisReport,
     ) -> typing.Mapping[str, typing.Any]:
         fet_result_list = list()
+        all_fet_result_list = list()
         mono_result_list = list()
         fet_results = report.fet_results
         if fet_results is not None:
-            n_fet_results = len(fet_results)
-
             for fres in fet_results:
                 general_info, sig_result_list = self.fisher_exact_test(fres)
                 fet_result_list.append({"general_info": general_info, "sig_result_list": sig_result_list})
+                all_fet_result_list.append(self._get_all_fisher_result(fres))
             n_fet_results = len(fet_result_list)
         else:
             n_fet_results = 0
@@ -493,16 +591,29 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
                 })
         else:
             n_mono_results = 0
-
         return {
             "cohort_name": report.name,
             "caption": report.caption,
             "gene_caption": report.gene_caption,
+            "n_female": report.n_female,
+            "n_male": report.n_male,
+            "n_unknown_sex": report.n_unknown_sex,
+            "n_total_individual_count": report.n_total_individual_count,
+            "n_hpo_terms": report.n_hpo_terms,
+            "n_measurements": report.n_measurements,
+            "n_alive": report.n_alive,
+            "n_deceased": report.n_deceased,
+            "n_unknown_vital": report.n_unknown_vital,
+            "n_with_onset": report.n_with_onset,
+            "n_with_age_of_last_encounter": report.n_with_age_of_last_encounter,
+            "n_diseases": report.n_diseases,
+            "disease_string": report.disease_string.strip(),
             "latex_gene_caption": report.latex_gene_caption,
             "hpo_version": self._hpo.version,
             "gpsea_version": self._gpsea_version,
             "n_fet_results": n_fet_results,
             "fet_result_list": fet_result_list,
+            "all_fet_results": all_fet_result_list,
             "n_mono_results": n_mono_results,
             "mono_result_list": mono_result_list,
             }
@@ -514,4 +625,5 @@ class GpseaNotebookSummarizer(GpseaReportSummarizer):
         context = self._prepare_context(report)
         latex = process_latex_template(context, protein_fig=protein_fig, stats_fig=stats_fig)
         return latex
+
 
