@@ -1,48 +1,62 @@
 #cohort_name	total_hpo_testable	total_hpo_tested	a_genotype	b_genotype	nsig
-ABCB7	149	12	ABC transmembrane type-1	Other region	0
 ABCB7	149	10	p.Gly682Ser	Other variant	0
+ABCB7	149	12	ABC transmembrane type-1	Other region	0
 ACBD6	275	50	ACB/ACB OR ACB/other	other/other	0
-ACBD6	275	52	missense/missense OR missense/other	other/other	0
 ACBD6	275	49	FEMALE	MALE	0
+ACBD6	275	52	missense/missense OR missense/other	other/other	0
 AIRE	189	12	R257*/R257* OR R257*/other	other/other	0
+ANKRD11	203	17	exon 9	other	0
 ANKRD11	203	17	SV	other	0
 ANKRD11	203	17	c.1903_1907del	other	0
-ANKRD11	203	17	exon 9	other	0
 ASPM	86	11	N Term/N Term OR N Term/other	other/other	0
 ASPM	86	11	FEMALE	MALE	0
-ATP13A2	190	24	OMIM:606693	OMIM:617225	2
-ATP13A2	202	25	OMIM:606693	OMIM:617225	2
-ATP13A2	202	26	missense/missense OR missense/other	other/other	0
 ATP13A2	209	27	OMIM:606693	OMIM:617225	2
+ATP13A2	202	26	missense/missense OR missense/other	other/other	0
+ATP13A2	202	25	OMIM:606693	OMIM:617225	2
 ATP13A2	190	25	missense/missense OR missense/other	other/other	0
+ATP13A2	190	24	OMIM:606693	OMIM:617225	2
 ATP13A2	209	28	missense/missense OR missense/other	other/other	0
-ATP6V0C	273	20	1-100	100+	0
 ATP6V0C	273	17	FEMALE	MALE	0
+ATP6V0C	273	20	1-100	100+	0
 ATP6V0C	273	17	missense	other	0
-BRD4	207	22	ablation	other	0
 BRD4	207	33	NIPBL	BRD4	1
+BRD4	207	22	ablation	other	0
 CHD8	256	17	missense	other	0
 CHD8	256	18	FEMALE	MALE	0
-CLDN16	189	22	FEMALE	MALE	0
-CLDN16	189	23	missense/missense OR missense/other	other/other	0
 CLDN16	189	20	Leu81Phe/Leu81Phe	other/other OR Leu81Phe/other	0
+CLDN16	189	23	missense/missense OR missense/other	other/other	0
+CLDN16	189	22	FEMALE	MALE	0
+CNTNAP2	231	11	1	2	0
 CNTNAP2	231	16	Ablation/Ablation	other/other OR Ablation/other	0
 CNTNAP2	231	15	FEMALE	MALE	0
-CNTNAP2	231	11	1	2	0
-COL3A1	177	12	Gly missense	Other	0
 COL3A1	177	12	Missense	Other	0
-COL3A1	177	11	is_triple	Other	0
+COL3A1	177	12	Gly missense	Other	0
 COL3A1	177	12	OMIM:130050	OMIM:618343	0
-COQ4	281	12	Exon 1-4/other OR Exon 1-4/Exon 1-4	other/other	0
-COQ4	281	12	G124S/other OR G124S/G124S	other/other	0
+COL3A1	177	11	is_triple	Other	0
 COQ4	281	13	G124S/other OR G124S/G124S	other/other	0
+COQ4	281	12	Exon 1-4/other OR Exon 1-4/Exon 1-4	other/other	0
 COQ4	281	4	missense/other OR missense/missense	other/other	0
+COQ4	281	12	G124S/other OR G124S/G124S	other/other	0
 CTCF	342	27	missense	other	0
-ITPR1	466	21	SV Deletion	other	8
-ITPR1	466	25	GS Hotspot	other	5
+EHMT1	215	18	ANKR	other	0
+EHMT1	215	20	N Term Frameshift	other	2
+EHMT1	215	17	Missense	Other	0
+EHMT1	215	17	FEMALE	MALE	0
+EHMT1	215	16	SET	other	0
+EZH1	304	22	1	2	0
+FBN1	347	8	TB domain	cbEGF	5
+FBN1	347	9	exon 37	other	3
+FBN1	347	11	missense	other	6
+FBN1	347	12	fs last two	other	1
+FBXL4	349	21	FEMALE	MALE	0
+FBXL4	349	24	N-Terminal (1-276)/N-Terminal (1-276) OR N-Terminal (1-276)/other	other/other	0
+FBXL4	349	24	LRR domain/LRR domain OR LRR domain/other	other/other	0
+FBXL4	349	22	missense/other OR other/other	missense/missense	1
 ITPR1	466	11	FEMALE	MALE	0
+ITPR1	466	25	GS Hotspot	other	5
+ITPR1	466	21	SV Deletion	other	8
 ITPR1	466	24	IP3 binding	other	7
 PTPN11	280	5	TK domain N term	TK domain C term	0
-PTPN11	280	7	Tyr279Cys	Other	0
 PTPN11	280	6	FEMALE	MALE	0
 PTPN11	280	3	Missense	Other	3
+PTPN11	280	7	Tyr279Cys	Other	0
