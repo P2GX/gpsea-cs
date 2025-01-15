@@ -19,5 +19,13 @@ EHMT1	125	81	44	0	60	0	2024-12-12	0.9.1	125	0	0	125	0	0	1	Kleefstra syndrome 1
 EZH1	19	10	8	1	106	0	2024-12-12	0.9.1	19	0	0	19	0	0	1	EZH1-related neurodevelopmental disorder
 FBN1	144	57	55	32	109	0	2024-08-13	0.9.1	144	46	4	94	4	47	6	Marfan syndrome; Ectopia lentis, familial; Acromicric dysplasia; Geleophysic dysplasia 2; Marfan lipodystrophy syndrome; Stiff skin syndrome
 FBXL4	95	37	58	0	91	0	2024-12-12	0.9.1	95	65	26	4	26	88	1	Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type)
+FBXO11	56	21	35	0	128	0	2024-12-12	0.9.1	56	56	0	0	0	0	1	Intellectual developmental disorder with dysmorphic facies and behavioral abnormalities
+FGD1	48	0	48	0	73	0	2024-12-12	0.9.1	48	48	0	0	0	14	1	Aarskog-Scott syndrome
+GLI3	82	3	7	72	34	0	2024-08-13	0.9.1	82	0	0	82	0	80	3	Pallister-Hall syndrome; Greig cephalopolysyndactyly syndrome; Polydactyly, postaxial, types A1 and B
+HMGCS2	40	14	13	13	44	0	2024-12-12	0.9.1	40	23	1	16	1	40	1	HMG-CoA synthase-2 deficiency
 ITPR1	170	65	41	64	196	0	2024-12-12	0.9.1	170	113	1	56	1	144	3	Spinocerebellar ataxia 15; Gillespie syndrome; Spinocerebellar ataxia 29, congenital nonprogressive
 PTPN11	70	27	33	10	69	0	2024-12-12	0.9.1	70	0	0	70	0	35	3	Noonan syndrome 1; LEOPARD syndrome 1; Metachondromatosis
+RPGRIP1	100	45	49	6	45	0	2023-10-09	0.9.1	100	100	0	0	0	95	2	Cone-rod dystrophy 13; Leber congenital amaurosis 6
+SLC32A1	38	19	19	0	44	0	2024-12-12	0.9.1	38	0	0	38	0	27	2	Generalized epilepsy with febrile seizures plus, type 12; Developmental and epileptic encephalopathy 114
+UMOD	207	80	88	39	30	0	2023-10-09	0.9.1	207	0	0	207	0	104	3	Tubulointerstitial kidney disease, autosomal dominant, 1; Tubulointerstitial kidney disease, autosomal dominant, 3; Tubulointerstitial kidney disease, autosomal dominant, 2
+ZSWIM6	16	8	8	0	85	0	2023-10-09	0.9.1	16	0	0	16	0	16	2	Neurodevelopmental disorder with movement abnormalities, abnormal gait, and autistic features; Acromelic frontonasal dysostosis
