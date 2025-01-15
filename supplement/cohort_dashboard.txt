@@ -28,5 +28,6 @@ PPP2R1A	60	24	32	4	52	0	2024-12-12	0.9.1	60	0	0	60	0	0	1	Houge-Janssen syndrome 
 PTPN11	70	27	33	10	69	0	2024-12-12	0.9.1	70	0	0	70	0	35	3	Noonan syndrome 1; LEOPARD syndrome 1; Metachondromatosis
 RPGRIP1	100	45	49	6	45	0	2023-10-09	0.9.1	100	100	0	0	0	95	2	Cone-rod dystrophy 13; Leber congenital amaurosis 6
 SLC32A1	38	19	19	0	44	0	2024-12-12	0.9.1	38	0	0	38	0	27	2	Generalized epilepsy with febrile seizures plus, type 12; Developmental and epileptic encephalopathy 114
+SUOX	35	11	14	10	20	0	2024-12-12	0.9.1	35	15	8	12	8	25	1	Sulfite oxidase deficiency
 UMOD	207	80	88	39	30	0	2023-10-09	0.9.1	207	0	0	207	0	104	3	Tubulointerstitial kidney disease, autosomal dominant, 1; Tubulointerstitial kidney disease, autosomal dominant, 3; Tubulointerstitial kidney disease, autosomal dominant, 2
 ZSWIM6	16	8	8	0	85	0	2023-10-09	0.9.1	16	0	0	16	0	16	2	Neurodevelopmental disorder with movement abnormalities, abnormal gait, and autistic features; Acromelic frontonasal dysostosis
