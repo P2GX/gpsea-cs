@@ -23,11 +23,17 @@ FBXO11	56	21	35	0	128	0	2024-12-12	0.9.1	56	56	0	0	0	0	1	Intellectual developmen
 FGD1	48	0	48	0	73	0	2024-12-12	0.9.1	48	48	0	0	0	14	1	Aarskog-Scott syndrome
 GLI3	82	3	7	72	34	0	2024-08-13	0.9.1	82	0	0	82	0	80	3	Pallister-Hall syndrome; Greig cephalopolysyndactyly syndrome; Polydactyly, postaxial, types A1 and B
 HMGCS2	40	14	13	13	44	0	2024-12-12	0.9.1	40	23	1	16	1	40	1	HMG-CoA synthase-2 deficiency
+IKZF1	82	34	37	11	66	0	2024-12-12	0.9.1	82	77	5	0	5	80	1	Immunodeficiency, common variable, 13
 ITPR1	170	65	41	64	196	0	2024-12-12	0.9.1	170	113	1	56	1	144	3	Spinocerebellar ataxia 15; Gillespie syndrome; Spinocerebellar ataxia 29, congenital nonprogressive
+KCNH5	27	14	13	0	28	0	2024-08-13	0.9.1	27	0	0	27	0	27	1	Developmental and epileptic encephalopathy 112
+KDM6A	81	46	35	0	87	0	2024-12-12	0.9.1	81	1	0	80	0	55	1	Kabuki syndrome 2
 KDM6B	73	19	54	0	251	0	2024-12-12	0.9.1	73	0	0	73	0	0	1	Neurodevelopmental disorder with coarse facies and mild distal skeletal abnormalities
+KMT2D	65	35	30	0	151	0	2024-12-12	0.9.1	65	53	5	7	4	31	1	Kabuki Syndrome 1
+Kabuki	146	81	65	0	200	0	2024-12-12	0.9.1	146	54	5	87	4	86	2	Kabuki syndrome 2; Kabuki Syndrome 1
 PPP2R1A	60	24	32	4	52	0	2024-12-12	0.9.1	60	0	0	60	0	0	1	Houge-Janssen syndrome 2
 PTPN11	70	27	33	10	69	0	2024-12-12	0.9.1	70	0	0	70	0	35	3	Noonan syndrome 1; LEOPARD syndrome 1; Metachondromatosis
 RPGRIP1	100	45	49	6	45	0	2023-10-09	0.9.1	100	100	0	0	0	95	2	Cone-rod dystrophy 13; Leber congenital amaurosis 6
+SCN2A	393	0	0	393	289	0	2024-12-12	0.9.1	393	0	0	393	0	277	2	Developmental and epileptic encephalopathy 11; Seizures, benign familial infantile, 3
 SLC32A1	38	19	19	0	44	0	2024-12-12	0.9.1	38	0	0	38	0	27	2	Generalized epilepsy with febrile seizures plus, type 12; Developmental and epileptic encephalopathy 114
 SUOX	35	11	14	10	20	0	2024-12-12	0.9.1	35	15	8	12	8	25	1	Sulfite oxidase deficiency
 TBX1	26	10	15	1	25	0	2024-08-13	0.9.1	26	0	0	26	0	1	1	DiGeorge syndrome
