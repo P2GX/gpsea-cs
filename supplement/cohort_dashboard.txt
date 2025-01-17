@@ -31,6 +31,8 @@ KDM6B	73	19	54	0	251	0	2024-12-12	0.9.1	73	0	0	73	0	0	1	Neurodevelopmental disor
 KMT2D	65	35	30	0	151	0	2024-12-12	0.9.1	65	53	5	7	4	31	1	Kabuki Syndrome 1
 Kabuki	146	81	65	0	200	0	2024-12-12	0.9.1	146	54	5	87	4	86	2	Kabuki syndrome 2; Kabuki Syndrome 1
 LMNA	266	150	99	17	152	0	2024-12-12	0.9.1	266	133	11	122	11	107	5	Cardiomyopathy, dilated, 1A; Lipodystrophy, familial partial, type 2; Emery-Dreifuss muscular dystrophy 2, autosomal dominant; LMNA-related congenital muscular dystrophy; Hutchinson-Gilford progeria
+LZTR1	38	18	20	0	96	0	2024-12-12	0.9.1	38	35	3	0	2	25	1	Noonan syndrome 2
+MAPK8IP3	20	9	11	0	93	0	2024-12-12	0.9.1	20	20	0	0	0	6	1	Neurodevelopmental disorder with or without variable brain abnormalities
 PPP2R1A	60	24	32	4	52	0	2024-12-12	0.9.1	60	0	0	60	0	0	1	Houge-Janssen syndrome 2
 PTPN11	70	27	33	10	69	0	2024-12-12	0.9.1	70	0	0	70	0	35	3	Noonan syndrome 1; LEOPARD syndrome 1; Metachondromatosis
 RPGRIP1	100	45	49	6	45	0	2023-10-09	0.9.1	100	100	0	0	0	95	2	Cone-rod dystrophy 13; Leber congenital amaurosis 6

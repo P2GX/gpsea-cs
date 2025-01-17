@@ -1,34 +1,34 @@
 #cohort_name	total_hpo_testable	total_hpo_tested	a_genotype	b_genotype	nsig
 ABCB7	149	10	p.Gly682Ser	Other variant	0
 ABCB7	149	12	ABC transmembrane type-1	Other region	0
-ACBD6	275	49	FEMALE	MALE	0
 ACBD6	275	52	missense/missense OR missense/other	other/other	0
 ACBD6	275	50	ACB/ACB OR ACB/other	other/other	0
+ACBD6	275	49	FEMALE	MALE	0
 AIRE	189	12	R257*/R257* OR R257*/other	other/other	0
 ANKRD11	203	17	exon 9	other	0
 ANKRD11	203	17	c.1903_1907del	other	0
 ANKRD11	203	17	SV	other	0
-ASPM	86	11	N Term/N Term OR N Term/other	other/other	0
 ASPM	86	11	FEMALE	MALE	0
-ATP13A2	190	25	missense/missense OR missense/other	other/other	0
-ATP13A2	202	25	OMIM:606693	OMIM:617225	2
-ATP13A2	209	27	OMIM:606693	OMIM:617225	2
-ATP13A2	190	24	OMIM:606693	OMIM:617225	2
-ATP13A2	209	28	missense/missense OR missense/other	other/other	0
+ASPM	86	11	N Term/N Term OR N Term/other	other/other	0
 ATP13A2	202	26	missense/missense OR missense/other	other/other	0
-ATP6V0C	273	17	FEMALE	MALE	0
+ATP13A2	190	24	OMIM:606693	OMIM:617225	2
+ATP13A2	209	27	OMIM:606693	OMIM:617225	2
+ATP13A2	202	25	OMIM:606693	OMIM:617225	2
+ATP13A2	190	25	missense/missense OR missense/other	other/other	0
+ATP13A2	209	28	missense/missense OR missense/other	other/other	0
 ATP6V0C	273	17	missense	other	0
+ATP6V0C	273	17	FEMALE	MALE	0
 ATP6V0C	273	20	1-100	100+	0
 BRD4	207	22	ablation	other	0
 BRD4	207	33	NIPBL	BRD4	1
-CHD8	256	17	missense	other	0
 CHD8	256	18	FEMALE	MALE	0
+CHD8	256	17	missense	other	0
 CLDN16	189	22	FEMALE	MALE	0
 CLDN16	189	20	Leu81Phe/Leu81Phe	other/other OR Leu81Phe/other	0
 CLDN16	189	23	missense/missense OR missense/other	other/other	0
-CNTNAP2	231	11	1	2	0
 CNTNAP2	231	15	FEMALE	MALE	0
 CNTNAP2	231	16	Ablation/Ablation	other/other OR Ablation/other	0
+CNTNAP2	231	11	1	2	0
 COL3A1	177	12	OMIM:130050	OMIM:618343	0
 COL3A1	177	11	is_triple	Other	0
 COL3A1	177	12	Missense	Other	0
@@ -38,82 +38,89 @@ COQ4	281	4	missense/other OR missense/missense	other/other	0
 COQ4	281	12	Exon 1-4/other OR Exon 1-4/Exon 1-4	other/other	0
 COQ4	281	13	G124S/other OR G124S/G124S	other/other	0
 CTCF	342	27	missense	other	0
-EHMT1	215	17	Missense	Other	0
 EHMT1	215	17	FEMALE	MALE	0
 EHMT1	215	18	ANKR	other	0
-EHMT1	215	16	SET	other	0
 EHMT1	215	20	N Term Frameshift	other	2
+EHMT1	215	16	SET	other	0
+EHMT1	215	17	Missense	Other	0
 EZH1	304	22	1	2	0
 FBN1	347	9	exon 37	other	3
-FBN1	347	11	missense	other	6
 FBN1	347	12	fs last two	other	1
 FBN1	347	8	TB domain	cbEGF	5
-FBXL4	349	24	LRR domain/LRR domain OR LRR domain/other	other/other	0
-FBXL4	349	22	missense/other OR other/other	missense/missense	1
-FBXL4	349	21	FEMALE	MALE	0
+FBN1	347	11	missense	other	6
 FBXL4	349	24	N-Terminal (1-276)/N-Terminal (1-276) OR N-Terminal (1-276)/other	other/other	0
+FBXL4	349	22	missense/other OR other/other	missense/missense	1
+FBXL4	349	24	LRR domain/LRR domain OR LRR domain/other	other/other	0
+FBXL4	349	21	FEMALE	MALE	0
 FBXO11	393	15	FEMALE	MALE	0
 FBXO11	393	16	Missense	Other	0
-FGD1	269	48	DH domain	Other	0
 FGD1	269	47	Missense	Other	1
+FGD1	269	48	DH domain	Other	0
 GLI3	168	19	Fs in mid region or splice	other	3
 GLI3	168	19	Variants in C-terminal third	other	4
 GLI3	168	19	Truncating variants in Exon 15	other	4
-HMGCS2	140	17	FEMALE	MALE	0
 HMGCS2	140	19	missense/missense OR missense/other	other/other	0
+HMGCS2	140	17	FEMALE	MALE	0
 IKZF1	216	25	p.Asn159Ser	Other variant	1
 IKZF1	216	22	Missense	oher	0
+ITPR1	466	25	GS Hotspot	other	5
 ITPR1	466	21	SV Deletion	other	8
 ITPR1	466	24	IP3 binding	other	7
-ITPR1	466	25	GS Hotspot	other	5
 ITPR1	466	11	FEMALE	MALE	0
 KCNH5	98	17	FEMALE	MALE	0
 KCNH5	98	13	Arg327His	Arg333His	1
+KDM6A	347	31	missense	other	0
 KDM6A	347	4	FEMALE	MALE	1
 KDM6A	347	24	p.Asn891ValfsTer27	Other	1
 KDM6A	347	31	SV	other	0
-KDM6A	347	31	missense	other	0
-KDM6B	656	19	N term	C term	0
 KDM6B	656	19	JmjC domain	Other	0
+KDM6B	656	19	N term	C term	0
 KMT2D	465	5	p.Leu3542Pro	Other variant	0
-KMT2D	465	31	missense	other	0
 KMT2D	465	32	SET	Other	0
+KMT2D	465	31	n_term	other	0
 KMT2D	465	26	p.Glu5425Lys	other	0
 KMT2D	465	31	FEMALE	MALE	0
-KMT2D	465	31	n_term	other	0
+KMT2D	465	31	missense	other	0
 Kabuki	604	28	OMIM:147920	OMIM:300867	2
-LMNA	411	5	A	B	4
-LMNA	411	5	Gly608=	Other	4
 LMNA	411	24	Upstream Tail (1-383)	other	9
+LMNA	411	5	A	B	4
 LMNA	411	17	missense	other	2
-LMNA	411	22	NLS Upstream	other	10
 LMNA	411	24	NLS Upstream	other	9
 LMNA	411	22	Upstream of NLS	other	10
+LMNA	411	22	NLS Upstream	other	10
+LMNA	411	5	Gly608=	Other	4
+LZTR1	351	28	N Term/N Term OR N Term/Other	Other/Other	0
+LZTR1	351	31	FEMALE	MALE	0
+LZTR1	351	25	Missense/Missense OR Missense/Other	Other/Other	0
+MAPK8IP3	321	18	FEMALE	MALE	0
+MAPK8IP3	321	22	p.Arg579Cys	Other variant	0
+MAPK8IP3	321	22	N term	other	0
+MAPK8IP3	321	21	RH2	Other region	0
+PPP2R1A	174	19	SV40 small T antigen binding	other	0
 PPP2R1A	174	19	Arg182Trp	other	0
 PPP2R1A	174	18	Absent in COSMIC	Present in COSMIC	0
-PPP2R1A	174	19	SV40 small T antigen binding	other	0
-PTPN11	280	5	TK domain N term	TK domain C term	0
 PTPN11	280	7	Tyr279Cys	Other	0
 PTPN11	280	6	FEMALE	MALE	0
+PTPN11	280	5	TK domain N term	TK domain C term	0
 PTPN11	280	3	Missense	Other	3
+RPGRIP1	113	17	missense/missense	missense/other OR other/other	0
 RPGRIP1	113	16	1107del/1107del OR 1107del/other	other/other	1
 RPGRIP1	113	15	OMIM:613826	OMIM:608194	2
 RPGRIP1	113	16	frameshift/frameshift	frameshift/other OR other/other	0
-RPGRIP1	113	17	missense/missense	missense/other OR other/other	0
 RPGRIP1	113	15	FEMALE	MALE	0
-SCN2A	582	15	I repeat	Other	2
-SCN2A	582	15	Missense	Other	7
 SCN2A	582	15	Exon 27	Other	0
+SCN2A	582	15	I repeat	Other	2
 SCN2A	582	16	Arg853Gln	Other	0
+SCN2A	582	15	Missense	Other	7
+SLC32A1	145	4	FEMALE	MALE	0
 SLC32A1	145	4	p.Met330Thr	Other variant	0
 SLC32A1	145	4	N term	other	0
-SLC32A1	145	4	FEMALE	MALE	0
 SUOX	76	15	homodimerization/homodimerization OR homodimerization/Other	Other/Other	1
-SUOX	76	14	Missense/Missense OR Missense/Other	Other/Other	0
 SUOX	76	14	Moco domain/Moco domain OR Moco domain/Other	Other/Other	0
-TBX1	120	14	Tyr418PhefsTer42	Other	2
+SUOX	76	14	Missense/Missense OR Missense/Other	Other/Other	0
 TBX1	120	12	Missense	Other	0
-UMOD	90	5	FEMALE	MALE	0
+TBX1	120	14	Tyr418PhefsTer42	Other	2
 UMOD	90	6	cysteine	other	1
 UMOD	90	6	EGF	other	1
+UMOD	90	5	FEMALE	MALE	0
 ZSWIM6	327	12	Arg913Ter	Arg1163Trp	0
