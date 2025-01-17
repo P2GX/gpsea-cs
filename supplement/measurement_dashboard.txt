@@ -1,14 +1,14 @@
 #cohort	a_genotype	b_genotype	name	test_name	description	variable_name	pval	interpretation	xrefs
-ACADM	K329Q/K329Q	K329Q/other OR other/other	Measurement	t-test	Value of MCAD Activity% [LOINC:74892-1]	LOINC:74892-1	6.12e-10	Mean MCAD activity for K329/K329: 0.52\%, and for K329/other or other/other: 13.23\%	PMID:33580884
 ACADM	Y67H/Y67H OR Y67H/other	other/other	Measurement	t-test	Value of MCAD Activity% [LOINC:74892-1]	LOINC:74892-1	2.01e-05	Mean MCAD activity for Y67H/Y67H: 18.60\%, and for Y67H/other or other/other: 7.68\%	PMID:33580884
+ACADM	K329Q/K329Q	K329Q/other OR other/other	Measurement	t-test	Value of MCAD Activity% [LOINC:74892-1]	LOINC:74892-1	6.12e-10	Mean MCAD activity for K329/K329: 0.52\%, and for K329/other or other/other: 13.23\%	PMID:33580884
 AIRE	R257*/R257* OR R257*/other	other/other	Onset of Chronic mucocutaneous candidiasis	Onset of Chronic mucocutaneous candidiasis	Survival analysis: Chronic mucocutaneous candidiasis	Onset of HP:0002728	0.019		-
-ANKRD11	FEMALE	MALE	HPO Group Count	HPO Group Count	Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants	HPO group count	0.007		-
 ANKRD11	SV	other	HPO Group Count	HPO Group Count	Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants	HPO group count	2.64e-04	ANKRD11 phenotype score (male/female comparison): Female 5.28, Male: 6.15: p=0.0075	PMID: 36446582
+ANKRD11	FEMALE	MALE	HPO Group Count	HPO Group Count	Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants	HPO group count	0.007		-
 ATP6V0C	missense	other	Onset of OMIM:620465	Onset of OMIM:620465	Compute time until OMIM:620465 onset	Onset of OMIM:620465	0.193		-
 CHD8	FEMALE	MALE	De Vries Score	De Vries Score	A phenotypic severity score for individuals with intellectual disability	De Vries score	0.006		-
 CHD8	missense	other	De Vries Score	De Vries Score	A phenotypic severity score for individuals with intellectual disability	De Vries score	8.99e-04		-
-CLDN16	missense/missense OR missense/other	other/other	Onset of OMIM:248250	Onset of OMIM:248250	Compute time until OMIM:248250 onset	Onset of OMIM:248250	0.333		-
 CLDN16	missense/missense OR missense/other	other/other	Onset of Stage 5 chronic kidney disease	Onset of Stage 5 chronic kidney disease	Survival analysis: Stage 5 chronic kidney disease	Onset of HP:0003774	0.034		-
+CLDN16	missense/missense OR missense/other	other/other	Onset of OMIM:248250	Onset of OMIM:248250	Compute time until OMIM:248250 onset	Onset of OMIM:248250	0.333		-
 CNTNAP2	1	2	Onset of OMIM:610042	Onset of OMIM:610042	Compute time until OMIM:610042 onset	Onset of OMIM:610042	6.21e-06		-
 COL3A1	missense	other	Onset of OMIM:130050	Onset of OMIM:130050	Compute time until OMIM:130050 onset	Onset of OMIM:130050	0.317		-
 CTCF	missense	other	De Vries Score	De Vries Score	A phenotypic severity score for individuals with intellectual disability	De Vries score	0.009		-
@@ -18,8 +18,10 @@ FBXL4	missense/other OR other/other	missense/missense	Onset of OMIM:615471	Onset
 HMGCS2	missense/missense OR missense/other	other/other	Onset of OMIM:605911	Onset of OMIM:605911	Compute time until OMIM:605911 onset	Onset of OMIM:605911	0.038		-
 LMNA	Upstream of NLS	other	HPO Group Count	HPO Group Count	Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants	HPO group count	1.83e-16		-
 LMNA	NLS Upstream	other	HPO Group Count	HPO Group Count	Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants	HPO group count	1.83e-16		-
+MPV17	missense/missense OR missense/other	other/other	Onset of OMIM:256810	Onset of OMIM:256810	Compute time until OMIM:256810 onset	Onset of OMIM:256810	0.002		-
+MPV17	Pro98Leu/Pro98Leu	other/other OR Pro98Leu/other	Age of death	Age of death	Compute time until postnatal death	Age of death	0.010		-
 SUOX	homodimerization/homodimerization OR homodimerization/Other	Other/Other	Onset of OMIM:272300	Onset of OMIM:272300	Compute time until OMIM:272300 onset	Onset of OMIM:272300	0.853		-
 SUOX	Missense/Missense OR Missense/Other	Other/Other	Onset of OMIM:272300	Onset of OMIM:272300	Compute time until OMIM:272300 onset	Onset of OMIM:272300	9.18e-06		-
-UMOD	EGF	other	Onset of Stage 5 chronic kidney disease	Onset of Stage 5 chronic kidney disease	Survival analysis: Stage 5 chronic kidney disease	Onset of HP:0003774	0.284		-
 UMOD	Cys248Trp	Gln316Pro	Onset of Stage 5 chronic kidney disease	Onset of Stage 5 chronic kidney disease	Survival analysis: Stage 5 chronic kidney disease	Onset of HP:0003774	4.10e-04		-
 UMOD	278_289delins	other	Onset of Stage 5 chronic kidney disease	Onset of Stage 5 chronic kidney disease	Survival analysis: Stage 5 chronic kidney disease	Onset of HP:0003774	0.835		-
+UMOD	EGF	other	Onset of Stage 5 chronic kidney disease	Onset of Stage 5 chronic kidney disease	Survival analysis: Stage 5 chronic kidney disease	Onset of HP:0003774	0.284		-

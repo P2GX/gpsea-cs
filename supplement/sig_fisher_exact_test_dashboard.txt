@@ -1,130 +1,131 @@
 #cohort_name	a_genotype	b_genotype	nsig	n_tests_performed	hpo_item	with_geno_a	with_geno_b	pval	adj_pval
-ATP13A2	OMIM:606693	OMIM:617225	2	27	Parkinsonism [HP:0001300]	28/28 (100%)	3/11 (27%)	2.68e-06	7.24e-05
-ATP13A2	OMIM:606693	OMIM:617225	2	25	Parkinsonism [HP:0001300]	27/27 (100%)	3/11 (27%)	3.37e-06	8.43e-05
-ATP13A2	OMIM:606693	OMIM:617225	2	24	Parkinsonism [HP:0001300]	27/27 (100%)	3/11 (27%)	3.37e-06	8.10e-05
-ATP13A2	OMIM:606693	OMIM:617225	2	24	Bradykinesia [HP:0002067]	29/31 (94%)	4/10 (40%)	0.001	0.013
-ATP13A2	OMIM:606693	OMIM:617225	2	25	Bradykinesia [HP:0002067]	29/31 (94%)	4/10 (40%)	0.001	0.013
 ATP13A2	OMIM:606693	OMIM:617225	2	27	Bradykinesia [HP:0002067]	30/32 (94%)	4/10 (40%)	9.15e-04	0.012
+ATP13A2	OMIM:606693	OMIM:617225	2	27	Parkinsonism [HP:0001300]	28/28 (100%)	3/11 (27%)	2.68e-06	7.24e-05
+ATP13A2	OMIM:606693	OMIM:617225	2	25	Bradykinesia [HP:0002067]	29/31 (94%)	4/10 (40%)	0.001	0.013
+ATP13A2	OMIM:606693	OMIM:617225	2	25	Parkinsonism [HP:0001300]	27/27 (100%)	3/11 (27%)	3.37e-06	8.43e-05
+ATP13A2	OMIM:606693	OMIM:617225	2	24	Bradykinesia [HP:0002067]	29/31 (94%)	4/10 (40%)	0.001	0.013
+ATP13A2	OMIM:606693	OMIM:617225	2	24	Parkinsonism [HP:0001300]	27/27 (100%)	3/11 (27%)	3.37e-06	8.10e-05
 BRD4	NIPBL	BRD4	1	33	Intrauterine growth retardation [HP:0001511]	37/45 (82%)	2/9 (22%)	9.45e-04	0.031
-EHMT1	N Term Frameshift	other	2	20	Attention deficit hyperactivity disorder [HP:0007018]	4/8 (50%)	3/95 (3%)	5.02e-04	0.010
 EHMT1	N Term Frameshift	other	2	20	Intellectual disability [HP:0001249]	4/8 (50%)	107/116 (92%)	0.004	0.042
-FBN1	missense	other	6	11	Ectopia lentis [HP:0001083]	68/87 (78%)	11/22 (50%)	0.015	0.047
-FBN1	TB domain	cbEGF	5	8	Short stature [HP:0004322]	23/39 (59%)	0/24 (0%)	4.39e-07	3.52e-06
-FBN1	missense	other	6	11	Short stature [HP:0004322]	32/78 (41%)	1/13 (8%)	0.027	0.050
-FBN1	TB domain	cbEGF	5	8	Ectopia lentis [HP:0001083]	9/18 (50%)	48/59 (81%)	0.013	0.021
-FBN1	exon 37	other	3	9	Ectopia lentis [HP:0001083]	1/9 (11%)	78/100 (78%)	1.12e-04	5.03e-04
-FBN1	TB domain	cbEGF	5	8	Tall stature [HP:0000098]	7/38 (18%)	21/40 (52%)	0.002	0.004
-FBN1	missense	other	6	11	Aortic root aneurysm [HP:0002616]	25/115 (22%)	11/23 (48%)	0.017	0.047
-FBN1	missense	other	6	11	Arachnodactyly [HP:0001166]	34/81 (42%)	18/22 (82%)	0.001	0.013
-FBN1	exon 37	other	3	9	Stiff skin [HP:0030053]	8/9 (89%)	0/50 (0%)	4.06e-09	3.65e-08
-FBN1	exon 37	other	3	9	Arachnodactyly [HP:0001166]	0/8 (0%)	52/95 (55%)	0.003	0.008
-FBN1	TB domain	cbEGF	5	8	Proportionate short stature [HP:0003508]	20/36 (56%)	0/24 (0%)	2.35e-06	9.41e-06
+EHMT1	N Term Frameshift	other	2	20	Attention deficit hyperactivity disorder [HP:0007018]	4/8 (50%)	3/95 (3%)	5.02e-04	0.010
 FBN1	TB domain	cbEGF	5	8	Severe short stature [HP:0003510]	15/36 (42%)	0/24 (0%)	1.36e-04	3.62e-04
+FBN1	exon 37	other	3	9	Arachnodactyly [HP:0001166]	0/8 (0%)	52/95 (55%)	0.003	0.008
+FBN1	TB domain	cbEGF	5	8	Short stature [HP:0004322]	23/39 (59%)	0/24 (0%)	4.39e-07	3.52e-06
+FBN1	TB domain	cbEGF	5	8	Ectopia lentis [HP:0001083]	9/18 (50%)	48/59 (81%)	0.013	0.021
+FBN1	missense	other	6	11	Ectopia lentis [HP:0001083]	68/87 (78%)	11/22 (50%)	0.015	0.047
+FBN1	missense	other	6	11	Arachnodactyly [HP:0001166]	34/81 (42%)	18/22 (82%)	0.001	0.013
 FBN1	fs last two	other	1	12	Hyperextensibility of the finger joints [HP:0001187]	2/2 (100%)	1/90 (1%)	7.17e-04	0.009
-FBN1	missense	other	6	11	High palate [HP:0000218]	19/71 (27%)	10/18 (56%)	0.026	0.050
+FBN1	missense	other	6	11	Short stature [HP:0004322]	32/78 (41%)	1/13 (8%)	0.027	0.050
 FBN1	missense	other	6	11	Thoracic aortic aneurysm [HP:0012727]	25/64 (39%)	12/14 (86%)	0.002	0.013
+FBN1	exon 37	other	3	9	Stiff skin [HP:0030053]	8/9 (89%)	0/50 (0%)	4.06e-09	3.65e-08
+FBN1	exon 37	other	3	9	Ectopia lentis [HP:0001083]	1/9 (11%)	78/100 (78%)	1.12e-04	5.03e-04
+FBN1	missense	other	6	11	High palate [HP:0000218]	19/71 (27%)	10/18 (56%)	0.026	0.050
+FBN1	missense	other	6	11	Aortic root aneurysm [HP:0002616]	25/115 (22%)	11/23 (48%)	0.017	0.047
+FBN1	TB domain	cbEGF	5	8	Tall stature [HP:0000098]	7/38 (18%)	21/40 (52%)	0.002	0.004
+FBN1	TB domain	cbEGF	5	8	Proportionate short stature [HP:0003508]	20/36 (56%)	0/24 (0%)	2.35e-06	9.41e-06
 FBXL4	missense/other OR other/other	missense/missense	1	22	Feeding difficulties [HP:0011968]	23/24 (96%)	13/27 (48%)	1.73e-04	0.004
 FGD1	Missense	Other	1	47	Broad foot [HP:0001769]	1/7 (14%)	14/15 (93%)	6.22e-04	0.029
-GLI3	Truncating variants in Exon 15	other	4	19	Syndactyly [HP:0001159]	5/17 (29%)	33/38 (87%)	4.82e-05	9.15e-04
 GLI3	Fs in mid region or splice	other	3	19	Preaxial foot polydactyly [HP:0001841]	5/25 (20%)	32/57 (56%)	0.003	0.022
-GLI3	Truncating variants in Exon 15	other	4	19	Postaxial foot polydactyly [HP:0001830]	9/20 (45%)	2/35 (6%)	8.91e-04	0.008
-GLI3	Fs in mid region or splice	other	3	19	Y-shaped metacarpals [HP:0006042]	11/23 (48%)	4/56 (7%)	9.94e-05	9.44e-04
-GLI3	Fs in mid region or splice	other	3	19	Y-shaped metatarsals [HP:0010567]	11/19 (58%)	4/50 (8%)	3.25e-05	6.18e-04
 GLI3	Truncating variants in Exon 15	other	4	19	Macrocephaly [HP:0000256]	13/16 (81%)	15/42 (36%)	0.003	0.018
-GLI3	Variants in C-terminal third	other	4	19	Postaxial hand polydactyly [HP:0001162]	15/16 (94%)	21/49 (43%)	3.40e-04	0.002
-GLI3	Variants in C-terminal third	other	4	19	Postaxial foot polydactyly [HP:0001830]	9/16 (56%)	2/39 (5%)	7.35e-05	0.001
-GLI3	Variants in C-terminal third	other	4	19	Macrocephaly [HP:0000256]	13/15 (87%)	15/43 (35%)	7.31e-04	0.003
-GLI3	Truncating variants in Exon 15	other	4	19	Preaxial foot polydactyly [HP:0001841]	7/28 (25%)	30/54 (56%)	0.010	0.049
+GLI3	Fs in mid region or splice	other	3	19	Y-shaped metacarpals [HP:0006042]	11/23 (48%)	4/56 (7%)	9.94e-05	9.44e-04
+GLI3	Truncating variants in Exon 15	other	4	19	Syndactyly [HP:0001159]	5/17 (29%)	33/38 (87%)	4.82e-05	9.15e-04
+GLI3	Fs in mid region or splice	other	3	19	Y-shaped metatarsals [HP:0010567]	11/19 (58%)	4/50 (8%)	3.25e-05	6.18e-04
 GLI3	Variants in C-terminal third	other	4	19	Syndactyly [HP:0001159]	5/16 (31%)	33/39 (85%)	2.25e-04	0.002
+GLI3	Truncating variants in Exon 15	other	4	19	Postaxial foot polydactyly [HP:0001830]	9/20 (45%)	2/35 (6%)	8.91e-04	0.008
+GLI3	Truncating variants in Exon 15	other	4	19	Preaxial foot polydactyly [HP:0001841]	7/28 (25%)	30/54 (56%)	0.010	0.049
+GLI3	Variants in C-terminal third	other	4	19	Postaxial hand polydactyly [HP:0001162]	15/16 (94%)	21/49 (43%)	3.40e-04	0.002
+GLI3	Variants in C-terminal third	other	4	19	Macrocephaly [HP:0000256]	13/15 (87%)	15/43 (35%)	7.31e-04	0.003
+GLI3	Variants in C-terminal third	other	4	19	Postaxial foot polydactyly [HP:0001830]	9/16 (56%)	2/39 (5%)	7.35e-05	0.001
 IKZF1	p.Asn159Ser	Other variant	1	25	Recurrent pneumonia [HP:0006532]	7/9 (78%)	7/39 (18%)	0.001	0.030
-ITPR1	SV Deletion	other	8	21	Delayed speech and language development [HP:0000750]	0/19 (0%)	50/57 (88%)	1.72e-12	7.22e-12
-ITPR1	IP3 binding	other	7	24	Delayed gross motor development [HP:0002194]	18/18 (100%)	57/83 (69%)	0.005	0.022
-ITPR1	IP3 binding	other	7	24	Motor delay [HP:0001270]	24/24 (100%)	63/89 (71%)	0.002	0.017
-ITPR1	GS Hotspot	other	5	25	Delayed ability to walk [HP:0031936]	14/14 (100%)	40/67 (60%)	0.003	0.029
-ITPR1	SV Deletion	other	8	21	Neurodevelopmental delay [HP:0012758]	0/19 (0%)	99/100 (99%)	4.07e-21	8.55e-20
-ITPR1	SV Deletion	other	8	21	Delayed ability to walk [HP:0031936]	0/19 (0%)	54/62 (87%)	1.47e-12	7.22e-12
-ITPR1	SV Deletion	other	8	21	Motor delay [HP:0001270]	0/19 (0%)	87/94 (93%)	3.90e-16	4.09e-15
-ITPR1	GS Hotspot	other	5	25	Delayed gross motor development [HP:0002194]	18/18 (100%)	57/83 (69%)	0.005	0.030
 ITPR1	SV Deletion	other	8	21	Delayed ability to sit [HP:0025336]	0/19 (0%)	53/62 (85%)	4.56e-12	1.60e-11
-ITPR1	IP3 binding	other	7	24	Neurodevelopmental delay [HP:0012758]	29/29 (100%)	70/90 (78%)	0.003	0.017
-ITPR1	IP3 binding	other	7	24	Delayed speech and language development [HP:0000750]	13/13 (100%)	37/63 (59%)	0.003	0.017
+ITPR1	GS Hotspot	other	5	25	Motor delay [HP:0001270]	19/19 (100%)	68/94 (72%)	0.006	0.030
+ITPR1	IP3 binding	other	7	24	Delayed gross motor development [HP:0002194]	18/18 (100%)	57/83 (69%)	0.005	0.022
 ITPR1	IP3 binding	other	7	24	Delayed ability to walk [HP:0031936]	13/13 (100%)	41/68 (60%)	0.004	0.017
-ITPR1	SV Deletion	other	8	21	Nystagmus [HP:0000639]	17/17 (100%)	61/87 (70%)	0.006	0.015
-ITPR1	GS Hotspot	other	5	25	Aniridia [HP:0000526]	14/20 (70%)	6/48 (12%)	6.13e-06	1.53e-04
-ITPR1	IP3 binding	other	7	24	Nystagmus [HP:0000639]	25/26 (96%)	53/78 (68%)	0.003	0.017
-ITPR1	IP3 binding	other	7	24	Delayed ability to sit [HP:0025336]	11/11 (100%)	42/70 (60%)	0.013	0.045
-ITPR1	SV Deletion	other	8	21	Global developmental delay [HP:0001263]	0/19 (0%)	48/57 (84%)	1.81e-11	5.42e-11
 ITPR1	GS Hotspot	other	5	25	Delayed ability to sit [HP:0025336]	13/13 (100%)	40/68 (59%)	0.003	0.029
 ITPR1	SV Deletion	other	8	21	Delayed gross motor development [HP:0002194]	0/19 (0%)	75/82 (91%)	4.04e-15	2.82e-14
-ITPR1	GS Hotspot	other	5	25	Motor delay [HP:0001270]	19/19 (100%)	68/94 (72%)	0.006	0.030
+ITPR1	SV Deletion	other	8	21	Motor delay [HP:0001270]	0/19 (0%)	87/94 (93%)	3.90e-16	4.09e-15
+ITPR1	SV Deletion	other	8	21	Delayed ability to walk [HP:0031936]	0/19 (0%)	54/62 (87%)	1.47e-12	7.22e-12
+ITPR1	IP3 binding	other	7	24	Neurodevelopmental delay [HP:0012758]	29/29 (100%)	70/90 (78%)	0.003	0.017
+ITPR1	IP3 binding	other	7	24	Delayed ability to sit [HP:0025336]	11/11 (100%)	42/70 (60%)	0.013	0.045
+ITPR1	GS Hotspot	other	5	25	Delayed gross motor development [HP:0002194]	18/18 (100%)	57/83 (69%)	0.005	0.030
+ITPR1	IP3 binding	other	7	24	Motor delay [HP:0001270]	24/24 (100%)	63/89 (71%)	0.002	0.017
+ITPR1	SV Deletion	other	8	21	Delayed speech and language development [HP:0000750]	0/19 (0%)	50/57 (88%)	1.72e-12	7.22e-12
+ITPR1	SV Deletion	other	8	21	Global developmental delay [HP:0001263]	0/19 (0%)	48/57 (84%)	1.81e-11	5.42e-11
+ITPR1	GS Hotspot	other	5	25	Aniridia [HP:0000526]	14/20 (70%)	6/48 (12%)	6.13e-06	1.53e-04
+ITPR1	SV Deletion	other	8	21	Nystagmus [HP:0000639]	17/17 (100%)	61/87 (70%)	0.006	0.015
+ITPR1	IP3 binding	other	7	24	Nystagmus [HP:0000639]	25/26 (96%)	53/78 (68%)	0.003	0.017
+ITPR1	IP3 binding	other	7	24	Delayed speech and language development [HP:0000750]	13/13 (100%)	37/63 (59%)	0.003	0.017
+ITPR1	GS Hotspot	other	5	25	Delayed ability to walk [HP:0031936]	14/14 (100%)	40/67 (60%)	0.003	0.029
+ITPR1	SV Deletion	other	8	21	Neurodevelopmental delay [HP:0012758]	0/19 (0%)	99/100 (99%)	4.07e-21	8.55e-20
 KCNH5	Arg327His	Arg333His	1	13	Epileptic encephalopathy [HP:0200134]	15/15 (100%)	0/3 (0%)	0.001	0.016
-KDM6A	p.Asn891ValfsTer27	Other	1	24	Pulmonic stenosis [HP:0001642]	2/2 (100%)	0/59 (0%)	5.46e-04	0.013
 KDM6A	FEMALE	MALE	1	4	Intellectual disability, severe [HP:0010864]	7/25 (28%)	14/18 (78%)	0.002	0.008
+KDM6A	p.Asn891ValfsTer27	Other	1	24	Pulmonic stenosis [HP:0001642]	2/2 (100%)	0/59 (0%)	5.46e-04	0.013
 Kabuki	OMIM:147920	OMIM:300867	2	28	Motor delay [HP:0001270]	4/10 (40%)	58/61 (95%)	1.04e-04	0.001
 Kabuki	OMIM:147920	OMIM:300867	2	28	Feeding difficulties [HP:0011968]	8/25 (32%)	55/63 (87%)	7.41e-07	2.07e-05
-LMNA	NLS Upstream	other	10	22	Pancreatitis [HP:0001733]	4/7 (57%)	14/110 (13%)	0.011	0.023
-LMNA	Upstream Tail (1-383)	other	9	24	Lipodystrophy [HP:0009125]	9/88 (10%)	133/163 (82%)	1.72e-29	4.12e-28
-LMNA	Gly608=	Other	4	5	Lipodystrophy [HP:0009125]	15/15 (100%)	127/236 (54%)	1.87e-04	3.11e-04
-LMNA	Upstream of NLS	other	10	22	Limb joint contracture [HP:0003121]	23/83 (28%)	19/27 (70%)	1.71e-04	4.71e-04
-LMNA	Upstream of NLS	other	10	22	Lipodystrophy [HP:0009125]	10/93 (11%)	132/158 (84%)	1.73e-31	3.81e-30
-LMNA	Upstream of NLS	other	10	22	Lower-limb joint contracture [HP:0005750]	22/82 (27%)	19/27 (70%)	8.20e-05	3.61e-04
-LMNA	Gly608=	Other	4	5	Elevated hemoglobin A1c [HP:0040217]	0/15 (0%)	79/110 (72%)	5.65e-08	2.82e-07
-LMNA	NLS Upstream	other	10	22	Achilles tendon contracture [HP:0001771]	21/85 (25%)	19/30 (63%)	2.66e-04	6.51e-04
-LMNA	A	B	4	5	Muscle weakness [HP:0001324]	0/15 (0%)	63/124 (51%)	6.07e-05	1.52e-04
-LMNA	Upstream Tail (1-383)	other	9	24	Dilated cardiomyopathy [HP:0001644]	35/69 (51%)	5/103 (5%)	2.20e-12	2.64e-11
-LMNA	NLS Upstream	other	10	22	Upper-limb joint contracture [HP:0100360]	21/81 (26%)	18/26 (69%)	1.23e-04	3.86e-04
-LMNA	Upstream of NLS	other	10	22	Pancreatitis [HP:0001733]	4/7 (57%)	14/110 (13%)	0.011	0.023
-LMNA	Gly608=	Other	4	5	Proximal muscle weakness [HP:0003701]	0/15 (0%)	53/114 (46%)	3.63e-04	4.54e-04
-LMNA	Gly608=	Other	4	5	Muscle weakness [HP:0001324]	0/15 (0%)	63/124 (51%)	6.07e-05	1.52e-04
-LMNA	NLS Upstream	other	10	22	Elbow contracture [HP:0034391]	21/83 (25%)	18/26 (69%)	1.04e-04	3.81e-04
-LMNA	NLS Upstream	other	9	24	Upper-limb joint contracture [HP:0100360]	17/77 (22%)	22/30 (73%)	1.36e-06	5.32e-06
-LMNA	Upstream Tail (1-383)	other	9	24	Foot joint contracture [HP:0008366]	17/77 (22%)	23/31 (74%)	6.70e-07	4.02e-06
-LMNA	Upstream Tail (1-383)	other	9	24	Limb joint contracture [HP:0003121]	19/79 (24%)	23/31 (74%)	2.06e-06	6.18e-06
-LMNA	NLS Upstream	other	9	24	Atrioventricular block [HP:0001678]	17/35 (49%)	8/117 (7%)	1.19e-07	9.50e-07
-LMNA	NLS Upstream	other	9	24	Elbow contracture [HP:0034391]	17/79 (22%)	22/30 (73%)	9.63e-07	4.62e-06
-LMNA	NLS Upstream	other	10	22	Foot joint contracture [HP:0008366]	21/81 (26%)	19/27 (70%)	6.20e-05	3.41e-04
-LMNA	Upstream of NLS	other	10	22	Achilles tendon contracture [HP:0001771]	21/85 (25%)	19/30 (63%)	2.66e-04	6.51e-04
-LMNA	Upstream of NLS	other	10	22	Atrioventricular block [HP:0001678]	17/36 (47%)	8/116 (7%)	2.11e-07	1.54e-06
-LMNA	NLS Upstream	other	9	24	Foot joint contracture [HP:0008366]	17/77 (22%)	23/31 (74%)	6.70e-07	4.02e-06
-LMNA	Upstream of NLS	other	10	22	Dilated cardiomyopathy [HP:0001644]	35/70 (50%)	5/102 (5%)	4.20e-12	4.62e-11
-LMNA	Upstream Tail (1-383)	other	9	24	Achilles tendon contracture [HP:0001771]	17/81 (21%)	23/34 (68%)	3.37e-06	8.99e-06
-LMNA	missense	other	2	17	Loss of truncal subcutaneous adipose tissue [HP:0009002]	104/104 (100%)	4/11 (36%)	7.53e-09	1.28e-07
-LMNA	Upstream Tail (1-383)	other	9	24	Elbow contracture [HP:0034391]	17/79 (22%)	22/30 (73%)	9.63e-07	4.62e-06
-LMNA	NLS Upstream	other	9	24	Lower-limb joint contracture [HP:0005750]	18/78 (23%)	23/31 (74%)	1.55e-06	5.32e-06
-LMNA	NLS Upstream	other	10	22	Dilated cardiomyopathy [HP:0001644]	35/70 (50%)	5/102 (5%)	4.20e-12	4.62e-11
-LMNA	Upstream of NLS	other	10	22	Foot joint contracture [HP:0008366]	21/81 (26%)	19/27 (70%)	6.20e-05	3.41e-04
-LMNA	NLS Upstream	other	10	22	Lower-limb joint contracture [HP:0005750]	22/82 (27%)	19/27 (70%)	8.20e-05	3.61e-04
-LMNA	Upstream of NLS	other	10	22	Elbow contracture [HP:0034391]	21/83 (25%)	18/26 (69%)	1.04e-04	3.81e-04
-LMNA	NLS Upstream	other	9	24	Lipodystrophy [HP:0009125]	9/88 (10%)	133/163 (82%)	1.72e-29	4.12e-28
-LMNA	NLS Upstream	other	10	22	Atrioventricular block [HP:0001678]	17/36 (47%)	8/116 (7%)	2.11e-07	1.54e-06
-LMNA	NLS Upstream	other	9	24	Limb joint contracture [HP:0003121]	19/79 (24%)	23/31 (74%)	2.06e-06	6.18e-06
-LMNA	A	B	4	5	Elevated hemoglobin A1c [HP:0040217]	0/15 (0%)	79/110 (72%)	5.65e-08	2.82e-07
-LMNA	Upstream Tail (1-383)	other	9	24	Upper-limb joint contracture [HP:0100360]	17/77 (22%)	22/30 (73%)	1.36e-06	5.32e-06
-LMNA	Upstream Tail (1-383)	other	9	24	Lower-limb joint contracture [HP:0005750]	18/78 (23%)	23/31 (74%)	1.55e-06	5.32e-06
-LMNA	NLS Upstream	other	9	24	Achilles tendon contracture [HP:0001771]	17/81 (21%)	23/34 (68%)	3.37e-06	8.99e-06
 LMNA	A	B	4	5	Lipodystrophy [HP:0009125]	15/15 (100%)	127/236 (54%)	1.87e-04	3.11e-04
-LMNA	NLS Upstream	other	10	22	Lipodystrophy [HP:0009125]	10/93 (11%)	132/158 (84%)	1.73e-31	3.81e-30
-LMNA	Upstream of NLS	other	10	22	Upper-limb joint contracture [HP:0100360]	21/81 (26%)	18/26 (69%)	1.23e-04	3.86e-04
-LMNA	NLS Upstream	other	10	22	Limb joint contracture [HP:0003121]	23/83 (28%)	19/27 (70%)	1.71e-04	4.71e-04
-LMNA	Upstream Tail (1-383)	other	9	24	Atrioventricular block [HP:0001678]	17/35 (49%)	8/117 (7%)	1.19e-07	9.50e-07
-LMNA	NLS Upstream	other	9	24	Dilated cardiomyopathy [HP:0001644]	35/69 (51%)	5/103 (5%)	2.20e-12	2.64e-11
+LMNA	NLS Upstream	other	10	22	Atrioventricular block [HP:0001678]	17/36 (47%)	8/116 (7%)	2.11e-07	1.54e-06
+LMNA	Upstream of NLS	other	10	22	Lipodystrophy [HP:0009125]	10/93 (11%)	132/158 (84%)	1.73e-31	3.81e-30
+LMNA	missense	other	2	17	Loss of truncal subcutaneous adipose tissue [HP:0009002]	104/104 (100%)	4/11 (36%)	7.53e-09	1.28e-07
+LMNA	Upstream of NLS	other	10	22	Dilated cardiomyopathy [HP:0001644]	35/70 (50%)	5/102 (5%)	4.20e-12	4.62e-11
+LMNA	NLS Upstream	other	9	24	Limb joint contracture [HP:0003121]	19/79 (24%)	23/31 (74%)	2.06e-06	6.18e-06
 LMNA	missense	other	2	17	Elevated hemoglobin A1c [HP:0040217]	73/101 (72%)	6/24 (25%)	3.11e-05	2.64e-04
+LMNA	Upstream of NLS	other	10	22	Atrioventricular block [HP:0001678]	17/36 (47%)	8/116 (7%)	2.11e-07	1.54e-06
+LMNA	Gly608=	Other	4	5	Elevated hemoglobin A1c [HP:0040217]	0/15 (0%)	79/110 (72%)	5.65e-08	2.82e-07
+LMNA	NLS Upstream	other	9	24	Achilles tendon contracture [HP:0001771]	17/81 (21%)	23/34 (68%)	3.37e-06	8.99e-06
+LMNA	NLS Upstream	other	9	24	Atrioventricular block [HP:0001678]	17/35 (49%)	8/117 (7%)	1.19e-07	9.50e-07
+LMNA	NLS Upstream	other	10	22	Lipodystrophy [HP:0009125]	10/93 (11%)	132/158 (84%)	1.73e-31	3.81e-30
+LMNA	NLS Upstream	other	10	22	Foot joint contracture [HP:0008366]	21/81 (26%)	19/27 (70%)	6.20e-05	3.41e-04
+LMNA	Upstream Tail (1-383)	other	9	24	Dilated cardiomyopathy [HP:0001644]	35/69 (51%)	5/103 (5%)	2.20e-12	2.64e-11
+LMNA	Upstream Tail (1-383)	other	9	24	Elbow contracture [HP:0034391]	17/79 (22%)	22/30 (73%)	9.63e-07	4.62e-06
+LMNA	Upstream Tail (1-383)	other	9	24	Atrioventricular block [HP:0001678]	17/35 (49%)	8/117 (7%)	1.19e-07	9.50e-07
+LMNA	NLS Upstream	other	9	24	Foot joint contracture [HP:0008366]	17/77 (22%)	23/31 (74%)	6.70e-07	4.02e-06
+LMNA	NLS Upstream	other	10	22	Dilated cardiomyopathy [HP:0001644]	35/70 (50%)	5/102 (5%)	4.20e-12	4.62e-11
+LMNA	Upstream of NLS	other	10	22	Elbow contracture [HP:0034391]	21/83 (25%)	18/26 (69%)	1.04e-04	3.81e-04
+LMNA	A	B	4	5	Elevated hemoglobin A1c [HP:0040217]	0/15 (0%)	79/110 (72%)	5.65e-08	2.82e-07
+LMNA	NLS Upstream	other	9	24	Dilated cardiomyopathy [HP:0001644]	35/69 (51%)	5/103 (5%)	2.20e-12	2.64e-11
+LMNA	Upstream of NLS	other	10	22	Limb joint contracture [HP:0003121]	23/83 (28%)	19/27 (70%)	1.71e-04	4.71e-04
+LMNA	NLS Upstream	other	9	24	Lipodystrophy [HP:0009125]	9/88 (10%)	133/163 (82%)	1.72e-29	4.12e-28
+LMNA	Upstream Tail (1-383)	other	9	24	Achilles tendon contracture [HP:0001771]	17/81 (21%)	23/34 (68%)	3.37e-06	8.99e-06
+LMNA	Upstream of NLS	other	10	22	Achilles tendon contracture [HP:0001771]	21/85 (25%)	19/30 (63%)	2.66e-04	6.51e-04
+LMNA	NLS Upstream	other	10	22	Lower-limb joint contracture [HP:0005750]	22/82 (27%)	19/27 (70%)	8.20e-05	3.61e-04
+LMNA	Upstream Tail (1-383)	other	9	24	Upper-limb joint contracture [HP:0100360]	17/77 (22%)	22/30 (73%)	1.36e-06	5.32e-06
+LMNA	NLS Upstream	other	10	22	Upper-limb joint contracture [HP:0100360]	21/81 (26%)	18/26 (69%)	1.23e-04	3.86e-04
+LMNA	NLS Upstream	other	9	24	Upper-limb joint contracture [HP:0100360]	17/77 (22%)	22/30 (73%)	1.36e-06	5.32e-06
+LMNA	Upstream of NLS	other	10	22	Pancreatitis [HP:0001733]	4/7 (57%)	14/110 (13%)	0.011	0.023
+LMNA	Gly608=	Other	4	5	Lipodystrophy [HP:0009125]	15/15 (100%)	127/236 (54%)	1.87e-04	3.11e-04
+LMNA	Upstream Tail (1-383)	other	9	24	Lower-limb joint contracture [HP:0005750]	18/78 (23%)	23/31 (74%)	1.55e-06	5.32e-06
+LMNA	NLS Upstream	other	10	22	Elbow contracture [HP:0034391]	21/83 (25%)	18/26 (69%)	1.04e-04	3.81e-04
+LMNA	NLS Upstream	other	9	24	Elbow contracture [HP:0034391]	17/79 (22%)	22/30 (73%)	9.63e-07	4.62e-06
+LMNA	NLS Upstream	other	9	24	Lower-limb joint contracture [HP:0005750]	18/78 (23%)	23/31 (74%)	1.55e-06	5.32e-06
+LMNA	NLS Upstream	other	10	22	Achilles tendon contracture [HP:0001771]	21/85 (25%)	19/30 (63%)	2.66e-04	6.51e-04
+LMNA	Upstream of NLS	other	10	22	Lower-limb joint contracture [HP:0005750]	22/82 (27%)	19/27 (70%)	8.20e-05	3.61e-04
+LMNA	A	B	4	5	Muscle weakness [HP:0001324]	0/15 (0%)	63/124 (51%)	6.07e-05	1.52e-04
 LMNA	A	B	4	5	Proximal muscle weakness [HP:0003701]	0/15 (0%)	53/114 (46%)	3.63e-04	4.54e-04
-PTPN11	Missense	Other	3	3	Webbed neck [HP:0000465]	15/20 (75%)	0/12 (0%)	2.94e-05	4.41e-05
+LMNA	Gly608=	Other	4	5	Muscle weakness [HP:0001324]	0/15 (0%)	63/124 (51%)	6.07e-05	1.52e-04
+LMNA	Upstream Tail (1-383)	other	9	24	Limb joint contracture [HP:0003121]	19/79 (24%)	23/31 (74%)	2.06e-06	6.18e-06
+LMNA	Upstream of NLS	other	10	22	Upper-limb joint contracture [HP:0100360]	21/81 (26%)	18/26 (69%)	1.23e-04	3.86e-04
+LMNA	Upstream Tail (1-383)	other	9	24	Lipodystrophy [HP:0009125]	9/88 (10%)	133/163 (82%)	1.72e-29	4.12e-28
+LMNA	NLS Upstream	other	10	22	Limb joint contracture [HP:0003121]	23/83 (28%)	19/27 (70%)	1.71e-04	4.71e-04
+LMNA	Upstream of NLS	other	10	22	Foot joint contracture [HP:0008366]	21/81 (26%)	19/27 (70%)	6.20e-05	3.41e-04
+LMNA	Upstream Tail (1-383)	other	9	24	Foot joint contracture [HP:0008366]	17/77 (22%)	23/31 (74%)	6.70e-07	4.02e-06
+LMNA	Gly608=	Other	4	5	Proximal muscle weakness [HP:0003701]	0/15 (0%)	53/114 (46%)	3.63e-04	4.54e-04
+LMNA	NLS Upstream	other	10	22	Pancreatitis [HP:0001733]	4/7 (57%)	14/110 (13%)	0.011	0.023
+MPV17	Pro98Leu/Pro98Leu	other/other OR Pro98Leu/other	1	19	Peripheral axonal neuropathy [HP:0003477]	3/3 (100%)	1/22 (5%)	0.002	0.033
 PTPN11	Missense	Other	3	3	Pulmonic stenosis [HP:0001642]	18/34 (53%)	0/12 (0%)	0.001	0.001
+PTPN11	Missense	Other	3	3	Webbed neck [HP:0000465]	15/20 (75%)	0/12 (0%)	2.94e-05	4.41e-05
 PTPN11	Missense	Other	3	3	Hypertelorism [HP:0000316]	37/41 (90%)	0/12 (0%)	6.82e-09	2.05e-08
 RPGRIP1	1107del/1107del OR 1107del/other	other/other	1	16	Eye poking [HP:0001483]	16/16 (100%)	19/41 (46%)	1.30e-04	0.002
-RPGRIP1	OMIM:613826	OMIM:608194	2	15	Nystagmus [HP:0000639]	64/66 (97%)	11/16 (69%)	0.003	0.020
 RPGRIP1	OMIM:613826	OMIM:608194	2	15	Very low visual acuity [HP:0032122]	35/39 (90%)	4/16 (25%)	5.21e-06	7.81e-05
+RPGRIP1	OMIM:613826	OMIM:608194	2	15	Nystagmus [HP:0000639]	64/66 (97%)	11/16 (69%)	0.003	0.020
 SCN2A	Missense	Other	7	15	Intellectual disability [HP:0001249]	144/198 (73%)	34/34 (100%)	9.39e-05	2.35e-04
-SCN2A	Missense	Other	7	15	Focal-onset seizure [HP:0007359]	141/170 (83%)	8/33 (24%)	8.66e-11	6.49e-10
-SCN2A	I repeat	Other	2	15	Neurodevelopmental abnormality [HP:0012759]	48/65 (74%)	198/218 (91%)	0.001	0.009
 SCN2A	Missense	Other	7	15	Generalized-onset seizure [HP:0002197]	104/133 (78%)	6/31 (19%)	1.43e-09	5.37e-09
-SCN2A	Missense	Other	7	15	Neurodevelopmental abnormality [HP:0012759]	201/238 (84%)	45/45 (100%)	0.001	0.003
-SCN2A	Missense	Other	7	15	Motor seizure [HP:0020219]	146/175 (83%)	6/31 (19%)	4.51e-12	6.77e-11
+SCN2A	I repeat	Other	2	15	Neurodevelopmental abnormality [HP:0012759]	48/65 (74%)	198/218 (91%)	0.001	0.009
 SCN2A	Missense	Other	7	15	Autism [HP:0000717]	59/146 (40%)	33/43 (77%)	2.69e-05	8.07e-05
 SCN2A	Missense	Other	7	15	Seizure [HP:0001250]	298/327 (91%)	28/53 (53%)	1.57e-10	7.86e-10
+SCN2A	Missense	Other	7	15	Neurodevelopmental abnormality [HP:0012759]	201/238 (84%)	45/45 (100%)	0.001	0.003
+SCN2A	Missense	Other	7	15	Focal-onset seizure [HP:0007359]	141/170 (83%)	8/33 (24%)	8.66e-11	6.49e-10
 SCN2A	I repeat	Other	2	15	Intellectual disability [HP:0001249]	21/42 (50%)	157/190 (83%)	2.59e-05	3.89e-04
+SCN2A	Missense	Other	7	15	Motor seizure [HP:0020219]	146/175 (83%)	6/31 (19%)	4.51e-12	6.77e-11
 SUOX	homodimerization/homodimerization OR homodimerization/Other	Other/Other	1	15	Microcephaly [HP:0000252]	0/9 (0%)	10/12 (83%)	2.21e-04	0.003
 TBX1	Tyr418PhefsTer42	Other	2	14	Narrow nose [HP:0000460]	5/5 (100%)	0/6 (0%)	0.002	0.015
 TBX1	Tyr418PhefsTer42	Other	2	14	Global developmental delay [HP:0001263]	5/5 (100%)	3/20 (15%)	0.001	0.015
