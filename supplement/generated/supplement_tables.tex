@@ -7,6 +7,7 @@
 \usepackage{booktabs}
 \usepackage{subcaption}  % For subfigures (panels A, B, C)% Adds support for breaklines
 \usepackage{float}
+\usepackage{amsmath, amssymb,amsfonts}
 
 \usepackage[font=small, justification=raggedright,labelfont=bf]{caption}
 \usepackage[margin=1in]{geometry} % Set all margins to 1 inch
@@ -54,6 +55,11 @@ anyof & Logical OR & START\_LOST OR STOP\_GAINED \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
+\input{test_summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\newpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{hpo_fet}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,17 +93,17 @@ Robinow & Cleft palate [HP:0000175] & RRS1 & 0/17 (0\%) & DRS2 & 5/8 (62\%) & $1
 \end{tabular}
 \end{scriptsize}
 \caption{\textbf{Fischer exact test for association between disease diagnosis and phenotypic features.}
-\textbf{OMIM:606693}: Kufor-Rakeb syndrome (KRS);
- \textbf{OMIM:617225}: Spastic paraplegia 78, autosomal recessive (SPG78);
- \textbf{OMIM:147920}: Kabuki syndrome 1 (KABUK1);
- \textbf{OMIM:300867}: Kabuki syndrome 2 (KABUK2);
- \textbf{OMIM:609192}: Loeys-Dietz syndrome 1 (LDS1);
- \textbf{OMIM:613795}:  Loeys-Dietz syndrome 3 (LDS3);
- \textbf{OMIM:619656}: Loeys-Dietz syndrome 6 (LDS6);
- \textbf{OMIM:613826}: Leber congenital amaurosis 6 (LCA6);
- \textbf{OMIM:608194}:  Cone-rod dystrophy 13 (CORD13);
- \textbf{OMIM:268310}: Robinow syndrome, autosomal recessive 1 (RRS1);
- \textbf{OMIM:616331}: Robinow syndrome, autosomal dominant 2 (DRS2).
+\texttt{OMIM:606693}: Kufor-Rakeb syndrome (KRS);
+ \texttt{OMIM:617225}: Spastic paraplegia 78, autosomal recessive (SPG78);
+ \texttt{OMIM:147920}: Kabuki syndrome 1 (KABUK1);
+ \texttt{OMIM:300867}: Kabuki syndrome 2 (KABUK2);
+ \texttt{OMIM:609192}: Loeys-Dietz syndrome 1 (LDS1);
+ \texttt{OMIM:613795}:  Loeys-Dietz syndrome 3 (LDS3);
+ \texttt{OMIM:619656}: Loeys-Dietz syndrome 6 (LDS6);
+ \texttt{OMIM:613826}: Leber congenital amaurosis 6 (LCA6);
+ \texttt{OMIM:608194}:  Cone-rod dystrophy 13 (CORD13);
+ \texttt{OMIM:268310}: Robinow syndrome, autosomal recessive 1 (RRS1);
+ \texttt{OMIM:616331}: Robinow syndrome, autosomal dominant 2 (DRS2).
 }
 \label{tab:to_do}
 \end{table}
@@ -110,14 +116,14 @@ Robinow & Cleft palate [HP:0000175] & RRS1 & 0/17 (0\%) & DRS2 & 5/8 (62\%) & $1
 
 \begin{table}
 \centering
-\begin{tabular}{l>{\raggedright}p{4cm}lp{1.5cm}lp{1.5cm}rr}
+\begin{tabular}{l>{\raggedright}p{4cm}lp{2cm}lp{2.4cm}rr}
 \toprule
-\textbf{cohort} & \textbf{HPO} & \textbf{A} & \textbf{} & \textbf{B} & \textbf{} & \textbf{p-val} & \textbf{adj. p-val}\\
+\textbf{cohort} & \textbf{HPO} & \textbf{A} & \textbf{} & \textbf{B} & \textbf{} & \textbf{p-val} & \textbf{adj. p}\\
 \midrule
 KDM6A & Intellectual disability, severe [HP:0010864] & female & 7/25 (28\%) & male & 14/18 (78\%) & 0.002 & 0.008\\
 \bottomrule
 \end{tabular}
-\caption{Fischer exact test for association between  between phenotypic features and sex (male, female).}
+\caption{\textbf{Fischer exact test for association between  between phenotypic features and sex (male, female)}. \texttt{adj. p}: Benjamini-Hochberg adjusted p-value.}
 \label{tab:mf_hpo}
 \end{table}
 
@@ -128,17 +134,16 @@ KDM6A & Intellectual disability, severe [HP:0010864] & female & 7/25 (28\%) & ma
 
 \begin{table}
 \centering
-\begin{tabular}{lp{2cm}p{2cm}>{\raggedright}p{4.5cm}lr}
+\begin{tabular}{l>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4.5cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Outcome Variable} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
-ACADM & K329Q: 1/1 & K329Q: 1/0 or 0/0 & MCAD Activity\% [LOINC:74892-1] & $6.1 \times 10^{-10}$ & \cite{PMID_33580884}\\
-ACADM & Y67H: 1/1 or 0/1  & Y67H: 0/0 & MCAD Activity\% [LOINC:74892-1] & $2.0 \times 10^{-05}$ & \cite{PMID_33580884}\\
-CYP21A2 & missense: 0/1 or 0/0 & missense: 1/1 & 17-Hydroxyprogesterone [LOINC:1668-3] & $7.9 \times 10^{-06}$ & -\\
+ACADM & K329Q: 1/1 &  $1/\complement$ OR $\complement/\complement$ & MCAD Activity\% [LOINC:74892-1] & $6.1 \times 10^{-10}$ & \cite{PMID_33580884}\\
+ACADM & Y67H: 1/1 OR $1/\complement$  & $\complement/\complement$ & MCAD Activity\% [LOINC:74892-1] & $2.0 \times 10^{-05}$ & \cite{PMID_33580884}\\
+CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-Hydroxyprogesterone [LOINC:1668-3] & $7.9 \times 10^{-06}$ & -\\
 \bottomrule
 \end{tabular}
-\caption{Student t-tests performed using GPSEA. 1/1: biallelic with reference to the indicate variant; 0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
-Citations in the xrefs column show previous publications that have presented similar findings.}
+\caption{\textbf{Student t-tests performed using GPSEA}. 1/1, $1/\complement$, $\complement/\complement$: See table \ref{tab:fet} for definitions. Citations in the xrefs column show previous publications that have presented similar findings.}
 \label{tab:t_test}
 \end{table}
 
@@ -149,23 +154,21 @@ Citations in the xrefs column show previous publications that have presented sim
 
 \begin{table}
 \centering
-\begin{tabular}{lp{2cm}p{2cm}>{\raggedright}p{4.5cm}lr}
+\begin{tabular}{l>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{HPO Term} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
-AIRE & R257*: 1/1 or 0/1 & R257*:0/0 & Chronic mucocutaneous candidiasis & 0.019 & -\\
-CLDN16 & missense 1/1 or 0/1 & missense: 0/0 & Stage 5 chronic kidney disease & 0.034 & -\\
-SCO2 & Glu140Lys: 1/1 & Glu140Lys: 0/1 or 0/0 & Hypertrophic cardiomyopathy & 0.219 & -\\
-UMOD & 278\_289delins & other & Stage 5 chronic kidney disease & 0.835 & -\\
-UMOD & EGF & other & Stage 5 chronic kidney disease & 0.284 & -\\
+AIRE & R257*: 1/1 or $1/\complement$ &  $\complement/\complement$ & Chronic mucocutaneous candidiasis & 0.019 & -\\
+CLDN16 & missense 1/1 or $1/\complement$ & $\complement/\complement$: & Stage 5 chronic kidney disease & 0.034 & -\\
+SCO2 & Glu140Lys: 1/1 &  $1/\complement$ OR $\complement/\complement$ & Hypertrophic cardiomyopathy & 0.219 & -\\
+UMOD & 278\_289delins & $\complement$ & Stage 5 chronic kidney disease & 0.835 & -\\
+UMOD & EGF & $\complement$ & Stage 5 chronic kidney disease & 0.284 & -\\
 UMOD & Cys248Trp & Gln316Pro & Stage 5 chronic kidney disease & $4.1 \times 10^{-04}$ & -\\
 \bottomrule
 \end{tabular}
-\caption{Log rank tests performed using GPSEA to assess association between a genotype and the age of
-    onset of a phenotypic feature represented by an HPO term. 1/1: biallelic with reference to the indicate variant; 
-    0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
-    Citations in the xrefs column show previous publications that have presented similar findings.}
-\label{tab:to_do}
+\caption{\textbf{Age of onset of phenotypic abnormality}. Log rank tests performed using GPSEA to assess association between a genotype and the 
+age of onset of a phenotypic feature represented by an HPO term.  1/1, $1/\complement$, $\complement/\complement$: See table \ref{tab:fet} for definitions. Citations in the xrefs column show previous publications that have presented similar findings.}
+\label{tab:hpo_onset}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
@@ -175,38 +178,34 @@ UMOD & Cys248Trp & Gln316Pro & Stage 5 chronic kidney disease & $4.1 \times 10^{
 
 \begin{table}
 \centering
-\begin{tabular}{lp{3.5cm}p{3.5cm}>{\raggedright}p{2.5cm}lr}
+\begin{tabular}{l>{\raggedright\arraybackslash}p{4cm}p{2cm}>{\raggedright\arraybackslash}p{2.5cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Disease onset} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
-ATP6V0C & missense & other & OMIM:620465  & 0.193 & -\\
-CLDN16 & missense: 1/1 or 0/1  & missense: 0/0 & OMIM:248250  & 0.333 & -\\
-CNTNAP2 & 1 & 2 & OMIM:610042  & $6.2 \times 10^{-06}$ & -\\
+ATP6V0C & missense & $\complement$ & OMIM:620465  & 0.193 & -\\
+CLDN16 & missense $1/1$ OR  $1/\complement$ &  $\complement/\complement$ &OMIM:248250  & 0.333 & -\\
 COL3A1 & missense & other &  OMIM:130050  & 0.317 & -\\
-FBXL4 &missense: 0/1 or 0/0 &missense: 1/1 & OMIM:615471  & 0.031 & -\\
-HMGCS2 & missense: 1/1 or 0/1&  missense: 0/0 &  OMIM:605911  & 0.038 & -\\
-MPV17 & missense: 1/1 or 0/1 &  missense: 0/0 &  OMIM:256810  & 0.002 & -\\
-SCO2 & Glu140Lys: 1/1  & Glu140Lys: 0/1 or 0/0 &  OMIM:604377  & 0.415 & -\\
-SETD2 & Missense & Other &  OMIM:616831  & $8.5 \times 10^{-05}$ & -\\
-SUOX & hdim: 1/1 or 0/1 & hdim: 0/0&  OMIM:272300  & 0.853 & -\\
-SUOX & missense: 1/1 or 0/1 &  missense: 0/0 &  OMIM:272300  & $9.2 \times 10^{-06}$ & -\\
+FBXL4 & missense:  $1/\complement$ OR  $\complement/\complement$ & 1/1 &  OMIM:615471  & 0.031 & -\\
+HMGCS2 & missense: 1/1 OR $1/\complement$ & $\complement/\complement$ & OMIM:605911  & 0.038 & -\\
+MPV17 & missense: 1/1 OR $1/\complement$  &$\complement/\complement$ & OMIM:256810  & 0.002 & -\\
+SCO2 & Glu140Lys: 1/1 & $\complement/\complement$ OR  $1/\complement$ &  OMIM:604377  & 0.415 & -\\
+SETD2 & Missense & $\complement$ & OMIM:616831  & $8.5 \times 10^{-05}$ & -\\
+SUOX & Missense 1/1 OR $1/\complement$ & $\complement/\complement$ &OMIM:272300  & $9.2 \times 10^{-06}$ & -\\
+SUOX & hdim: 1/1 OR $1/\complement$   & $\complement/\complement$  & OMIM:272300  & 0.853 & -\\
 \bottomrule
 \end{tabular}
-\caption{Log rank tests performed using GPSEA to assess association between a genotype and the age of
-    onset of a disease. 1/1: biallelic with reference to the indicate variant; 
-    0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
-    Citations in the xrefs column show previous publications that have presented similar findings. \textbf{hdim}: homodimerization;
-   \textbf{ OMIM:620465}: Epilepsy, early-onset, 3, with or without developmental delay; 
-   \textbf{OMIM:248250}: Hypomagnesemia 3, renal;
-   \textbf{OMIM:610042}: Pitt-Hopkins like syndrome 1;
-   \textbf{OMIM:130050}: Ehlers-Danlos syndrome, vascular type;
-   \textbf{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
-   \textbf{OMIM:605911}:  HMG-CoA synthase-2 deficiency;
-   \textbf{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
-   \textbf{OMIM:604377}: Mitochondrial complex IV deficiency, nuclear type 2;
-   \textbf{OMIM:616831}: Luscan-Lumish syndrome;
-  \textbf{OMIM:272300}: Sulfite oxidase deficiency.
-   }
+\caption{\textbf{Age of onset of disease}. Log rank tests performed using GPSEA to assess association between a genotype and the age of onset of a disease. 1/1, $1/\complement$, $\complement/\complement$: See table \ref{tab:fet} for definitions. Citations in the xrefs column show previous publications that have presented similar findings. \texttt{hdim}: homodimerization;
+   \texttt{ OMIM:620465}: Epilepsy, early-onset, 3, with or without developmental delay; 
+   \texttt{OMIM:248250}: Hypomagnesemia 3, renal;
+   \texttt{OMIM:610042}: Pitt-Hopkins like syndrome 1;
+   \texttt{OMIM:130050}: Ehlers-Danlos syndrome, vascular type;
+   \texttt{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
+   \texttt{OMIM:605911}:  HMG-CoA synthase-2 deficiency;
+   \texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
+   \texttt{OMIM:604377}: Mitochondrial complex IV deficiency, nuclear type 2;
+   \texttt{OMIM:616831}: Luscan-Lumish syndrome;
+  \texttt{OMIM:272300}: Sulfite oxidase deficiency.
+}
 \label{tab:disease_onset}
 \end{table}
 
@@ -217,23 +216,22 @@ SUOX & missense: 1/1 or 0/1 &  missense: 0/0 &  OMIM:272300  & $9.2 \times 10^{-
 
 \begin{table}
 \centering
-\begin{tabular}{lp{3.5cm}p{3.5cm}>{\raggedright}p{3cm}lr}
+\begin{tabular}{lp{3.5cm}p{3.5cm}>{\raggedright\arraybackslash}p{3cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Disease} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
-FBXL4 & missense: 0/1 or 0/0 & missense: 1/1 & OMIM:615471 & 0.080 & -\\
-MPV17 & Pro98Leu: 1/1 & Pro98Leu: 0/1 or 0/0 & OMIM:256810 & 0.010 & -\\
-NBAS & missense: 1/1 & missense: 0/1 or 0/0 & OMIM:614800 & 0.125 & -\\
+FBXL4 & missense: $1/\complement$ or $\complement/\complement$& missense: 1/1 & OMIM:615471 & 0.080 & -\\
+MPV17 & Pro98Leu: 1/1 & Pro98Leu: $1/\complement$ or $\complement/\complement$ & OMIM:256810 & 0.010 & -\\
+NBAS & missense: 1/1 & missense: $1/\complement$ or $\complement/\complement$ & OMIM:614800 & 0.125 & -\\
 \bottomrule
 \end{tabular}
-\caption{Log rank tests performed using GPSEA to assess association between a genotype and the age of
-    death of individuals with a disease. 1/1: biallelic with reference to the indicate variant; 
-    0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
+\caption{\textbf{Age of death}. Log rank tests performed using GPSEA to assess association between a genotype and the age of
+    death of individuals with a disease. 1/1, $1/\complement$, $\complement/\complement$: See table \ref{tab:fet} for definitions.
     Citations in the xrefs column show previous publications that have presented similar findings.
-    \textbf{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
-	\textbf{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
-	\textbf{OMIM:614800}: Short stature, optic nerve atrophy, and Pelger-Huet anomaly.
-    }
+\texttt{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
+\texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
+\texttt{OMIM:614800}: Short stature, optic nerve atrophy, and Pelger-Huet anomaly.
+}
 \label{tab:mortality}
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,25 +241,23 @@ NBAS & missense: 1/1 & missense: 0/1 or 0/0 & OMIM:614800 & 0.125 & -\\
 
 \begin{table}
 \centering
-\begin{tabular}{lp{3.5cm}p{3.5cm}>{\raggedright}p{3cm}lr}
+\begin{tabular}{l>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright}p{4cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Scorer} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
 ANKRD11 & SV & other & ANKRD11 phenotypical score(*) & $2.6 \times 10^{-04}$ & \cite{PMID_36446582}\\
 ANKRD11 & FEMALE & MALE & ANKRD11 phenotypical score(*) & 0.007 & -\\
-CHD8 & missense & other & DeVries score & $9.0 \times 10^{-04}$ & -\\
+CHD8 & missense & $\complement$ & DeVries score & $9.0 \times 10^{-04}$ & -\\
 CHD8 & FEMALE & MALE & DeVries score & 0.006 & -\\
-CTCF & missense & other & DeVries score & 0.009 & -\\
-LMNA & Upstream of NLS & other & Cardiac phenotype score(*) & $1.8 \times 10^{-16}$ & -\\
-LMNA & NLS Upstream & other & Cardiac phenotype score(*)& $1.8 \times 10^{-16}$ & -\\
-POGZ & Missense & Other &  Nagy et al. Phenotypic  score(*)  & 0.429 & \cite{PMID_35052493}\\
-POGZ & Missense & Other &  DeVries score & 0.429 & -\\
+CTCF & missense & $\complement$ & DeVries score & 0.009 & -\\
+LMNA & Upstream of NLS & $\complement$ & Cardiac phenotype score(*) & $1.8 \times 10^{-16}$ & -\\
+LMNA & NLS Upstream & $\complement$ & Cardiac phenotype score(*)& $1.8 \times 10^{-16}$ & -\\
+POGZ & Missense & $\complement$ &  Nagy et al. Phenotypic  score(*)  & 0.429 & \cite{PMID_35052493}\\
+POGZ & Missense & $\complement$ &  DeVries score & 0.429 & -\\
 RERE & LoF & Atrophin & Jordan et al.  phenotype score(*)  & $1.0 \times 10^{-03}$ & \cite{PMID_29330883}\\
 \bottomrule
 \end{tabular}
-\caption{Mann-Whitney U tests performed using GPSEA to assess association between a genotype and the age of
-    death of individuals with a disease. 1/1: biallelic with reference to the indicate variant; 
-    0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
+\caption{Phenotype severity scores. Mann-Whitney U tests performed using GPSEA to assess association between a genotype and total value of a phenotype severity score. $\complement$: See table \ref{tab:fet} for definitions.
     Citations in the xrefs column show previous publications that have presented similar findings. (*)= CountingPhenotypeScorer that assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants. See the notebooks for details. DeVries score: an adaption of the DeVries score \cite{PMID_34521999} using HPO.}
 \label{tab:to_do}
 \end{table}

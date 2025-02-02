@@ -3,16 +3,16 @@
 \centering
 \begin{tabular}{llll}
 \toprule
-\textbf{Test} & \textbf{Cohorts (n)} & \textbf{Tests (n)} & \textbf{Significant tests (n)}\\
+\textbf{Test} & \textbf{Cohorts} & \textbf{Tests} & \textbf{Significant tests}\\
 \midrule
-Test & Cohorts (n) & Tests (n) & Significant tests (n)\\
-Fisher & 81 & 4776 & 202\\t test & 7 & 3 & 3\\
+Fisher & 81 & 4776 & 202\\
+t test & 7 & 3 & 3\\
 HPO Onset & 4 & 6 & 3\\
 Disease onset & 4 & 10 & 5\\
 Mortality & 4 & 3 & 1\\
 Phenotype Scores & 4 & 9 & 7\\
 \bottomrule
 \end{tabular}
-\caption{Summary of tests performed according to type of test. Fisher: categorical analysis by Fisher exact test. t test: Test of means of continuous values by student t test.}
+\caption{\textbf{Summary of tests performed according to type of test}. \texttt{Fisher}: categorical analysis of association of genotypes with phenotypes by Fisher exact test. \texttt{t test}: Test of means of continuous values by student t test. \texttt{HPO Onset}: log rank test for association of genotypes with age of onset of a phenotypic abnormality represented by an HPO term. \texttt{Disease onset}: log rank test for association of genotypes with age of onset of a disease. \texttt{Mortality}: log rank test for association of genotypes with age of death. \texttt{Phenotype scores}. Mann Whitney U test for association of genotypes with magnitude of a phenotype severity score. The total number of tests performed and the number of significant tests is shown. Multiple testing correction was applied to the categorical tests (Benjamini-Hochberg method), because GPSEA tests multiple HPO terms at a time following the Independant Filtering procedure described in the manuscript. No multiple testing correction was applied to the remaining tests.}
 \label{tab:to_do}
 \end{table}
