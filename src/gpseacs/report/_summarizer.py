@@ -3,7 +3,7 @@ from collections import defaultdict
 import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-NOTEBOOK_SUMMARY_DIR = os.path.abspath(os.path.join(current_dir, "../../../supplement"))
+NOTEBOOK_SUMMARY_DIR = os.path.abspath(os.path.join(current_dir, "../../../supplement/scripts/v9_3"))
 COHORT_SUMMARY_FILE = os.path.join(NOTEBOOK_SUMMARY_DIR, "cohort_dashboard.txt")
 COHORT_SUMMARY_HEADER = ["cohort", 'individuals', 'females', 'males',"n_unknown_sex", 'total_hpo', 'total_measurements',
                           "hpo_version", "gpsea_version",  "n_total_individual_count", "n_alive", 
@@ -81,6 +81,9 @@ class NotebookDashboard:
         self._update_sig_fisher_test_summary(context)
 
     def _get_cohort_name_to_line_d(self, filename: str):
+        """
+        One line per cohort
+        """
         cohort_to_line_d = dict()
         with open(filename) as file:
             for line in file:
@@ -93,6 +96,9 @@ class NotebookDashboard:
         return cohort_to_line_d
     
     def _get_cohort_name_to_line_set_d(self, filename: str):
+        """
+        A set of lines per cohort (empty if no results)
+        """
         cohort_to_line_d = defaultdict(set)
         with open(filename) as file:
             for line in file:
@@ -119,7 +125,7 @@ class NotebookDashboard:
         with open(fname, "wt") as file:
             file.write(header_line + "\n")
             for k, v in sorted_dict.items():
-                for line in v:
+                for line in sorted(v):
                     file.write(line + "\n")
     
     
@@ -142,6 +148,7 @@ class NotebookDashboard:
         mono_result_list = context.get("mono_result_list")
         if len(mono_result_list) == 0:
             return
+        cohort_to_line_d[self._cohort_name] = set() # remove any old entries that may exist
         for mr in mono_result_list:
             a_genotype = self._get_or_panic(mr, "a_genotype")
             b_genotype = self._get_or_panic(mr, "b_genotype")
@@ -171,6 +178,7 @@ class NotebookDashboard:
             return
         cohort_to_line_d = self._get_cohort_name_to_line_set_d(FISHER_SUMMARY_FILE)
         cohort_name = self._get_or_panic(context, "cohort_name")
+        cohort_to_line_d[cohort_name] = set() # remove any old entries that may exist
         for fet in all_fet_results:
             total_hpo_testable =  self._get_or_panic(fet, "total_hpo_testable")
             total_hpo_tested =  self._get_or_panic(fet, "total_hpo_tested")
@@ -196,6 +204,7 @@ class NotebookDashboard:
             return
         cohort_to_line_d = self._get_cohort_name_to_line_set_d(SIG_FISHER_SUMMARY_FILE)
         cohort_name = self._get_or_panic(context, "cohort_name")
+        cohort_to_line_d[cohort_name] = set() # remove any old entries that may exist
         for fet in sig_fet_results:
             general_info = fet.get("general_info")
             a_genotype =  self._get_or_panic(general_info, "a_genotype")

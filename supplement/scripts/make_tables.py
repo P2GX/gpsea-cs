@@ -1,19 +1,15 @@
 from os.path import dirname, abspath, join
 from csv import DictReader
 from mylatextable import MyLongTable
+from util import format_p
 
-
-SUPPLEMENT_DIR = dirname(dirname(abspath(__file__)))
+THIS_DIR = dirname(abspath(__file__))
+SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
 SIG_FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
 MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
 
 
-def format_p(number) -> str: 
-    n = float(number)
-    if n > 0.001:
-        return number
-    else:
-        return f"${n:.1e}".replace('e', r' \times 10^{') + "}$"
+
 
 
 

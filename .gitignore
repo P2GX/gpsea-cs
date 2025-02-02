@@ -186,3 +186,7 @@ supplement/*.fdb_latexmk
 supplement/*.fls
 tex/*.aux
 test.*
+
+notebooks/ACADM/phenopackets/*.*
+supplement/scripts/*.aux
+supplement/tex/supplement/

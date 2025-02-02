@@ -3,8 +3,8 @@ from csv import DictReader
 import statistics
 from scipy.stats import mannwhitneyu
 
-
-SUPPLEMENT_DIR = dirname(dirname(abspath(__file__)))
+THIS_DIR = dirname(abspath(__file__))
+SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
 COHORT_DASHBOARD = join(SUPPLEMENT_DIR, "cohort_dashboard.txt")
 FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
 
@@ -26,6 +26,19 @@ def print_stats(title, numbers):
     stats = calculate_stats(numbers)
     print(f"{title} - mean {stats['mean']:.1f}, sd {stats['standard_deviation']:.1f}, median {stats['median']:.1f}, min {int(stats['min'])}, max {int(stats['max'])}  ")
 
+
+def print_mf_stats(male_counts, female_counts, unknown_sex_list):
+    n_male = sum(male_counts)
+    n_female = sum(female_counts)
+    n_unknown = sum(unknown_sex_list)
+    total = n_male + n_female + n_unknown
+    perc = 100.0 * (n_male + n_female)/total
+    perc_male = 100.0 *  n_male / (n_male + n_female)
+    perc_f = 100.0 *  n_female / (n_male + n_female)
+    print(f"Total: {total} with {perc:.1f}% having data on sex of participants. Of these, {perc_male:.1f}% were male and {perc_f:.1f}% female")
+
+
+
 def perform_mann_whitney_u(group1, group2, alternative='two-sided'):
     """
     Perform the Mann-Whitney U test to compare two groups.
@@ -38,37 +51,48 @@ def perform_mann_whitney_u(group1, group2, alternative='two-sided'):
 
 def get_cohort_counts():
     individual_counts = list()
+    total_individuals = 0
     male_counts = list()
     female_counts = list()
     unknown_sex_list = list()
     hpo_counts = list()
     cohorts_with_measurements = 0
     n_cohorts = 0
-
+    n_cohorts_with_at_least_one_sig = set()
+    n_sig_results = 0
+    not_gene_set = {"Kabuki", "Robinow", "LDS 1 and 2", "LDS 1 and 3", "LDS 3 and 6"}
+    genes = set()
     with open(COHORT_DASHBOARD) as file:
         reader = DictReader(file, delimiter="\t")
         for row in reader:
+            cohort = row["#cohort"]
+            n_cohorts += 1
             individuals = int(row["individuals"])
+            total_individuals += individuals
             males = int(row["males"])
             females = int(row["females"])
             unknown_s = int(row["n_unknown_sex"])
             total_hpo = int(row["total_hpo"])
-            has_hpo = int(row["total_measurements"]) > 0
+            if int(row["total_measurements"]) > 0:
+                cohorts_with_measurements += 1
             individual_counts.append(individuals)
             male_counts.append(males)
             female_counts.append(females)
             unknown_sex_list.append(unknown_s)
             hpo_counts.append(total_hpo)
-            n_cohorts += 1
-            if has_hpo:
-                cohorts_with_measurements += 1
-    print_stats("individuals", individual_counts)
+            if cohort not in not_gene_set:
+                genes.add(cohort)
+    print_stats("individuals per cohort", individual_counts)
     print_stats("males", male_counts)
     print_stats("females", female_counts)
     print_stats("unknown sex", unknown_sex_list)
+    print_mf_stats(male_counts, female_counts, unknown_sex_list)
     print_stats("HPO terms per cohort", hpo_counts)
     print(f"Cohorts: {n_cohorts}")
     print(f"Cohorts with measurements: {cohorts_with_measurements}")
+    print(f"total genes: {len(genes)}")
+    print(f"total_individuals:  {total_individuals}")
+
 
     
 def fisher_test_stats():
@@ -92,7 +116,7 @@ def fisher_test_stats():
             cohorts.add(cohort_name)
     print_stats("total_hpo_testable", testable_list)
     print_stats("total_hpo_tested", tested_list)
-    print_stats("nsig", nsig_list)
+    print(f"nsig {len(nsig_list)}")
     print(f"Total cohorts with at least one significant result: {len(significant_cohorts)}; total cohortts tested: {len(cohorts)}")
     
 
@@ -125,14 +149,32 @@ def compare_group_sizes():
     with_sig = list(with_sig.values())
     without_sig = list(without_sig.values())
 
-    print_stats("cohorts_with_sig_results", with_sig)
-    print_stats("cohorts_without_sig_results", without_sig)
+
     result = mannwhitneyu(with_sig, without_sig, alternative="greater")
     print(f"Mann Whitney U-test: U-statistic {result.statistic}; p-value: {result.pvalue:.7f} (One sided; null hyp: cohorts with no sig values are not smaller than those with sig values)")
 
-
-
+def get_unique_disease_counts():
+    """
+    Count the total number of diseases analyzed in this project.
+    Note that this is not the same as the number of genes because some of the tested genes are associated with more
+    than one Mendelian disease.
+    """
+    diseases = set()
+    with open(COHORT_DASHBOARD) as file:
+        reader = DictReader(file, delimiter="\t")
+        for row in reader:
+            n_diseases = int(row["n_diseases"])
+            disease_string = row["disease_string"]
+            disease_list = disease_string.split(";")
+            if len(disease_list) != n_diseases:
+                raise ValueError("Misparsed disease string" + disease_string)
+            for disease in disease_list:
+                diseases.add(disease.strip())
+    print(f"Total unique diseases tested {len(diseases)}")
+    #for d in diseases:
+    #    print(d)
 
 get_cohort_counts()
 fisher_test_stats()
 compare_group_sizes()
+get_unique_disease_counts()
