@@ -164,6 +164,8 @@ def get_hpo_table(hpo_terms):
     fh.write(table)
     fh.close()
     print(f"Wrote {HPO_FET_OUT}")
+
+
    
 
 hpo_terms, disease_terms, mf_comparisons = get_sig_fet_test_results()
@@ -174,3 +176,4 @@ cohort_to_sig = get_all_fet()
 get_mf_table(mf_rows=mf_comparisons)
 get_disease_table(disease_rows=disease_terms)
 get_hpo_table(hpo_terms=hpo_terms)
+get_fet_data()

@@ -12,8 +12,11 @@ SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
 MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
 MEASUREMENT_SUMMARY = join(THIS_DIR, "mono_test_summary.txt")
 T_TEST_OUTFILE = join(THIS_DIR, "t_test_table.tex")
-
-
+ONSETS_OUTFILE = join(THIS_DIR, "hpo_onsets.tex")
+DISEASE_ONSETS_OUTFILE =  join(THIS_DIR, "disease_onsets.tex")
+MORTALITY_OUTFILE =  join(THIS_DIR, "mortality_table.tex")
+PHENOTYPE_SCORES_TABLE = join(THIS_DIR, "phenoscore_table.tex")
+FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
 
 class TestType(Enum   ):
     T_TEST = 1
@@ -90,24 +93,49 @@ def get_stats(name, list_of_dicts) -> str:
             n_sig_tests += 1
         cohorts.add(cohort)
         terms.add(varname)
-    items = [name, str(len(cohort)), str(len(terms)), str(n_tests), str(n_sig_tests)]
+    items = [name, str(len(cohort)), str(n_tests), str(n_sig_tests)]
     return items
         
+def get_fet_data():
+    total = 0
+    total_sig = 0
+    cohort_set = set()
+    with open(FISHER_DASHBOARD) as file:
+        reader = DictReader(file, delimiter="\t")
+        for row in reader:
+            print(row)
+            cohort_name = row["#cohort_name"]
+            nsig = int(row["nsig"])
+            total_hpo_tested = int(row["total_hpo_tested"])
+            total += total_hpo_tested
+            total_sig += nsig
+            cohort_set.add(cohort_name)
+    return total, total_sig, len(cohort_set)
+    
 
 def print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores):
     rows = list()
-    header = ["Test", "Cohorts (n)", "Variables (n)", "Tests (n)", "Significant tests (n)"]
+    header = ["Test", "Cohorts (n)", "Tests (n)", "Significant tests (n)"]
     rows.append(header)
     rows.append(get_stats("t test", t_tests))
     rows.append(get_stats("HPO Onset", hpo_onsets))
     rows.append(get_stats("Disease onset", disease_onsets))
     rows.append(get_stats("Mortality", mortality))
     rows.append(get_stats("Phenotype Scores", phenotype_scores))
-    fh = open(MEASUREMENT_SUMMARY, "wt")
+    caption = "Monotest summary"
+    table = MyLatexTable(header_fields=header, 
+                         use_booktabs=True,  
+                         fontsize="scriptsize",
+                         caption=caption)
+    total, total_sig, n_cohorts = get_fet_data()
+    items = ["Fisher exact", str(n_cohorts), str(total), str(total_sig)]
+    table.add_row(items)
     for row in rows:
-        line = "\t".join(row)
-        fh.write(line + "\n")
+        table.add_row(row)
+    fh = open(MEASUREMENT_SUMMARY, "wt")
+    fh.write(table.get_latex())
     fh.close()
+    print(f"Wrote {MEASUREMENT_SUMMARY}")
 
 
 
@@ -137,6 +165,12 @@ def create_suppl_table(list_of_rows, header, header_format, caption):
         table.add_row(row)
     return table.get_latex()
 
+def write_out_table(fname, table):
+    fh = open(fname, "wt")
+    fh.write(table)
+    fh.close()
+    print(f"Wrote {fname}")
+
 
 def create_t_test_table(t_tests):
     header = ["cohort",  "genotype (A)",   "genotype (B)", "Outcome Variable", "p-val", "xrefs", ]
@@ -148,7 +182,7 @@ def create_t_test_table(t_tests):
                                header=header,
                                header_format=header_field_formats,
                                caption=caption)
-    print(table)
+    write_out_table(T_TEST_OUTFILE, table)
 
 
 def create_hpo_onsets_table(hpo_onsets):
@@ -162,7 +196,7 @@ def create_hpo_onsets_table(hpo_onsets):
                                header=header,
                                header_format=header_field_formats,
                                caption=caption)
-    print(table)
+    write_out_table(ONSETS_OUTFILE, table)
 
 
 def create_disease_onsets_table(disease_onsets):
@@ -176,8 +210,7 @@ def create_disease_onsets_table(disease_onsets):
                                header=header,
                                header_format=header_field_formats,
                                caption=caption)
-    print(table)
-
+    write_out_table(DISEASE_ONSETS_OUTFILE, table)
 
 def create_mortality_table(mortality):
     header = ["cohort",  "genotype (A)",   "genotype (B)", "Disease", "p-val", "xrefs", ]
@@ -190,28 +223,28 @@ def create_mortality_table(mortality):
                                header=header,
                                header_format=header_field_formats,
                                caption=caption)
-    print(table)
+    write_out_table(MORTALITY_OUTFILE, table)
 
 def create_phenotype_scores_table(phenotype_scores):
     header = ["cohort",  "genotype (A)",   "genotype (B)", "Scorer", "p-val", "xrefs", ]
     header_field_formats = "lp{3.5cm}p{3.5cm}>{\\raggedright}p{3cm}lr" # need to import array package for raggedright
-    caption = """Mann-Whitney U tests performed using GPSEA to assess association between a genotype and the age of
-    death of individuals with a disease. 1/1: biallelic with reference to the indicate variant; 
+    caption = """Mann-Whitney U tests performed using GPSEA to assess association between a genotype and a phenotype score.
+    1/1: biallelic with reference to the indicate variant; 
     0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
     Citations in the xrefs column show previous publications that have presented similar findings."""
     table = create_suppl_table(list_of_rows=phenotype_scores,
                                header=header,
                                header_format=header_field_formats,
                                caption=caption)
-    print(table)
+    write_out_table(PHENOTYPE_SCORES_TABLE, table)
 
 
 t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores = get_mono_test_results()
-#print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores)
-#create_t_test_table(t_tests=t_tests)
-#create_hpo_onsets_table(hpo_onsets=hpo_onsets)
-#create_disease_onsets_table(disease_onsets=disease_onsets)
-#create_mortality_table(mortality=mortality)
+print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores)
+create_t_test_table(t_tests=t_tests)
+create_hpo_onsets_table(hpo_onsets=hpo_onsets)
+create_disease_onsets_table(disease_onsets=disease_onsets)
+create_mortality_table(mortality=mortality)
 create_phenotype_scores_table(phenotype_scores=phenotype_scores)
 
 
