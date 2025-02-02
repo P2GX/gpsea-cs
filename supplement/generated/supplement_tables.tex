@@ -1,27 +1,3 @@
-\documentclass[12pt]{article}
-
-\usepackage{times}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{subcaption}  % For subfigures (panels A, B, C)% Adds support for breaklines
-\usepackage{float}
-\usepackage{amsmath, amssymb,amsfonts}
-
-\usepackage[font=small, justification=raggedright,labelfont=bf]{caption}
-\usepackage[margin=1in]{geometry} % Set all margins to 1 inch
-
-
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
-\captionsetup[figure]{labelfont={bf}, name={Figure}}
-
-
-
-
-\begin{document}
-\thispagestyle{empty}
 
 \begin{table}
 \centering
@@ -47,6 +23,7 @@ protein feature type & Variant affects protein feature type & DOMAIN \\
 protein feature & Variant affects protein feature & Located in Bipartite nuclear localization signal \\
 allof & Logical AND & missense AND exon 7 \\
 anyof & Logical OR & START\_LOST OR STOP\_GAINED \\
+not & Logical NOT & NOT(missense) \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{Variant predicates.} Version 9.4 of GPSEA offers the variant predicates shown in this table. Each predicate evaluates a variant and returns True or False.}
@@ -55,13 +32,13 @@ anyof & Logical OR & START\_LOST OR STOP\_GAINED \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
-\input{test_summary}
+\input{generated/test_summary}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{hpo_fet}
+\input{generated/hpo_fet}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
@@ -105,7 +82,7 @@ Robinow & Cleft palate [HP:0000175] & RRS1 & 0/17 (0\%) & DRS2 & 5/8 (62\%) & $1
  \texttt{OMIM:268310}: Robinow syndrome, autosomal recessive 1 (RRS1);
  \texttt{OMIM:616331}: Robinow syndrome, autosomal dominant 2 (DRS2).
 }
-\label{tab:to_do}
+\label{tab:disease_dx}
 \end{table}
 
 
@@ -266,4 +243,5 @@ RERE & LoF & Atrophin & Jordan et al.  phenotype score(*)  & $1.0 \times 10^{-03
 \clearpage
 \newpage
 
-\end{document}
+\input{generated/proportions}
+
