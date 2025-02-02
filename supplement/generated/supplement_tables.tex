@@ -1,9 +1,31 @@
+\documentclass[12pt]{article}
+
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{subcaption}  % For subfigures (panels A, B, C)% Adds support for breaklines
+\usepackage{float}
+
+\usepackage[font=small, justification=raggedright,labelfont=bf]{caption}
+\usepackage[margin=1in]{geometry} % Set all margins to 1 inch
+
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\captionsetup[figure]{labelfont={bf}, name={Figure}}
+
+
+
+
+\begin{document}
+\thispagestyle{empty}
 
 \begin{table}
 \centering
-\begin{scriptsize}
 \renewcommand{\arraystretch}{1.2} % Optional: Increase row spacing
-\begin{tabular}{l>{\raggedright\arraybackslash}p{5cm}>{\raggedright\arraybackslash}p{5cm}}
+\begin{tabular}{l>{\raggedright\arraybackslash}p{6cm}>{\raggedright\arraybackslash}p{6cm}}
 \toprule
 \textbf{Name} & \textbf{Match criterion} & \textbf{Example}\\
 \midrule
@@ -26,13 +48,17 @@ allof & Logical AND & missense AND exon 7 \\
 anyof & Logical OR & START\_LOST OR STOP\_GAINED \\
 \bottomrule
 \end{tabular}
-\end{scriptsize}
 \caption{\textbf{Variant predicates.} Version 9.4 of GPSEA offers the variant predicates shown in this table. Each predicate evaluates a variant and returns True or False.}
 \label{tab:varpredicates}
 \end{table}
-
-\input{scripts/hpo_fet}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{hpo_fet}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\newpage
 
 \begin{table}
 \centering
@@ -243,3 +269,5 @@ RERE & LoF & Atrophin & Jordan et al.  phenotype score(*)  & $1.0 \times 10^{-03
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
+
+\end{document}
