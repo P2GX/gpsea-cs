@@ -190,3 +190,7 @@ test.*
 notebooks/ACADM/phenopackets/*.*
 supplement/scripts/*.aux
 supplement/tex/supplement/
+
+
+supplement/scripts/*.tex
+supplement/scripts/top_level_counts.txt

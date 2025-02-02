@@ -38,3 +38,6 @@ table = get_sig_fisher_table()
 fh = open("significant_fisher_results.tex", "wt")
 fh.write(table)
 fh.close()
+
+
+
