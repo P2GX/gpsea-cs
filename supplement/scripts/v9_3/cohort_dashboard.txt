@@ -52,7 +52,7 @@ Robinow	48	10	14	24	103	0	2025-01-16	0.9.4	48	48	0	0	0	20	2	Robinow syndrome, au
 SAMD9L	31	15	16	0	41	0	2025-01-16	0.9.4	31	19	5	7	5	22	2	Spinocerebellar ataxia 49; Ataxia-pancytopenia syndrome
 SATB2	158	62	90	6	11	0	2025-01-16	0.9.4	158	0	0	158	0	89	1	Glass syndrome
 SCN2A	393	0	0	393	289	0	2025-01-16	0.9.4	393	0	0	393	0	277	2	Seizures, benign familial infantile, 3; Developmental and epileptic encephalopathy 11
-SCO2	37	10	23	4	107	0	2025-01-16	0.9.4	37	7	24	6	24	33	2	Mitochondrial complex IV deficiency, nuclear type 2; Myopia 6
+SCO2	37	10	23	4	107	0	2025-01-16	0.9.4	37	7	24	6	24	33	2	Myopia 6; Mitochondrial complex IV deficiency, nuclear type 2
 SEC61A1	19	8	11	0	76	0	2025-01-16	0.9.4	19	6	1	12	1	16	3	Immunodeficiency, common variable, 15; Tubulointerstitial kidney disease, autosomal dominant, 5; Neutropenia, severe congenital, 11, autosomal dominant
 SETD2	45	18	27	0	202	0	2025-01-16	0.9.4	45	44	1	0	1	30	3	Rabin-Pappas syndrome; Luscan-Lumish syndrome; Intellectual developmental disorder, autosomal dominant 70
 SF3B4	26	18	8	0	41	0	2025-01-16	0.9.4	26	0	0	26	0	0	1	Acrofacial dysostosis 1, Nager type

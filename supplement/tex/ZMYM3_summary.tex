@@ -7,29 +7,43 @@
 \captionsetup{justification=raggedright,singlelinecheck=false}
 \caption{Distribution of variants in ZMYM3}
 \end{subfigure}
-
-\vspace{2em}
-
-\begin{subfigure}[b]{0.95\textwidth}
-\centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{llllrr}
-\toprule
-Genotype (A) & Genotype (B) & total tests performed & significant results\\
-\midrule
-N term & other & 9 & 0\\
-R441 & other & 9 & 0\\
-\bottomrule
-\end{tabular}
-}
-\captionsetup{justification=raggedright,singlelinecheck=false}
-\caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes.}
-\end{subfigure}
-
-\vspace{2em}
-
-\caption{The cohort comprised 29 individuals (3 females, 26 males). A total of 41 HPO terms were used to annotate the cohort. 
-Disease diagnosis: Intellectual developmental disorder, X-linked 112 (OMIM:301111). 
- A total of 29 unique variant alleles were found in \textit{ZMYM3} (transcript: \texttt{NM\_201599.3}, 
- protein id: \texttt{NP\_963893.1}).}
-\end{figure}
+    \vspace{2em}
+    
+    \begin{subfigure}[b]{0.95\textwidth}
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{llllrr}
+    \toprule
+    HPO term & R441 & other & p-value & adj. p-value\\
+    \midrule
+    Hypospadias [HP:0000047] & 6/10 (60\%) & 2/22 (9\%) & 0.005 & 0.022\\
+    Cupped ear [HP:0000378] & 7/10 (70\%) & 1/23 (4\%) & $2.02\times 10^{-4}$ & 0.003\\
+    Bicuspid aortic valve [HP:0001647] & 4/10 (40\%) & 0/22 (0\%) & 0.006 & 0.022\\
+    Abnormal aortic valve cusp morphology [HP:0031567] & 4/8 (50\%) & 0/22 (0\%) & 0.003 & 0.019\\
+    \bottomrule
+    \end{tabular}
+    }
+    \captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to R441 and other. Total of 15 tests were performed. }
+    \end{subfigure}
+    \vspace{2em}
+    \begin{subfigure}[b]{0.95\textwidth}
+    \centering
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{llllrr}
+    \toprule
+    Genotype (A) & Genotype (B) & total tests performed & significant results\\
+    \midrule
+    N term & other & 10 & 0\\
+    \bottomrule
+    \end{tabular}
+    }
+    \captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes. }
+    \end{subfigure}
+    
+    \vspace{2em}
+    
+    \caption{ The cohort comprised 33 individuals (3 females, 30 males). 1 of these individuals were reported to be deceased. A total of 78 HPO terms were used to annotate the cohort. Disease diagnosis: Intellectual developmental disorder, X-linked 112 (OMIM:301111).  A total of 33 unique variant alleles were found in \textit{ZMYM3} (transcript: \texttt{NM\_201599.3}, protein id: \texttt{NP\_963893.1}). No analysis of ZMYM3 genotype phgenotype correlation was presented in the two studies on ZMYM3 variants study to be published to date \cite{PMID_24721225,PMID_36586412}.}
+    \end{figure}
+    
