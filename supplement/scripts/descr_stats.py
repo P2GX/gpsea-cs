@@ -3,8 +3,10 @@ from csv import DictReader
 import statistics
 from scipy.stats import mannwhitneyu
 
+from analysis import ANALYSIS_VERSION
+
 THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
+SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
 COHORT_DASHBOARD = join(SUPPLEMENT_DIR, "cohort_dashboard.txt")
 FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
 
@@ -116,7 +118,7 @@ def fisher_test_stats():
             cohorts.add(cohort_name)
     print_stats("total_hpo_testable", testable_list)
     print_stats("total_hpo_tested", tested_list)
-    print(f"nsig {len(nsig_list)}")
+    print(f"N significant GPCs: {len(nsig_list)}")
     print(f"Total cohorts with at least one significant result: {len(significant_cohorts)}; total cohortts tested: {len(cohorts)}")
     
 

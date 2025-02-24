@@ -1,15 +1,19 @@
 from os.path import dirname, abspath, join
 from csv import DictReader
 from mylatextable import MyLongTable
+from analysis import ANALYSIS_VERSION
 from util import format_p
 
+
 THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
+SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
 SIG_FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
 MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
 
 
-
+# ########## ########## ##########
+#           Make Table 1         #
+# ########## ########## ##########
 
 
 

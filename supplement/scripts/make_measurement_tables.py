@@ -2,13 +2,15 @@ from os.path import dirname, abspath, join
 from csv import DictReader
 from enum import Enum
 from mylatextable import MyLatexTable
+from analysis import ANALYSIS_VERSION
 from util import format_p
 
 # Create tables to summarize the total number of tests performed and their results
 # For each of the tests except FET
 
+
 THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
+SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
 MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
 MEASUREMENT_SUMMARY = join(THIS_DIR, "mono_test_summary.txt")
 T_TEST_OUTFILE = join(THIS_DIR, "t_test_table.tex")
