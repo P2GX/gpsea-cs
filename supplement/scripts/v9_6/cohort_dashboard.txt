@@ -5,36 +5,36 @@ ACBD6	45	22	23	0	79	0	2023-10-09	0.9.6	45	0	0	45	0	0	1	Neurodevelopmental disord
 AIRE	58	31	27	0	47	0	2025-01-16	0.9.6	58	56	2	0	2	57	1	Autoimmune polyendocrinopathy syndrome , type I, with or without reversible metaphyseal dysplasia
 ANKRD11	337	143	175	19	48	0	2025-01-16	0.9.6	337	0	0	337	0	0	1	KBG syndrome
 ASPM	22	14	8	0	17	0	2025-01-16	0.9.6	22	0	0	22	0	1	1	Microcephaly 5, primary, autosomal recessive
-ATP13A2	45	18	27	0	71	0	2025-01-16	0.9.6	45	0	0	45	0	45	2	Kufor-Rakeb syndrome; Spastic paraplegia 78, autosomal recessive
+ATP13A2	45	18	27	0	71	0	2025-01-16	0.9.6	45	0	0	45	0	45	2	Kufor-Rakeb syndrome;Spastic paraplegia 78, autosomal recessive
 ATP6V0C	31	12	19	0	83	0	2025-01-16	0.9.6	31	31	0	0	0	27	1	Epilepsy, early-onset, 3, with or without developmental delay
 BRD4	18	8	10	0	40	0	2025-01-16	0.9.6	18	0	0	18	0	16	1	Cornelia de Lange syndrome 6
 CHD8	79	26	53	0	81	0	2025-01-16	0.9.6	79	78	1	0	1	17	1	Intellectual developmental disorder with autism and macrocephaly
 CLDN16	51	21	29	1	53	0	2025-01-16	0.9.6	51	22	0	29	0	51	1	Hypomagnesemia 3, renal
 CNTNAP2	63	29	32	2	72	0	2025-01-16	0.9.6	63	45	2	16	2	50	1	Pitt-Hopkins like syndrome 1
-COL3A1	41	24	17	0	43	0	2025-01-16	0.9.6	41	0	0	41	0	38	2	Ehlers-Danlos syndrome, vascular type; Polymicrogyria with or without vascular-type EDS
-COQ4	51	30	21	0	91	0	2025-01-16	0.9.6	51	31	19	1	19	50	2	Spastic ataxia 10, autosomal recessive; Coenzyme Q10 deficiency, primary, 7
+COL3A1	41	24	17	0	43	0	2025-01-16	0.9.6	41	0	0	41	0	38	2	Ehlers-Danlos syndrome, vascular type;Polymicrogyria with or without vascular-type EDS
+COQ4	51	30	21	0	91	0	2025-01-16	0.9.6	51	31	19	1	19	50	2	Coenzyme Q10 deficiency, primary, 7;Spastic ataxia 10, autosomal recessive
 CTCF	46	18	28	0	110	0	2025-01-16	0.9.6	46	0	0	46	0	0	1	Intellectual developmental disorder, autosomal dominant 21
 CYP21A2	69	34	35	0	27	314	2025-01-16	0.9.6	69	0	0	69	0	69	1	Adrenal hyperplasia, congenital, due to 21-hydroxylase deficiency
 EHMT1	125	81	44	0	60	0	2025-01-16	0.9.6	125	0	0	125	0	0	1	Kleefstra syndrome 1
 EZH1	19	10	8	1	106	0	2025-01-16	0.9.6	19	0	0	19	0	0	1	EZH1-related neurodevelopmental disorder
-FBN1	144	57	55	32	109	0	2025-01-16	0.9.6	144	46	4	94	4	47	6	Marfan syndrome; Marfan lipodystrophy syndrome; Acromicric dysplasia; Ectopia lentis, familial; Stiff skin syndrome; Geleophysic dysplasia 2
+FBN1	144	57	55	32	109	0	2025-01-16	0.9.6	144	46	4	94	4	47	6	Acromicric dysplasia;Ectopia lentis, familial;Marfan syndrome;Stiff skin syndrome;Geleophysic dysplasia 2;Marfan lipodystrophy syndrome
 FBXL4	95	37	58	0	91	0	2025-01-16	0.9.6	95	65	26	4	26	88	1	Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type)
 FBXO11	56	21	35	0	128	0	2025-01-16	0.9.6	56	56	0	0	0	0	1	Intellectual developmental disorder with dysmorphic facies and behavioral abnormalities
 FGD1	48	0	48	0	73	0	2025-01-16	0.9.6	48	48	0	0	0	14	1	Aarskog-Scott syndrome
 FZD5	29	11	10	8	16	0	2025-01-16	0.9.6	29	29	0	0	0	29	1	Microphthalmia/coloboma 11
-GLI3	82	3	7	72	34	0	2025-01-16	0.9.6	82	0	0	82	0	80	3	Pallister-Hall syndrome; Greig cephalopolysyndactyly syndrome; Polydactyly, postaxial, types A1 and B
+GLI3	82	3	7	72	34	0	2025-01-16	0.9.6	82	0	0	82	0	80	3	Pallister-Hall syndrome;Polydactyly, postaxial, types A1 and B;Greig cephalopolysyndactyly syndrome
 HMGCS2	40	14	13	13	44	0	2025-01-16	0.9.6	40	23	1	16	1	40	1	HMG-CoA synthase-2 deficiency
 IKZF1	82	34	37	11	66	0	2025-01-16	0.9.6	82	77	5	0	5	80	1	Immunodeficiency, common variable, 13
-ITPR1	170	65	41	64	196	0	2025-01-16	0.9.6	170	113	1	56	1	144	3	Spinocerebellar ataxia 15; Spinocerebellar ataxia 29, congenital nonprogressive; Gillespie syndrome
+ITPR1	170	65	41	64	196	0	2025-01-16	0.9.6	170	113	1	56	1	144	3	Spinocerebellar ataxia 29, congenital nonprogressive;Gillespie syndrome;Spinocerebellar ataxia 15
 KCNH5	27	14	13	0	28	0	2025-01-16	0.9.6	27	0	0	27	0	27	1	Developmental and epileptic encephalopathy 112
 KDM6A	81	46	35	0	87	0	2025-01-16	0.9.6	81	1	0	80	0	55	1	Kabuki syndrome 2
 KDM6B	73	19	54	0	251	0	2025-01-16	0.9.6	73	0	0	73	0	0	1	Neurodevelopmental disorder with coarse facies and mild distal skeletal abnormalities
 KMT2D	65	35	30	0	151	0	2025-01-16	0.9.6	65	53	5	7	4	31	1	Kabuki Syndrome 1
-Kabuki	146	81	65	0	200	0	2025-01-16	0.9.6	146	54	5	87	4	86	2	Kabuki Syndrome 1; Kabuki syndrome 2
-LDS 1 and 2	94	30	46	18	110	0	2025-01-16	0.9.6	94	58	6	30	6	20	3	Loeys-Dietz syndrome 1; Loeys-Dietz syndrome 2; Multiple self-healing squamous epithelioma, susceptibility to
-LDS 1 and 3	90	29	43	18	89	0	2025-01-16	0.9.6	90	21	2	67	2	4	3	Loeys-Dietz syndrome 1; Multiple self-healing squamous epithelioma, susceptibility to; Loeys-Dietz syndrome 3
-LDS 3 and 6	72	35	35	2	98	0	2025-01-16	0.9.6	72	20	0	52	0	12	3	Loeys-Dietz syndrome 6; Congenital heart defects, multiple types, 8, with or without heterotaxy; Loeys-Dietz syndrome 3
-LMNA	266	150	99	17	152	0	2025-01-16	0.9.6	266	133	11	122	11	107	5	Lipodystrophy, familial partial, type 2; Emery-Dreifuss muscular dystrophy 2, autosomal dominant; Cardiomyopathy, dilated, 1A; LMNA-related congenital muscular dystrophy; Hutchinson-Gilford progeria
+Kabuki	146	81	65	0	200	0	2025-01-16	0.9.6	146	54	5	87	4	86	2	Kabuki Syndrome 1;Kabuki syndrome 2
+LDS 1 and 2	94	30	46	18	110	0	2025-01-16	0.9.6	94	58	6	30	6	20	3	Multiple self-healing squamous epithelioma, susceptibility to;Loeys-Dietz syndrome 1;Loeys-Dietz syndrome 2
+LDS 1 and 3	90	29	43	18	89	0	2025-01-16	0.9.6	90	21	2	67	2	4	3	Multiple self-healing squamous epithelioma, susceptibility to;Loeys-Dietz syndrome 1;Loeys-Dietz syndrome 3
+LDS 3 and 6	72	35	35	2	98	0	2025-01-16	0.9.6	72	20	0	52	0	12	3	Loeys-Dietz syndrome 3;Loeys-Dietz syndrome 6;Congenital heart defects, multiple types, 8, with or without heterotaxy
+LMNA	266	150	99	17	152	0	2025-01-16	0.9.6	266	133	11	122	11	107	5	Cardiomyopathy, dilated, 1A;Lipodystrophy, familial partial, type 2;Hutchinson-Gilford progeria;Emery-Dreifuss muscular dystrophy 2, autosomal dominant;LMNA-related congenital muscular dystrophy
 LZTR1	38	18	20	0	96	0	2025-01-16	0.9.6	38	35	3	0	2	25	1	Noonan syndrome 2
 MAPK8IP3	20	9	11	0	93	0	2025-01-16	0.9.6	20	20	0	0	0	6	1	Neurodevelopmental disorder with or without variable brain abnormalities
 MPV17	60	30	30	0	156	0	2025-01-16	0.9.6	60	21	39	0	39	60	1	Mitochondrial DNA depletion syndrome 6 (hepatocerebral type)
@@ -42,31 +42,31 @@ NBAS	67	19	21	27	134	0	2025-01-16	0.9.6	67	54	9	4	9	39	1	Short stature, optic ne
 NF1	419	192	169	58	36	0	2025-01-16	0.9.6	419	7	0	412	0	0	1	Neurofibromatosis, type 1
 NIPBL	60	21	31	8	90	0	2025-01-16	0.9.6	60	52	0	8	0	8	1	Cornelia de Lange syndrome 1
 NKX6-2	33	15	18	0	39	0	2025-01-16	0.9.6	33	0	0	33	0	33	1	Spastic ataxia 8, autosomal recessive, with hypomyelinating leukodystrophy
-PIGA	27	0	27	0	188	0	2025-01-16	0.9.6	27	0	0	27	0	19	2	Neurodevelopmental disorder with epilepsy and hemochromatosis; Multiple congenital anomalies-hypotonia-seizures syndrome 2
+PIGA	27	0	27	0	188	0	2025-01-16	0.9.6	27	0	0	27	0	19	2	Multiple congenital anomalies-hypotonia-seizures syndrome 2;Neurodevelopmental disorder with epilepsy and hemochromatosis
 POGZ	117	54	62	1	94	0	2025-01-16	0.9.6	117	109	0	8	0	13	1	White-Sutton syndrome
 PPP2R1A	60	24	32	4	52	0	2025-01-16	0.9.6	60	0	0	60	0	0	1	Houge-Janssen syndrome 2
-PTPN11	70	27	33	10	69	0	2025-01-16	0.9.6	70	0	0	70	0	35	3	Noonan syndrome 1; LEOPARD syndrome 1; Metachondromatosis
+PTPN11	70	27	33	10	69	0	2025-01-16	0.9.6	70	0	0	70	0	35	3	LEOPARD syndrome 1;Metachondromatosis;Noonan syndrome 1
 RERE	22	9	13	0	115	0	2025-01-16	0.9.6	22	22	0	0	0	20	1	Neurodevelopmental disorder with or without anomalies of the brain, eye, or heart
 RNU4-2	61	28	33	0	209	0	2025-01-16	0.9.6	61	61	0	0	0	1	1	ReNU syndrome
 ROR2	32	3	7	22	81	0	2025-01-16	0.9.6	32	32	0	0	0	10	1	Robinow syndrome, autosomal recessive
-RPGRIP1	100	45	49	6	45	0	2025-01-16	0.9.6	100	100	0	0	0	95	2	Cone-rod dystrophy 13; Leber congenital amaurosis 6
-Robinow	48	10	14	24	103	0	2025-01-16	0.9.6	48	48	0	0	0	20	2	Robinow syndrome, autosomal recessive; Robinow syndrome, autosomal dominant 2
-SAMD9L	31	15	16	0	41	0	2025-01-16	0.9.6	31	19	5	7	5	22	2	Ataxia-pancytopenia syndrome; Spinocerebellar ataxia 49
+RPGRIP1	100	45	49	6	45	0	2025-01-16	0.9.6	100	100	0	0	0	95	2	Cone-rod dystrophy 13;Leber congenital amaurosis 6
+Robinow	48	10	14	24	103	0	2025-01-16	0.9.6	48	48	0	0	0	20	2	Robinow syndrome, autosomal recessive;Robinow syndrome, autosomal dominant 2
+SAMD9L	31	15	16	0	41	0	2025-01-16	0.9.6	31	19	5	7	5	22	2	Ataxia-pancytopenia syndrome;Spinocerebellar ataxia 49
 SATB2	158	62	90	6	11	0	2025-01-16	0.9.6	158	0	0	158	0	89	1	Glass syndrome
-SCN2A	393	0	0	393	289	0	2025-01-16	0.9.6	393	0	0	393	0	277	2	Seizures, benign familial infantile, 3; Developmental and epileptic encephalopathy 11
-SCO2	37	10	23	4	107	0	2025-01-16	0.9.6	37	7	24	6	24	33	2	Mitochondrial complex IV deficiency, nuclear type 2; Myopia 6
-SEC61A1	19	8	11	0	76	0	2025-01-16	0.9.6	19	6	1	12	1	16	3	Immunodeficiency, common variable, 15; Tubulointerstitial kidney disease, autosomal dominant, 5; Neutropenia, severe congenital, 11, autosomal dominant
-SETD2	45	18	27	0	202	0	2025-01-16	0.9.6	45	44	1	0	1	30	3	Rabin-Pappas syndrome; Luscan-Lumish syndrome; Intellectual developmental disorder, autosomal dominant 70
+SCN2A	393	0	0	393	289	0	2025-01-16	0.9.6	393	0	0	393	0	277	2	Seizures, benign familial infantile, 3;Developmental and epileptic encephalopathy 11
+SCO2	37	10	23	4	107	0	2025-01-16	0.9.6	37	7	24	6	24	33	2	Mitochondrial complex IV deficiency, nuclear type 2;Myopia 6
+SEC61A1	19	8	11	0	76	0	2025-01-16	0.9.6	19	6	1	12	1	16	3	Tubulointerstitial kidney disease, autosomal dominant, 5;Immunodeficiency, common variable, 15;Neutropenia, severe congenital, 11, autosomal dominant
+SETD2	45	18	27	0	202	0	2025-01-16	0.9.6	45	44	1	0	1	30	3	Luscan-Lumish syndrome;Rabin-Pappas syndrome;Intellectual developmental disorder, autosomal dominant 70
 SF3B4	26	18	8	0	41	0	2025-01-16	0.9.6	26	0	0	26	0	0	1	Acrofacial dysostosis 1, Nager type
-SLC32A1	38	19	19	0	44	0	2025-01-16	0.9.6	38	0	0	38	0	27	2	Developmental and epileptic encephalopathy 114; Generalized epilepsy with febrile seizures plus, type 12
+SLC32A1	38	19	19	0	44	0	2025-01-16	0.9.6	38	0	0	38	0	27	2	Generalized epilepsy with febrile seizures plus, type 12;Developmental and epileptic encephalopathy 114
 SLC45A2	30	17	13	0	16	0	2025-01-16	0.9.6	30	0	0	30	0	0	1	Albinism, oculocutaneous, type IV
-SLC4A1	33	16	16	1	49	0	2025-01-16	0.9.6	33	0	0	33	0	8	4	Spherocytosis, type 4; Distal renal tubular acidosis 4 with hemolytic anemia; Distal renal tubular acidosis 1; Cryohydrocytosis
-SMAD2	23	13	8	2	89	0	2025-01-16	0.9.6	23	20	0	3	0	12	2	Loeys-Dietz syndrome 6; Congenital heart defects, multiple types, 8, with or without heterotaxy
+SLC4A1	33	16	16	1	49	0	2025-01-16	0.9.6	33	0	0	33	0	8	4	Distal renal tubular acidosis 1;Cryohydrocytosis;Distal renal tubular acidosis 4 with hemolytic anemia;Spherocytosis, type 4
+SMAD2	23	13	8	2	89	0	2025-01-16	0.9.6	23	20	0	3	0	12	2	Loeys-Dietz syndrome 6;Congenital heart defects, multiple types, 8, with or without heterotaxy
 SMAD3	49	22	27	0	30	0	2025-01-16	0.9.6	49	0	0	49	0	0	1	Loeys-Dietz syndrome 3
-SMARCB1	32	12	8	12	110	0	2025-01-16	0.9.6	32	23	9	0	9	21	2	Rhabdoid tumor predisposition syndrome 1; Coffin-Siris syndrome 3
+SMARCB1	32	12	8	12	110	0	2025-01-16	0.9.6	32	23	9	0	9	21	2	Rhabdoid tumor predisposition syndrome 1;Coffin-Siris syndrome 3
 SMARCC2	65	24	37	4	118	0	2025-01-16	0.9.6	65	0	0	65	0	0	1	Coffin-Siris syndrome 8
 SON	52	26	26	0	47	0	2025-01-16	0.9.6	52	0	0	52	0	0	1	ZTTK SYNDROME
-SPTAN1	85	40	45	0	96	0	2025-01-16	0.9.6	85	82	3	0	3	78	4	Developmental and epileptic encephalopathy 5; Spastic paraplegia 91, autosomal dominant, with or without cerebellar ataxia; Neuronopathy, distal hereditary motor, autosomal dominant 11; Developmental delay with or without epilepsy
+SPTAN1	85	40	45	0	96	0	2025-01-16	0.9.6	85	82	3	0	3	78	4	Developmental and epileptic encephalopathy 5;Neuronopathy, distal hereditary motor, autosomal dominant 11;Spastic paraplegia 91, autosomal dominant, with or without cerebellar ataxia;Developmental delay with or without epilepsy
 STXBP1	462	206	220	36	516	0	2025-01-16	0.9.6	462	0	0	462	0	253	1	Developmental and epileptic encephalopathy 4
 SUOX	35	11	14	10	20	0	2025-01-16	0.9.6	35	15	8	12	8	25	1	Sulfite oxidase deficiency
 TBCK	41	17	24	0	97	0	2025-01-16	0.9.6	41	38	3	0	3	23	1	Hypotonia, infantile, with psychomotor retardation and characteristic facies 3
@@ -74,13 +74,13 @@ TBX1	26	10	15	1	25	0	2025-01-16	0.9.6	26	0	0	26	0	1	1	DiGeorge syndrome
 TBX5	156	56	46	54	90	0	2025-01-16	0.9.6	156	0	0	156	0	52	1	Holt-Oram syndrome
 TGFB2	36	10	26	0	68	0	2024-08-13	0.9.6	36	35	1	0	1	1	1	Loeys-Dietz syndrome 4
 TGFB3	75	34	41	0	73	0	2025-01-16	0.9.6	75	67	7	1	7	0	1	Loeys-Dietz syndrome 5
-TGFBR1	41	7	16	18	78	0	2025-01-16	0.9.6	41	21	2	18	2	4	2	Loeys-Dietz syndrome 1; Multiple self-healing squamous epithelioma, susceptibility to
+TGFBR1	41	7	16	18	78	0	2025-01-16	0.9.6	41	21	2	18	2	4	2	Multiple self-healing squamous epithelioma, susceptibility to;Loeys-Dietz syndrome 1
 TGFBR2	53	23	30	0	96	0	2025-01-16	0.9.6	53	37	4	12	4	16	1	Loeys-Dietz syndrome 2
 TRAF7	45	17	28	0	360	0	2025-01-16	0.9.6	45	0	0	45	0	0	1	Cardiac, facial, and digital anomalies with developmental delay
 U2AF2	48	28	20	0	178	0	2025-01-16	0.9.6	48	46	2	0	2	26	1	Developmental delay, dysmorphic facies, and brain anomalies
-UMOD	207	80	88	39	30	0	2025-01-16	0.9.6	207	0	0	207	0	104	3	Tubulointerstitial kidney disease, autosomal dominant, 1; Tubulointerstitial kidney disease, autosomal dominant, 3; Tubulointerstitial kidney disease, autosomal dominant, 2
-WWOX	38	25	13	0	72	0	2025-01-16	0.9.6	38	9	11	18	11	36	2	Spinocerebellar ataxia, autosomal recessive 12; Developmental and epileptic encephalopathy 28
+UMOD	207	80	88	39	30	0	2025-01-16	0.9.6	207	0	0	207	0	104	3	Tubulointerstitial kidney disease, autosomal dominant, 1;Tubulointerstitial kidney disease, autosomal dominant, 2;Tubulointerstitial kidney disease, autosomal dominant, 3
+WWOX	38	25	13	0	72	0	2025-01-16	0.9.6	38	9	11	18	11	36	2	Spinocerebellar ataxia, autosomal recessive 12;Developmental and epileptic encephalopathy 28
 ZFX	19	4	14	1	203	0	2024-08-13	0.9.6	19	19	0	0	0	9	1	Intellectual developmental disorder, X-linked syndromic 37
 ZMYM3	33	3	30	0	78	0	2025-01-16	0.9.6	33	32	1	0	0	26	1	Intellectual developmental disorder, X-linked 112
 ZNF462	39	11	25	3	32	0	2025-01-16	0.9.6	39	0	0	39	0	0	1	Weiss-Kruszka syndrome
-ZSWIM6	16	8	8	0	85	0	2023-10-09	0.9.6	16	0	0	16	0	16	2	Neurodevelopmental disorder with movement abnormalities, abnormal gait, and autistic features; Acromelic frontonasal dysostosis
+ZSWIM6	16	8	8	0	85	0	2023-10-09	0.9.6	16	0	0	16	0	16	2	Acromelic frontonasal dysostosis;Neurodevelopmental disorder with movement abnormalities, abnormal gait, and autistic features
