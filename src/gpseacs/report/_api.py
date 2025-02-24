@@ -143,7 +143,14 @@ class GpseaAnalysisReport:
         self._gene_caption = gene_caption
         self._latex_gene_caption = latex_gene_caption
         self._n_variants = len(set(cohort.all_variants()))
+        
+        # Ensure deterministic order by sorting diseases by their IDs.
         self._disease_id_to_name = {d.identifier.value: d.name for d in cohort.all_diseases()}
+        disease_ids = tuple(self._disease_id_to_name.keys())
+        indices = np.argsort(disease_ids)
+        self._disease_string = ";".join(self._disease_id_to_name[disease_ids[i]] for i in indices)
+        self._disease_id_string = ";".join(disease_ids[i] for i in indices)
+
         self._n_female = cohort.count_females()
         self._n_male = cohort.count_males()
         self._n_unknown = cohort.count_unknown_sex()
@@ -157,10 +164,6 @@ class GpseaAnalysisReport:
         self._n_unknown_vital = cohort.count_unknown_vital_status()
         self._n_measurements = len(cohort.list_measurements())
         self._n_diseases = cohort.count_distinct_diseases()
-        self._disease_string = "; ".join(self._disease_id_to_name.values())
-        self._disease_id_string = "; ".join(self._disease_id_to_name.keys())
-
-
 
     @property
     def name(self) -> str:
