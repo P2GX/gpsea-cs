@@ -9,6 +9,7 @@ THIS_DIR = dirname(abspath(__file__))
 SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
 COHORT_DASHBOARD = join(SUPPLEMENT_DIR, "cohort_dashboard.txt")
 FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
+MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
 
 
 def calculate_stats(numbers):
@@ -16,6 +17,7 @@ def calculate_stats(numbers):
         raise ValueError("The input list must not be empty.")
     
     stats = {
+        "total" : sum(numbers),
         "mean": statistics.mean(numbers),
         "median": statistics.median(numbers),
         "min": min(numbers),
@@ -26,7 +28,7 @@ def calculate_stats(numbers):
 
 def print_stats(title, numbers):
     stats = calculate_stats(numbers)
-    print(f"{title} - mean {stats['mean']:.1f}, sd {stats['standard_deviation']:.1f}, median {stats['median']:.1f}, min {int(stats['min'])}, max {int(stats['max'])}  ")
+    print(f"{title} - total {stats['total']}, mean {stats['mean']:.1f}, sd {stats['standard_deviation']:.1f}, median {stats['median']:.1f}, min {int(stats['min'])}, max {int(stats['max'])}  ")
 
 
 def print_mf_stats(male_counts, female_counts, unknown_sex_list):
@@ -118,9 +120,22 @@ def fisher_test_stats():
             cohorts.add(cohort_name)
     print_stats("total_hpo_testable", testable_list)
     print_stats("total_hpo_tested", tested_list)
-    print(f"N significant GPCs: {len(nsig_list)}")
-    print(f"Total cohorts with at least one significant result: {len(significant_cohorts)}; total cohortts tested: {len(cohorts)}")
+    print(f"N significant GPCs (Fisher only): {len(nsig_list)}")
+    print(f"Total cohorts with at least one significant result: {len(significant_cohorts)}; total cohorts tested (Fisher only): {len(cohorts)} (+2, since ACADM and CYP21A2 just have t test)")
     
+
+def measurement_test_stats():
+    from collections import defaultdict
+    n_sig_measurement = 0
+    sig_by_test_d = defaultdict(int)
+    with open(MEASUREMENT_DASHBOARD) as file:
+        reader = DictReader(file, delimiter="\t")
+        for row in reader:
+            # print(row)
+            pval = float(row["pval"])
+            if pval <= 0.05:
+                n_sig_measurement += 1
+    print(f"Significant measurement results: {n_sig_measurement}")
 
 def compare_group_sizes():
     """
@@ -178,5 +193,6 @@ def get_unique_disease_counts():
 
 get_cohort_counts()
 fisher_test_stats()
+measurement_test_stats()
 compare_group_sizes()
 get_unique_disease_counts()
