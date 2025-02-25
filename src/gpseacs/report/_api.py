@@ -138,11 +138,10 @@ class GpseaAnalysisReport:
         else:
             self._mono_results = None
         self._caption = generate_cohort_summary(cohort=cohort, caption=caption)
-        n_variants = len(set(cohort.all_variants()))
-        gene_caption, latex_gene_caption = generate_gene_summary(n_variants=n_variants, gene_symbol=gene_symbol, mane_tx_id=mane_tx_id, mane_protein_id=mane_protein_id)
+        self._n_variants = len(set(v.variant_info for v in cohort.all_variants()))
+        gene_caption, latex_gene_caption = generate_gene_summary(n_variants=self._n_variants, gene_symbol=gene_symbol, mane_tx_id=mane_tx_id, mane_protein_id=mane_protein_id)
         self._gene_caption = gene_caption
         self._latex_gene_caption = latex_gene_caption
-        self._n_variants = len(set(cohort.all_variants()))
         
         # Ensure deterministic order by sorting diseases by their IDs.
         self._disease_id_to_name = {d.identifier.value: d.name for d in cohort.all_diseases()}
