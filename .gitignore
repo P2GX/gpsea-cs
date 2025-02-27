@@ -194,3 +194,5 @@ supplement/tex/supplement/
 
 supplement/scripts/*.tex
 supplement/scripts/top_level_counts.txt
+
+dev/

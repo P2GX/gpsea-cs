@@ -2,8 +2,10 @@ import typing
 from collections import defaultdict
 import os
 
+VERSION = "v9_6"
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
-NOTEBOOK_SUMMARY_DIR = os.path.abspath(os.path.join(current_dir, "../../../supplement/scripts/v9_3"))
+NOTEBOOK_SUMMARY_DIR = os.path.abspath(os.path.join(current_dir, "../../../supplement/scripts", VERSION))
 COHORT_SUMMARY_FILE = os.path.join(NOTEBOOK_SUMMARY_DIR, "cohort_dashboard.txt")
 COHORT_SUMMARY_HEADER = ["cohort", 'individuals', 'females', 'males',"n_unknown_sex", 'total_hpo', 'total_measurements',
                           "hpo_version", "gpsea_version",  "n_total_individual_count", "n_alive", 

@@ -20,8 +20,8 @@ with open(DISTRIBUTION_FILE) as f:
         hpo = row["HPO"]
         ident = row["ID"]
         count = str(row["Count"])
-        o = row["Observed"]
-        e = row["Expected"]
+        o = row["Observed"].replace("%","\\%")
+        e = row["Expected"].replace("%","\\%")
         items = [hpo, ident, count, o, e]
         table.add_row(items)
 fh = open(PROPORTIONS_FILE, "wt")

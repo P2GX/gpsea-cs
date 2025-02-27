@@ -61,6 +61,7 @@ FEMALE & MALE & 5 & 0\\
 \captionsetup{justification=raggedright,singlelinecheck=false}
 \caption{Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes. }
 \end{subfigure}
+\vspace{2em}
 
 \begin{subfigure}[b]{0.95\textwidth}
 \captionsetup{justification=raggedright,singlelinecheck=false}
@@ -69,9 +70,38 @@ FEMALE & MALE & 5 & 0\\
 \toprule
 Description & Variable & Genotype (A) & Genotype (B) & p-value & xrefs\\
 \midrule
-Stage 5 chronic kidney disease & Onset of HP:0003774 & Cys248Trp & Gln316Pro & $4.10\times 10^{-4}$ & \cite{PMID_23723338}\\
-Stage 5 chronic kidney disease & Onset of HP:0003774 & 278\_289delins & other & 0.835 & -\\
-Stage 5 chronic kidney disease & Onset of HP:0003774 & EGF & other & 0.284 & -\\
+Survival analysis: Stage 5 chronic kidney disease & Onset of HP:0003774 & EGF & other & 0.284 & -\\
+\bottomrule
+\end{tabular}
+}
+\caption{ Onset of Stage 5 chronic kidney disease to compare EGF and other with respect to Onset of HP:0003774. }
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}[b]{0.95\textwidth}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Description & Variable & Genotype (A) & Genotype (B) & p-value & xrefs\\
+\midrule
+Survival analysis: Stage 5 chronic kidney disease & Onset of HP:0003774 & 278_289delins & other & 0.835 & -\\
+\bottomrule
+\end{tabular}
+}
+\caption{ Onset of Stage 5 chronic kidney disease to compare 278_289delins and other with respect to Onset of HP:0003774. }
+\end{subfigure}
+
+\vspace{2em}
+\begin{subfigure}[b]{0.95\textwidth}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Description & Variable & Genotype (A) & Genotype (B) & p-value & xrefs\\
+\midrule
+Survival analysis: Stage 5 chronic kidney disease & Onset of HP:0003774 & Cys248Trp & Gln316Pro & $4.10\times 10^{-4}$ & -\\
 \bottomrule
 \end{tabular}
 }
@@ -87,5 +117,5 @@ One study on UMOD variants showed that median ages at ESRD development were lowe
 and highest with Gln316Pro \cite{PMID_23723338}, which is compatible with our finding here. Another showed that
 indel mutation p.Val93\_Gly97delinsAlaAlaSerCys is associated with a relatively mild clinical UAKD phenotype \cite{PMID_22034507}. We did
 not observe a significant association between this variant and age of onset with our dataset. 
-A total of 207 unique variant alleles were found in \textit{UMOD} (transcript: \texttt{NM\_003361.4}, protein id: \texttt{NP\_003352.2}).}
+A total of 53 unique variant alleles were found in \textit{UMOD} (transcript: \texttt{NM\_003361.4}, protein id: \texttt{NP\_003352.2}).}
 \end{figure}
