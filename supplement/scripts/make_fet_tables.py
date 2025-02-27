@@ -5,11 +5,13 @@ from collections import defaultdict
 from mylatextable import MyLongTable, MyLatexTable
 
 from util import format_p
+from make_measurement_tables import get_fet_data
+from analysis import ANALYSIS_VERSION
 # Create tables to summarize the total number of tests performed and their results
 # We will use this for Table 1.
 
 THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, "v9_3")
+SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
 SIG_FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
 SIG_FISHER_SUMMARY = join(THIS_DIR, "sig_fet_test_summary.txt")
 FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
