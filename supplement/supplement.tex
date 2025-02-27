@@ -2,15 +2,19 @@
 
 \usepackage{times}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
 \usepackage{booktabs}
 \usepackage{subcaption}  % For subfigures (panels A, B, C)% Adds support for breaklines
 \usepackage{float}
+\usepackage{amsmath, amsfonts, amssymb}
 
 \usepackage[font=small, justification=raggedright,labelfont=bf]{caption}
 \usepackage[margin=1in]{geometry} % Set all margins to 1 inch
 
 
 \renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
 \captionsetup[figure]{labelfont={bf}, name={Figure}}
 
 
@@ -18,6 +22,8 @@
 
 \begin{document}
 \thispagestyle{empty}
+
+\include{generated/supplement_tables}
 
 
 \include{tex/ABCB7_summary}
@@ -36,40 +42,61 @@
 \include{tex/COL3A1_summary}
 \include{tex/CTCF_summary}
 \include{tex/CYP21A2_summary}
-\include{tex/EZH1_summary.tex}
+\include{tex/EHMT1_summary}
+\include{tex/EZH1_summary}
+\include{tex/FBN1_summary}
 \include{tex/FBXL4_summary}
 \include{tex/FBXO11_summary}
+\include{tex/FGD1_summary}
 \include{tex/FZD5_summary}
+\include{tex/GLI3_summary}
+\include{tex/HMGCS2_summary}
+\include{tex/IKZF1_summary}
 \include{tex/ITPR1_summary}
+\include{tex/Kabuki_summary}    
 \include{tex/KCNH5_summary}
-%% REDO FGD1 with more data
-%%\include{tex/FGD1_summary}
+\include{tex/KDM6A_summary.tex}    
+\include{tex/KDM6B_summary}
+\include{tex/KMT2D_summary}  
+\include{tex/LDS_1_and_2_summary}
+\include{tex/LDS_1_and_3_summary}
+\include{tex/LDS_3_and_6_summary}
+\include{tex/LMNA_summary}    
 \include{tex/LZTR1_summary}
 \include{tex/MAPK8IP3_summary}
 \include{tex/MPV17_summary}
+\include{tex/NBAS_summary}
+\include{tex/NF1_summary}  
 \include{tex/NIPBL_summary}
 \include{tex/NKX6-2_summary.tex}
 \include{tex/PIGA_summary.tex}
+\include{tex/POGZ_summary} 
 \include{tex/PPP2R1A_summary}
 \include{tex/PTPN11_summary}
 \include{tex/RERE_summary}
 \include{tex/RNU4-2_summary}
 \include{tex/Robinow_summary}
 \include{tex/ROR2_summary}
+\include{tex/RPGRIP1_summary} 
 \include{tex/SAMD9L_summary}
+\include{tex/SCN2A_summary}
 \include{tex/SCO2_summary}
 \include{tex/SEC61A1_summary}
 \include{tex/SETD2_summary}
 \include{tex/SF3B4_summary}
 \include{tex/SLC4A1_summary}
+\include{tex/SLC32A1_summary}    
 \include{tex/SLC45A2_summary}
-
 \include{tex/SMAD2_summary}
 \include{tex/SMAD3_summary}
 \include{tex/SMARCB1_summary}
 \include{tex/SMARCC2_summary}
 \include{tex/SON_summary}
+\include{tex/SPTAN1_summary}
+\include{tex/STXBP1_summary}
+\include{tex/SUOX_summary}
 \include{tex/TBCK_summary}
+\include{tex/TBX1_summary}
 \include{tex/TBX5_summary}
 \include{tex/TGFB2_summary}
 \include{tex/TGFB3_summary}
@@ -77,15 +104,18 @@
 \include{tex/TGFBR2_summary}
 \include{tex/TRAF7_summary}
 \include{tex/U2AF2_summary}
+\include{tex/UMOD_summary}  
+\include{tex/WWOX_summary}    
 \include{tex/ZFX_summary}
 \include{tex/ZMYM3_summary}
+\include{tex/ZNF462_summary}   
 \include{tex/ZSWIM6_summary}
 
 
-\bibliography{references}
-\begin{scriptsize}
-    \bibliographystyle{unsrt}   
-\end{scriptsize}
+\bibliographystyle{unsrt}  
+\begin{tiny}
+\bibliography{references} 
+\end{tiny}
 
 
 
