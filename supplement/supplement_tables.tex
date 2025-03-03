@@ -68,26 +68,6 @@ The references in the xrefs column show previous publications that have presente
 
 \begin{table}
 \centering
-\begin{scriptsize}
-\begin{tabular}{l>{\raggedright}p{3cm}lp{2cm}lp{2.4cm}rr}
-\toprule
-\textbf{cohort} & \textbf{HPO} & \textbf{genotype (A)} & \textbf{Counts (A)} & \textbf{genotype (B)} & \textbf{Counts (B)} & \textbf{p-val} & \textbf{adj. p}\\
-\midrule
-KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MALE & 14/18 (78\%) & 0.002 & 0.008\\
-\bottomrule
-\end{tabular}
-\end{scriptsize}
-\caption{\textbf{Fischer exact test for association between  between phenotypic features and sex (male, female)}. Adj. p: p value adjusted with Benjamini-Hochberg method.}
-\label{tab:mf_hpo}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
-\newpage
-
-
-
-\begin{table}
-\centering
 \begin{tabular}{l>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4.5cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Outcome Variable} & \textbf{p-val} & \textbf{xrefs}\\
@@ -103,8 +83,6 @@ CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-H
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
-
-
 
 
 \begin{table}
@@ -232,25 +210,44 @@ RERE & LoF & Atrophin & Jordan et al.  phenotype score(*)  & $1.0 \times 10^{-03
 \end{table}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \newpage
 
+
+\begin{table}
+\centering
+\begin{scriptsize}
+\begin{tabular}{l>{\raggedright}p{3cm}lp{2cm}lp{2.4cm}rr}
+\toprule
+\textbf{cohort} & \textbf{HPO} & \textbf{genotype (A)} & \textbf{Counts (A)} & \textbf{genotype (B)} & \textbf{Counts (B)} & \textbf{p-val} & \textbf{adj. p}\\
+\midrule
+KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MALE & 14/18 (78\%) & 0.002 & 0.008\\
+\bottomrule
+\end{tabular}
+\end{scriptsize}
+\caption{\textbf{Fischer exact test for association between  between phenotypic features and sex (male, female)}. Adj. p: p value adjusted with Benjamini-Hochberg method.}
+\label{tab:mf_hpo}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\newpage
+
+
 \begin{center}
 \begin{longtable}
 {lllllllll}
-\caption{Detailed results for Table 1 of the main manuscript. \textbf{sig}: number of significant associations. \textbf{pub}: Number of these identified in the literature.  \textbf{categorical}: Association of genotypes with phenotypes by Fisher exact test. \textbf{t test}: Test of means of continuous values by student t test. \textbf{HPO}: Logrank test for association of genotypes with age of onset of a phenotypic abnormality represented by an HPO term. \textbf{Disease}: Logrank test for association of genotypes with age of onset of a disease. \textbf{Mortality}: Logrank test for association of genotypes with age of death. \textbf{score}: Mann Whitney U test for association of genotypes with magnitude of a phenotype severity score. }
+\caption{Detailed results for Table 1 of the main manuscript. \textbf{Sig}: number of significant associations. \textbf{Pub}: Number of these identified in the literature.  \textbf{Categorical}: Association of genotypes with phenotypes by Fisher exact test. \textbf{t test}: Test of means of continuous values by student t test. \textbf{HPO}: Logrank test for association of genotypes with age of onset of a phenotypic abnormality represented by an HPO term. \textbf{Disease}: Logrank test for association of genotypes with age of onset of a disease. \textbf{Mortality}: Logrank test for association of genotypes with age of death. \textbf{Score}: Mann Whitney U test for association of genotypes with magnitude of a phenotype severity score. Cohorts with no found significant associations are not reported.}
 \label{tab:all_association_counts} \\
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{sig}} & \multicolumn{1}{c}{\textbf{pub}} & \multicolumn{1}{c}{\textbf{categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{score}}\\ \hline
+\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Score}}\\ \hline
 \endfirsthead
 \multicolumn{9}{c}%
 
 {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\ 
 
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{sig}} & \multicolumn{1}{c}{\textbf{pub}} & \multicolumn{1}{c}{\textbf{categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{score}}\\ \hline
+\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Score}}\\ \hline
 \endhead 
 \hline \multicolumn{9}{|r|}{{Continued on next page}} \\ \hline 
 
@@ -267,46 +264,44 @@ CLDN16 & 1 & 1 & - & - & 1/1 & - & - & -\\
 CNTNAP2 & 1 & 0 & - & - & - & 0/1 & - & -\\
 CTCF & 1 & 0 & - & - & - & - & - & 0/1\\
 CYP21A2 & 1 & 1 & - & 1/1 & - & - & - & -\\
-EHMT1 & 2 & 2 & 2/2 & - & - & - & - & -\\
-FBN1 & 15 & 15 & 15/15 & - & - & - & - & -\\
+EHMT1 & 1 & 1 & 1/1 & - & - & - & - & -\\
+FBN1 & 14 & 14 & 14/14 & - & - & - & - & -\\
 FBXL4 & 2 & 0 & 0/1 & - & - & 0/1 & - & -\\
 FGD1 & 1 & 1 & 1/1 & - & - & - & - & -\\
-GLI3 & 11 & 11 & 11/11 & - & - & - & - & -\\
+GLI3 & 14 & 14 & 14/14 & - & - & - & - & -\\
 HMGCS2 & 1 & 0 & - & - & - & 0/1 & - & -\\
-IKZF1 & 1 & 1 & 1/1 & - & - & - & - & -\\
-ITPR1 & 20 & 0 & 0/20 & - & - & - & - & -\\
+IKZF1 & 2 & 2 & 2/2 & - & - & - & - & -\\
+ITPR1 & 21 & 0 & 0/21 & - & - & - & - & -\\
 Kabuki & 2 & 2 & 2/2 & - & - & - & - & -\\
 KCNH5 & 1 & 1 & 1/1 & - & - & - & - & -\\
 KDM6A & 2 & 1 & 1/2 & - & - & - & - & -\\
 LDS 1 and 3 & 4 & 4 & 4/4 & - & - & - & - & -\\
 LDS 3 and 6 & 1 & 1 & 1/1 & - & - & - & - & -\\
-LMNA & 26 & 26 & 25/25 & - & - & - & - & 1/1\\
+LMNA & 24 & 24 & 23/23 & - & - & - & - & 1/1\\
 MPV17 & 3 & 1 & 0/1 & - & - & 0/1 & 1/1 & -\\
 NBAS & 1 & 0 & 0/1 & - & - & - & - & -\\
-NF1 & 10 & 10 & 10/10 & - & - & - & - & -\\
-PTPN11 & 3 & 0 & 0/3 & - & - & - & - & -\\
+NF1 & 21 & 21 & 21/21 & - & - & - & - & -\\
+PTPN11 & 4 & 0 & 0/4 & - & - & - & - & -\\
 RERE & 1 & 1 & - & - & - & - & - & 1/1\\
-RNU4-2 & 2 & 0 & 0/2 & - & - & - & - & -\\
-Robinow syndrome & 5 & 5 & 5/5 & - & - & - & - & -\\
+Robinow syndrome & 4 & 4 & 4/4 & - & - & - & - & -\\
 RPGRIP1 & 3 & 3 & 3/3 & - & - & - & - & -\\
 SAMD9L & 3 & 0 & 0/3 & - & - & - & - & -\\
 SCN2A & 9 & 9 & 9/9 & - & - & - & - & -\\
 SCO2 & 1 & 0 & 0/1 & - & - & - & - & -\\
-SEC61A1 & 1 & 0 & 0/1 & - & - & - & - & -\\
 SETD2 & 9 & 8 & 8/8 & - & - & 0/1 & - & -\\
 SMAD3 & 1 & 0 & 0/1 & - & - & - & - & -\\
-SMARCB1 & 7 & 0 & 0/7 & - & - & - & - & -\\
-SMARCC2 & 3 & 2 & 2/3 & - & - & - & - & -\\
-SPTAN1 & 34 & 34 & 34/34 & - & - & - & - & -\\
+SMARCB1 & 6 & 0 & 0/6 & - & - & - & - & -\\
+SMARCC2 & 1 & 1 & 1/1 & - & - & - & - & -\\
+SPTAN1 & 35 & 35& 35/35 & - & - & - & - & -\\
 SUOX & 2 & 2 & 1/1 & - & - & 0/1 & - & -\\
 TBCK & 2 & 0 & 0/2 & - & - & - & - & -\\
 TBX1 & 2 & 0 & 0/2 & - & - & - & - & -\\
-TBX5  & 2 & 2 & 2/2 & - & - & - & - & -\\
-TGFBR1 & 5 & 1 & 1/5 & - & - & - & - & -\\
-U2AF2 & 2 & 0 & 0/2 & - & - & - & - & -\\
+TBX5  & 3 & 3 & 3/3 & - & - & - & - & -\\
+TGFBR1 & 4 & 1 & 1/4 & - & - & - & - & -\\
 UMOD & 3 & 3 & 2/2 & - & 1/1 & - & - & -\\
 WWOX & 1 & 1 & 1/1 & - & - & - & - & -\\
-ZMYM3 & 4 & 0 & 0/4 & - & - & - & - & -\\
+ZFX & 1 & 1 & 1/1 & - & - & - & - & -\\
+ZMYM3 & 1 & 0 & 0/1 & - & - & - & - & -\\
 \hline
 \end{longtable}
 \end{center}
