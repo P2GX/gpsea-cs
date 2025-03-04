@@ -1,11 +1,11 @@
 # GPSEA case studies (gpsea-cs)
 
-This repository presents case studies using the [GPSEA](https://github.com/monarch-initiative/GPSEA) Python library
+This repository presents case studies using the [GPSEA](https://github.com/p2gx/gpsea) Python library
 to explore genotype phenotype correlations in Mendelian disease.
 
 Each notebook presents one example of the application of GPSEA. The notebooks contain a section called **Summary** that
 we used to generate the supplemental files for the GPSEA manuscript. There is not need to use the code in this section
-for a new analysis. We strongly advise new users to follow the [GPSEA documentation](https://monarch-initiative.github.io/gpsea/stable/index.html), 
+for a new analysis. We strongly advise new users to follow the [GPSEA documentation](https://p2gx.github.io/gpsea/stable/index.html), 
 which will be kept up to date with any further changes to the GPSEA code.
 
 ## Set up
