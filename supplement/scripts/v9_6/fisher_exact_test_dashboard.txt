@@ -15,8 +15,8 @@ ATP13A2	209	30	missense/missense OR missense/other	other/other	0
 ATP6V0C	273	80	1-100	100+	0
 ATP6V0C	273	80	FEMALE	MALE	0
 ATP6V0C	273	80	missense	other	0
-BRD4	207	27	ablation	other	0
-BRD4	207	34	NIPBL	BRD4	1
+BRD4	206	27	ablation	other	0
+BRD4	206	41	NIPBL	BRD4	0
 CHD8	256	36	FEMALE	MALE	0
 CHD8	256	36	missense	other	0
 CLDN16	189	23	missense/missense OR missense/other	other/other	0

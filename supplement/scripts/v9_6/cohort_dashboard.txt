@@ -7,7 +7,7 @@ ANKRD11	337	143	175	19	48	0	2025-01-16	0.9.6	337	0	0	337	0	0	1	KBG syndrome
 ASPM	22	14	8	0	17	0	2025-01-16	0.9.6	22	0	0	22	0	1	1	Microcephaly 5, primary, autosomal recessive
 ATP13A2	45	18	27	0	71	0	2025-01-16	0.9.6	45	0	0	45	0	45	2	Kufor-Rakeb syndrome;Spastic paraplegia 78, autosomal recessive
 ATP6V0C	31	12	19	0	83	0	2025-01-16	0.9.6	31	31	0	0	0	27	1	Epilepsy, early-onset, 3, with or without developmental delay
-BRD4	18	8	10	0	40	0	2025-01-16	0.9.6	18	0	0	18	0	16	1	Cornelia de Lange syndrome 6
+BRD4	18	8	10	0	40	0	2025-05-06	0.9.11	18	0	0	18	0	16	1	Cornelia de Lange syndrome 6
 CHD8	79	26	53	0	81	0	2025-01-16	0.9.6	79	78	1	0	1	17	1	Intellectual developmental disorder with autism and macrocephaly
 CLDN16	51	21	29	1	53	0	2025-01-16	0.9.6	51	22	0	29	0	51	1	Hypomagnesemia 3, renal
 CNTNAP2	63	29	32	2	72	0	2025-01-16	0.9.6	63	45	2	16	2	50	1	Pitt-Hopkins like syndrome 1

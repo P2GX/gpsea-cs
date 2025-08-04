@@ -1,7 +1,6 @@
 #cohort_name	a_genotype	b_genotype	nsig	n_tests_performed	hpo_item	with_geno_a	with_geno_b	pval	adj_pval
 ATP13A2	OMIM:606693	OMIM:617225	2	29	Bradykinesia [HP:0002067]	30/32 (94%)	4/10 (40%)	9.15e-04	0.013
 ATP13A2	OMIM:606693	OMIM:617225	2	29	Parkinsonism [HP:0001300]	28/28 (100%)	3/11 (27%)	2.68e-06	7.78e-05
-BRD4	NIPBL	BRD4	1	34	Intrauterine growth retardation [HP:0001511]	37/45 (82%)	2/9 (22%)	9.45e-04	0.032
 EHMT1	N Term Frameshift	other	1	60	Attention deficit hyperactivity disorder [HP:0007018]	4/8 (50%)	3/96 (3%)	4.83e-04	0.029
 FBN1	TB domain	cbEGF	7	20	Disproportionate tall stature [HP:0001519]	2/40 (5%)	12/43 (28%)	0.007	0.029
 FBN1	TB domain	cbEGF	7	20	Ectopia lentis [HP:0001083]	9/18 (50%)	48/59 (81%)	0.013	0.038
