@@ -7,7 +7,7 @@ ANKRD11	337	143	175	19	48	0	2025-01-16	0.9.6	337	0	0	337	0	0	1	KBG syndrome
 ASPM	22	14	8	0	17	0	2025-01-16	0.9.6	22	0	0	22	0	1	1	Microcephaly 5, primary, autosomal recessive
 ATP13A2	45	18	27	0	71	0	2025-01-16	0.9.6	45	0	0	45	0	45	2	Kufor-Rakeb syndrome;Spastic paraplegia 78, autosomal recessive
 ATP6V0C	31	12	19	0	83	0	2025-01-16	0.9.6	31	31	0	0	0	27	1	Epilepsy, early-onset, 3, with or without developmental delay
-BRD4	18	8	10	0	40	0	2025-01-16	0.9.6	18	0	0	18	0	16	1	Cornelia de Lange syndrome 6
+BRD4	18	8	10	0	40	0	2025-05-06	0.9.11	18	0	0	18	0	16	1	Cornelia de Lange syndrome 6
 CHD8	79	26	53	0	81	0	2025-01-16	0.9.6	79	78	1	0	1	17	1	Intellectual developmental disorder with autism and macrocephaly
 CLDN16	51	21	29	1	53	0	2025-01-16	0.9.6	51	22	0	29	0	51	1	Hypomagnesemia 3, renal
 CNTNAP2	63	29	32	2	72	0	2025-01-16	0.9.6	63	45	2	16	2	50	1	Pitt-Hopkins like syndrome 1
@@ -39,7 +39,7 @@ LZTR1	38	18	20	0	96	0	2025-01-16	0.9.6	38	35	3	0	2	25	1	Noonan syndrome 2
 MAPK8IP3	20	9	11	0	93	0	2025-01-16	0.9.6	20	20	0	0	0	6	1	Neurodevelopmental disorder with or without variable brain abnormalities
 MPV17	60	30	30	0	156	0	2025-01-16	0.9.6	60	21	39	0	39	60	1	Mitochondrial DNA depletion syndrome 6 (hepatocerebral type)
 NBAS	67	19	21	27	134	0	2025-01-16	0.9.6	67	54	9	4	9	39	1	Short stature, optic nerve atrophy, and Pelger-Huet anomaly
-NF1	419	192	169	58	36	0	2025-01-16	0.9.6	419	7	0	412	0	0	1	Neurofibromatosis, type 1
+NF1	419	192	169	58	36	0	2025-05-06	0.9.11	419	7	0	412	0	0	1	Neurofibromatosis, type 1
 NIPBL	60	21	31	8	90	0	2025-01-16	0.9.6	60	52	0	8	0	8	1	Cornelia de Lange syndrome 1
 NKX6-2	33	15	18	0	39	0	2025-01-16	0.9.6	33	0	0	33	0	33	1	Spastic ataxia 8, autosomal recessive, with hypomyelinating leukodystrophy
 PIGA	27	0	27	0	188	0	2025-01-16	0.9.6	27	0	0	27	0	19	2	Multiple congenital anomalies-hypotonia-seizures syndrome 2;Neurodevelopmental disorder with epilepsy and hemochromatosis
