@@ -102,16 +102,19 @@ def get_fet_data():
     total = 0
     total_sig = 0
     cohort_set = set()
+    n_cohorts = 0
     with open(FISHER_DASHBOARD) as file:
         reader = DictReader(file, delimiter="\t")
         for row in reader:
-            print(row)
+            #print(row)
             cohort_name = row["#cohort_name"]
             nsig = int(row["nsig"])
             total_hpo_tested = int(row["total_hpo_tested"])
             total += total_hpo_tested
             total_sig += nsig
             cohort_set.add(cohort_name)
+            n_cohorts += 1
+    print(f"[{__file__}] Ingested data about {n_cohorts} cohort tests from {FISHER_DASHBOARD}")
     return total, total_sig, len(cohort_set)
     
 
@@ -240,14 +243,14 @@ def create_phenotype_scores_table(phenotype_scores):
                                caption=caption)
     write_out_table(PHENOTYPE_SCORES_TABLE, table)
 
-
-t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores = get_mono_test_results()
-print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores)
-create_t_test_table(t_tests=t_tests)
-create_hpo_onsets_table(hpo_onsets=hpo_onsets)
-create_disease_onsets_table(disease_onsets=disease_onsets)
-create_mortality_table(mortality=mortality)
-create_phenotype_scores_table(phenotype_scores=phenotype_scores)
+if __name__ == "__main__":
+    t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores = get_mono_test_results()
+    print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores)
+    create_t_test_table(t_tests=t_tests)
+    create_hpo_onsets_table(hpo_onsets=hpo_onsets)
+    create_disease_onsets_table(disease_onsets=disease_onsets)
+    create_mortality_table(mortality=mortality)
+    create_phenotype_scores_table(phenotype_scores=phenotype_scores)
 
 
 

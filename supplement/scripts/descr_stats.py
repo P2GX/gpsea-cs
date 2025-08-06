@@ -191,8 +191,11 @@ def get_unique_disease_counts():
     #for d in diseases:
     #    print(d)
 
-get_cohort_counts()
-fisher_test_stats()
-measurement_test_stats()
-compare_group_sizes()
-get_unique_disease_counts()
+
+
+if __name__ == "__main__":
+    get_cohort_counts()
+    fisher_test_stats()
+    measurement_test_stats()
+    compare_group_sizes()
+    get_unique_disease_counts()
