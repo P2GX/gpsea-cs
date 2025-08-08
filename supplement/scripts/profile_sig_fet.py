@@ -1,19 +1,24 @@
-import hpotk
-from os.path import dirname, abspath, join
-from csv import DictReader
-from collections import defaultdict
+import csv
+import os
 import re 
+
+import hpotk
+
+from collections import defaultdict
 
 from analysis import ANALYSIS_VERSION
 
-THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
-SIG_FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
-OUTFILE = join(THIS_DIR, "top_level_counts.txt")
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+SUPPLEMENT_DIR = os.path.join(THIS_DIR, ANALYSIS_VERSION)
+SIG_FISHER_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
+
+GENERATED_DIR = os.path.join(THIS_DIR, os.pardir, 'generated', ANALYSIS_VERSION)
+OUTFILE = os.path.join(THIS_DIR, "top_level_counts.txt")
 
 
 store = hpotk.configure_ontology_store()
-hpo = store.load_hpo()
+hpo = store.load_minimal_hpo()
 
 # Get children of Phenotypic abnormality
 top_level_tid = set()
@@ -24,7 +29,7 @@ for t in hpo.graph.get_children('HP:0000118'):
 significant_hpo_ids = set()
 pattern = r"\bHP:\d{7}\b"
 with open(SIG_FISHER_DASHBOARD) as file:
-    reader = DictReader(file, delimiter="\t")
+    reader = csv.DictReader(file, delimiter="\t")
     for row in reader:
         hpo_item = row["hpo_item"]
         match = re.search(pattern, hpo_item)
@@ -32,7 +37,7 @@ with open(SIG_FISHER_DASHBOARD) as file:
             hpo_id = match.group()
             significant_hpo_ids.add(hpo_id)
         else:
-            raise ValueError(f"Could not find {hpo_id}") # should never happen
+            raise ValueError(f"Could not find HPO id in {hpo_item}") # should never happen
 
 
 top_level_hpos = defaultdict(set)
@@ -57,10 +62,9 @@ sorted_dict = dict(sorted_items)
 
 print(sorted_dict)
 
-fh = open(OUTFILE, "wt")
-fh.write("Organ system\tCount\n")
-for k, v in sorted_dict.items():
-    fh.write(f"{k}\t{v}\n")
-fh.close()
+with open(OUTFILE, "wt") as fh:
+    fh.write("Organ system\tCount\n")
+    for k, v in sorted_dict.items():
+        fh.write(f"{k}\t{v}\n")
 
 ## Need to perform analyis via hpotools (Java)
