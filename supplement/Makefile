@@ -4,9 +4,9 @@
 sup: 
 	pdflatex supplement.tex
 	bibtex supplement
-	pdflatex
+	pdflatex supplement.tex
 
 clean:
-	rm *.aux
+	rm -f supplement.log supplement.pdf *.aux
 	cd tex; make clean
 	cd img; make clean

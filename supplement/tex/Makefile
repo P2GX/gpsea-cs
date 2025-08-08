@@ -4,5 +4,4 @@
 
 
 clean:
-	rm *.aux
-	rm *summary_draft.tex
+	rm -f *.aux *summary_draft.tex
