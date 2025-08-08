@@ -1,0 +1,20 @@
+\begin{fontsize}
+\begin{table}
+\centering
+\begin{tabular}{llll}
+\toprule
+\textbf{Test} & \textbf{Cohorts (n)} & \textbf{Tests (n)} & \textbf{Significant tests (n)}\\
+\midrule
+Fisher exact & 83 & 8981 & 233\\
+Test & Cohorts (n) & Tests (n) & Significant tests (n)\\
+t test & 7 & 3 & 3\\
+HPO Onset & 4 & 6 & 3\\
+Disease onset & 4 & 11 & 6\\
+Mortality & 4 & 3 & 1\\
+Phenotype Scores & 4 & 9 & 7\\
+\bottomrule
+\end{tabular}
+\caption{Monotest summary}
+\label{tab:to_do}
+\end{table}
+\end{fontsize}

@@ -192,7 +192,7 @@ supplement/scripts/*.aux
 supplement/tex/supplement/
 
 
-supplement/scripts/*.tex
+*.aux
 supplement/scripts/top_level_counts.txt
 
 dev/

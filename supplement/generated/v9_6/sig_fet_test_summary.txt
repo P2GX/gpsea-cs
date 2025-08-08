@@ -1,0 +1,4 @@
+Test	Cohorts (n)	Variables (n)
+Phenotypic features	33	119
+Disease comparison	6	15
+M/F comparisons	1	1

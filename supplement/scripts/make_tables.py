@@ -1,15 +1,17 @@
-from os.path import dirname, abspath, join
+import os
 from csv import DictReader
 from mylatextable import MyLongTable
 from analysis import ANALYSIS_VERSION
 from util import format_p
 
 
-THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
-SIG_FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
-MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+SUPPLEMENT_DIR = os.path.join(THIS_DIR, ANALYSIS_VERSION)
+SIG_FISHER_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
+MEASUREMENT_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
 
+GENERATED_DIR = os.path.join(THIS_DIR, os.pardir, 'generated', ANALYSIS_VERSION)
+SIG_FISHER_OUTFILE = os.path.join(GENERATED_DIR, 'significant_fisher_results.tex')
 
 # ########## ########## ##########
 #           Make Table 1         #
@@ -24,7 +26,7 @@ def get_sig_fisher_table():
     header = ["cohort",  "HPO", "genotype (A)",  "Counts (A)", "genotype (B)", "Counts (B)", "p-val", "adj. p-val"]
     header_field_formats = "p{1cm}p{3cm}p{2cm}p{1cm}p{2cm}p{1cm}p{1.5cm}p{1.5cm}"
     table = MyLongTable(header_fields=header, use_booktabs=True, header_field_formats=header_field_formats, fontsize="scriptsize")
-    with open (SIG_FISHER_DASHBOARD) as file:
+    with open(SIG_FISHER_DASHBOARD) as file:
         reader = DictReader(file, delimiter="\t")
         for row in reader:
             with_geno_a = row["with_geno_a"].replace("%", "\\%")
@@ -36,12 +38,7 @@ def get_sig_fisher_table():
 
 
 
-
-
 table = get_sig_fisher_table()
-fh = open("significant_fisher_results.tex", "wt")
-fh.write(table)
-fh.close()
-
-
+with open(SIG_FISHER_OUTFILE, "wt") as fh:
+    fh.write(table)
 
