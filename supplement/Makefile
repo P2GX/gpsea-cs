@@ -7,6 +7,6 @@ sup:
 	pdflatex supplement.tex
 
 clean:
-	rm -f supplement.log supplement.pdf *.aux
+	rm -f supplement.log supplement.pdf supplement.bbl supplement.blg *.aux
 	cd tex; make clean
 	cd img; make clean
