@@ -14,7 +14,7 @@ SUPPLEMENT_DIR = os.path.join(THIS_DIR, ANALYSIS_VERSION)
 SIG_FISHER_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashboard.txt")
 
 GENERATED_DIR = os.path.join(THIS_DIR, os.pardir, 'generated', ANALYSIS_VERSION)
-OUTFILE = os.path.join(THIS_DIR, "top_level_counts.txt")
+OUTFILE = os.path.join(GENERATED_DIR, "top_level_counts.txt")
 
 
 store = hpotk.configure_ontology_store()
