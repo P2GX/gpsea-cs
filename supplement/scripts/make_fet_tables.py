@@ -176,6 +176,7 @@ def print_hpo_table(hpo_terms):
         fh.write(table)
 
     print(f"Wrote {HPO_FET_OUT}")
+    print("Don't forget to update the table caption!".capitalize())
 
 
    
