@@ -1,5 +1,7 @@
-from os.path import dirname, abspath, join
-from csv import DictReader
+import csv
+import os
+import typing
+
 from enum import Enum
 from mylatextable import MyLatexTable
 from analysis import ANALYSIS_VERSION
@@ -9,18 +11,22 @@ from util import format_p
 # For each of the tests except FET
 
 
-THIS_DIR = dirname(abspath(__file__))
-SUPPLEMENT_DIR = join(THIS_DIR, ANALYSIS_VERSION)
-MEASUREMENT_DASHBOARD = join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
-MEASUREMENT_SUMMARY = join(THIS_DIR, "mono_test_summary.txt")
-T_TEST_OUTFILE = join(THIS_DIR, "t_test_table.tex")
-ONSETS_OUTFILE = join(THIS_DIR, "hpo_onsets.tex")
-DISEASE_ONSETS_OUTFILE =  join(THIS_DIR, "disease_onsets.tex")
-MORTALITY_OUTFILE =  join(THIS_DIR, "mortality_table.tex")
-PHENOTYPE_SCORES_TABLE = join(THIS_DIR, "phenoscore_table.tex")
-FISHER_DASHBOARD = join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
-class TestType(Enum   ):
+SUPPLEMENT_DIR = os.path.join(THIS_DIR, ANALYSIS_VERSION)
+MEASUREMENT_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "measurement_dashboard.txt")
+FISHER_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
+
+GENERATED_DIR = os.path.join(THIS_DIR, os.pardir, 'generated', ANALYSIS_VERSION)
+T_TEST_OUTFILE = os.path.join(GENERATED_DIR, "t_test_table.tex")
+ONSETS_OUTFILE = os.path.join(GENERATED_DIR, "hpo_onsets.tex")
+DISEASE_ONSETS_OUTFILE =  os.path.join(GENERATED_DIR, "disease_onsets.tex")
+MORTALITY_OUTFILE =  os.path.join(GENERATED_DIR, "mortality_table.tex")
+PHENOTYPE_SCORES_TABLE = os.path.join(GENERATED_DIR, "phenoscore_table.tex")
+MONO_TEST_SUMMARY = os.path.join(GENERATED_DIR, "mono_test_summary.txt")
+
+
+class TestType(Enum):
     T_TEST = 1
     HPO_ONSET = 2
     DISEASE_ONSET = 3
@@ -46,7 +52,6 @@ test_type_d = {
     "Onset of OMIM:604377": TestType.DISEASE_ONSET,
     "Onset of OMIM:616831": TestType.DISEASE_ONSET,
     "Onset of OMIM:272300": TestType.DISEASE_ONSET,
-    "Onset of OMIM:272300": TestType.DISEASE_ONSET,
 }
 
 def get_mono_test_results():
@@ -59,7 +64,7 @@ def get_mono_test_results():
     mortality = list()
     phenotype_scores = list()
     with open(MEASUREMENT_DASHBOARD) as file:
-        reader = DictReader(file, delimiter="\t")
+        reader = csv.DictReader(file, delimiter="\t")
         for row in reader:
             #print(row)
             test_name = row["test_name"]
@@ -81,11 +86,12 @@ def get_mono_test_results():
     return t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores
 
 
-def get_stats(name, list_of_dicts) -> str:
+def get_stats(name, list_of_dicts) -> typing.Sequence[str]:
     n_tests = 0
     n_sig_tests = 0
     terms = set()
     cohorts = set()
+    cohort = None
     for  d in list_of_dicts:
         cohort = d["#cohort"]
         varname = d["variable_name"]
@@ -95,16 +101,18 @@ def get_stats(name, list_of_dicts) -> str:
             n_sig_tests += 1
         cohorts.add(cohort)
         terms.add(varname)
+    if cohort is None:
+        raise ValueError("No items in `list_of_dicts`")
     items = [name, str(len(cohort)), str(n_tests), str(n_sig_tests)]
     return items
-        
+
 def get_fet_data():
     total = 0
     total_sig = 0
     cohort_set = set()
     n_cohorts = 0
     with open(FISHER_DASHBOARD) as file:
-        reader = DictReader(file, delimiter="\t")
+        reader = csv.DictReader(file, delimiter="\t")
         for row in reader:
             #print(row)
             cohort_name = row["#cohort_name"]
@@ -116,7 +124,7 @@ def get_fet_data():
             n_cohorts += 1
     print(f"[{__file__}] Ingested data about {n_cohorts} cohort tests from {FISHER_DASHBOARD}")
     return total, total_sig, len(cohort_set)
-    
+
 
 def print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenotype_scores):
     rows = list()
@@ -137,10 +145,10 @@ def print_summary_table(t_tests, hpo_onsets, disease_onsets,  mortality,  phenot
     table.add_row(items)
     for row in rows:
         table.add_row(row)
-    fh = open(MEASUREMENT_SUMMARY, "wt")
-    fh.write(table.get_latex())
-    fh.close()
-    print(f"Wrote {MEASUREMENT_SUMMARY}")
+    with open(MONO_TEST_SUMMARY, "wt") as fh:
+        fh.write(table.get_latex())
+
+    print(f"Wrote {MONO_TEST_SUMMARY}")
 
 
 
@@ -251,9 +259,5 @@ if __name__ == "__main__":
     create_disease_onsets_table(disease_onsets=disease_onsets)
     create_mortality_table(mortality=mortality)
     create_phenotype_scores_table(phenotype_scores=phenotype_scores)
-
-
-
-
 
 
