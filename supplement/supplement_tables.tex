@@ -25,7 +25,7 @@ anyof & Logical OR for two or more predicates to test if \textit{any} predicate 
 not & Logical NOT & NOT(missense) \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Variant predicates.} Version 0.9.4 of GPSEA offers the variant predicates shown in this table. Each predicate evaluates a variant and returns \texttt{True} or \texttt{False}.}
+\caption{\textbf{Variant predicates.} Version 0.9.11 of GPSEA offers the variant predicates shown in this table. Each predicate evaluates a variant and returns \texttt{True} or \texttt{False}.}
 \label{tab:varpredicates}
 \end{table}
 
@@ -34,7 +34,7 @@ not & Logical NOT & NOT(missense) \\
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{generated/hpo_fet}
+\input{generated/v9_6/hpo_fet}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
@@ -42,8 +42,8 @@ not & Logical NOT & NOT(missense) \\
 
 \begin{table}
 \centering
-\toprule
 \begin{tabular}{l>{\raggedright}p{2.5cm}>{\raggedright}p{2.5cm}l>{\raggedright}p{2.5cm}l}
+\toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Scorer} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
 ANKRD11 & FEMALE & MALE & HPO Group Count & 0.007 & - \\
@@ -306,5 +306,7 @@ ZMYM3 & 1 & 0 & 0/1 & - & - & - & - & -\\
 \end{longtable}
 \end{center}
 
-\input{generated/proportions}
+% TODO: replace with an updated file
+%  at `generated/v9_6/proportions'
+\input{generated/submission/proportions}
 
