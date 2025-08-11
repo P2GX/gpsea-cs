@@ -295,12 +295,13 @@ KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MA
 % Table S10 - All association counts
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{landscape}
 \begin{center}
 \begin{longtable}
-{lllllllll}
+{lllllllllll}
 \caption{
   Detailed results for Table 1 of the main manuscript.
-  \textbf{Sig}: number of significant associations.
+  \textbf{Sig}: Number of significant associations.
   \textbf{Pub}: Number of these identified in the literature.
   \textbf{Categorical}: Association of genotypes with phenotypes by Fisher exact test.
   \textbf{t test}: Test of means of continuous values by Student t test.
@@ -309,19 +310,43 @@ KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MA
   \textbf{Mortality}: Logrank test for association of genotypes with age of death.
   \textbf{Phenotype score}: Mann Whitney U test for association of genotypes with magnitude of a phenotype severity score.
   Cohorts with no found significant associations are not reported.
+  \textbf{Disease diagnosis}: Comparison of two or more diseases associated with the variants in the same gene.
+  \textbf{Sex differences}: Comparison of frequencies of phenotypic features in a disease between males and females.
 }
 \label{tab:all_association_counts} \\
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Phenotype score}} \\ \hline
+\multicolumn{1}{c}{\textbf{Cohort}}
+& \multicolumn{1}{c}{\textbf{Sig}}
+& \multicolumn{1}{c}{\textbf{Pub}}
+& \multicolumn{1}{c}{\textbf{Categorical}}
+& \multicolumn{1}{c}{\textbf{t test}}
+& \multicolumn{1}{c}{\textbf{HPO}}
+& \multicolumn{1}{c}{\textbf{Disease onset}}
+& \multicolumn{1}{c}{\textbf{Mortality}}
+& \multicolumn{1}{c}{\textbf{Phenotype score}}
+& \multicolumn{1}{c}{\textbf{Disease diagnosis}}
+& \multicolumn{1}{c}{\textbf{Sex differences}}
+\\ \hline
 \endfirsthead
-\multicolumn{9}{c}
+\multicolumn{11}{c}
 
 {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\ 
 
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Phenotype score}} \\ \hline
+\multicolumn{1}{c}{\textbf{Cohort}}
+& \multicolumn{1}{c}{\textbf{Sig}}
+& \multicolumn{1}{c}{\textbf{Pub}}
+& \multicolumn{1}{c}{\textbf{Categorical}}
+& \multicolumn{1}{c}{\textbf{t test}}
+& \multicolumn{1}{c}{\textbf{HPO}}
+& \multicolumn{1}{c}{\textbf{Disease onset}}
+& \multicolumn{1}{c}{\textbf{Mortality}}
+& \multicolumn{1}{c}{\textbf{Phenotype score}}
+& \multicolumn{1}{c}{\textbf{Disease diagnosis}}
+& \multicolumn{1}{c}{\textbf{Sex differences}}
+\\ \hline
 \endhead 
-\hline \multicolumn{9}{|r|}{{Continued on next page}} \\ \hline 
+\hline \multicolumn{11}{|r|}{{Continued on next page}} \\ \hline 
 
 \endfoot 
 \hline \hline 
@@ -331,56 +356,58 @@ KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MA
 %
 %                                         |    Survival    |
 % Cohort           Sig  Pub  Catg   t tst   HPO  Dis. Mort.  Pscore 
-ACADM       &  2 &  2 &    -  & 2/2 &   - &   - &   - &    - \\
-AIRE        &  1 &  1 &    -  &   - & 1/1 &   - &   - &    - \\
-ANKRD11     &  2 &  1 &    -  &   - &   - &   - &   - &  1/2 \\
-ATP13A2     &  2 &  2 &  2/2  &   - &   - &   - &   - &    - \\
-CHD8        &  2 &  1 &    -  &   - &   - &   - &   - &  1/2 \\
-CLDN16      &  1 &  1 &    -  &   - & 1/1 &   - &   - &    - \\
-CNTNAP2     &  1 &  0 &    -  &   - &   - & 0/1 &   - &    - \\
-CTCF        &  1 &  0 &    -  &   - &   - &   - &   - &  0/1 \\
-CYP21A2     &  1 &  1 &    -  & 1/1 &   - &   - &   - &    - \\
-EHMT1       &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-FBN1        & 14 & 14 & 14/14 &   - &   - &   - &   - &    - \\
-FBXL4       &  2 &  0 &  0/1  &   - &   - & 0/1 &   - &    - \\
-FGD1        &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-GLI3        & 14 & 14 & 14/14 &   - &   - &   - &   - &    - \\
-HMGCS2      &  1 &  0 &    -  &   - &   - & 0/1 &   - &    - \\
-IKZF1       &  2 &  2 &  2/2  &   - &   - &   - &   - &    - \\
-ITPR1       & 21 &  0 &  0/21 &   - &   - &   - &   - &    - \\
-Kabuki      &  2 &  2 &  2/2  &   - &   - &   - &   - &    - \\
-KCNH5       &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-KDM6A       &  2 &  1 &  1/2  &   - &   - &   - &   - &    - \\
-LDS 1 and 3 &  4 &  4 &  4/4  &   - &   - &   - &   - &    - \\
-LDS 3 and 6 &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-LMNA        & 24 & 24 & 23/23 &   - &   - &   - &   - &  1/1 \\
-MPV17       &  3 &  1 &  0/1  &   - &   - & 0/1 & 1/1 &    - \\
-NBAS        &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
-NF1         & 37 & 37 & 37/37 &   - &   - &   - &   - &    - \\
-PTPN11      &  4 &  0 &  0/4  &   - &   - &   - &   - &    - \\
-RERE        &  1 &  1 &    -  &   - &   - &   - &   - &  1/1 \\
-Robinow     &  4 &  4 &  4/4  &   - &   - &   - &   - &    - \\
-RPGRIP1     &  3 &  3 &  3/3  &   - &   - &   - &   - &    - \\
-SAMD9L      &  3 &  0 &  0/3  &   - &   - &   - &   - &    - \\
-SCN2A       &  9 &  9 &  9/9  &   - &   - &   - &   - &    - \\
-SCO2        &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
-SETD2       &  9 &  8 &  8/8  &   - &   - & 0/1 &   - &    - \\
-SMAD3       &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
-SMARCB1     &  6 &  0 &  0/6  &   - &   - &   - &   - &    - \\
-SMARCC2     &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-SPTAN1      & 35 & 35 & 35/35 &   - &   - &   - &   - &    - \\
-SUOX        &  2 &  2 &  1/1  &   - &   - & 0/1 &   - &    - \\
-TBCK        &  2 &  0 &  0/2  &   - &   - &   - &   - &    - \\
-TBX1        &  2 &  0 &  0/2  &   - &   - &   - &   - &    - \\
-TBX5        &  3 &  3 &  3/3  &   - &   - &   - &   - &    - \\
-TGFBR1      &  4 &  1 &  1/4  &   - &   - &   - &   - &    - \\
-UMOD        &  3 &  3 &  2/2  &   - & 1/1 &   - &   - &    - \\
-WWOX        &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-ZFX         &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
-ZMYM3       &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
+ACADM & 2 & 2 & - & 2/2 & - & - & - & - & - & - \\
+AIRE & 1 & 1 & - & - & 1/1 & - & - & - & - & - \\
+ANKRD11 & 2 & 1 & - & - & - & - & - & 1/2 & - & - \\
+ATP13A2 & 2 & 2 & - & - & - & - & - & - & 0/2 & - \\
+CHD8 & 2 & 1 & - & - & - & - & - & 1/2 & - & - \\
+CLDN16 & 1 & 1 & - & - & 1/1 & - & - & - & - & - \\
+CNTNAP2 & 1 & 0 & - & - & - & 0/1 & - & - & - & - \\
+CTCF & 1 & 0 & - & - & - & - & - & 0/1 & - & - \\
+CYP21A2 & 1 & 1 & - & 1/1 & - & - & - & - & - & - \\
+EHMT1 & 1 & 1 & 1/1 & - & - & - & - & - & - & - \\
+FBN1 & 14 & 14 & 14/14 & - & - & - & - & - & - & - \\
+FBXL4 & 2 & 0 & 0/1 & - & - & 0/1 & - & - & - & - \\
+FGD1 & 1 & 1 & 1/1 & - & - & - & - & - & - & - \\
+GLI3 & 14 & 14 & 14/14 & - & - & - & - & - & - & - \\
+HMGCS2 & 1 & 0 & - & - & - & 0/1 & - & - & - & - \\
+IKZF1 & 2 & 2 & 2/2 & - & - & - & - & - & - & - \\
+ITPR1 & 21 & 0 & 0/21 & - & - & - & - & - & - & - \\
+KCNH5 & 1 & 1 & 1/1 & - & - & - & - & - & - & - \\
+KDM6A & 2 & 1 & 1/1 & - & - & - & - & - & - & 0/1 \\
+Kabuki & 2 & 2 & - & - & - & - & - & - & 0/2 & - \\
+LDS 1 and 3 & 4 & 4 & - & - & - & - & - & - & 0/4 & - \\
+LDS 3 and 6 & 1 & 1 & - & - & - & - & - & - & 0/1 & - \\
+LMNA & 36 & 24 & 23/35 & - & - & - & - & 1/1 & - & - \\
+MPV17 & 3 & 1 & 0/1 & - & - & 0/1 & 1/1 & - & - & - \\
+NBAS & 1 & 0 & 0/1 & - & - & - & - & - & - & - \\
+NF1 & 37 & 37 & 37/37 & - & - & - & - & - & - & - \\
+PTPN11 & 4 & 0 & 0/4 & - & - & - & - & - & - & - \\
+RERE & 1 & 1 & - & - & - & - & - & 1/1 & - & - \\
+RPGRIP1 & 3 & 3 & 3/1 & - & - & - & - & - & 0/2 & - \\
+Robinow & 4 & 4 & - & - & - & - & - & - & 0/4 & - \\
+SAMD9L & 3 & 0 & 0/3 & - & - & - & - & - & - & - \\
+SATB2 & 1 & 0 & 0/1 & - & - & - & - & - & - & - \\
+SCN2A & 9 & 9 & 9/9 & - & - & - & - & - & - & - \\
+SCO2 & 1 & 0 & 0/1 & - & - & - & - & - & - & - \\
+SETD2 & 9 & 8 & 8/8 & - & - & 0/1 & - & - & - & - \\
+SMAD3 & 1 & 0 & 0/1 & - & - & - & - & - & - & - \\
+SMARCB1 & 6 & 0 & 0/6 & - & - & - & - & - & - & - \\
+SMARCC2 & 1 & 1 & 1/1 & - & - & - & - & - & - & - \\
+SPTAN1 & 35 & 35 & 35/35 & - & - & - & - & - & - & - \\
+SUOX & 2 & 1 & 1/1 & - & - & 0/1 & - & - & - & - \\
+TBCK & 2 & 0 & 0/2 & - & - & - & - & - & - & - \\
+TBX1 & 2 & 0 & 0/2 & - & - & - & - & - & - & - \\
+TBX5 & 3 & 3 & 3/3 & - & - & - & - & - & - & - \\
+TGFBR1 & 4 & 1 & 1/4 & - & - & - & - & - & - & - \\
+UMOD & 3 & 3 & 2/2 & - & 1/1 & - & - & - & - & - \\
+WWOX & 1 & 1 & 1/1 & - & - & - & - & - & - & - \\
+ZFX & 1 & 1 & 1/1 & - & - & - & - & - & - & - \\
+ZMYM3 & 1 & 0 & 0/1 & - & - & - & - & - & - & - \\
 \hline
 \end{longtable}
 \end{center}
+\end{landscape}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table S11 - Proportions
