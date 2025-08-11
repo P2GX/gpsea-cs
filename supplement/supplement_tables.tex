@@ -9,24 +9,24 @@
 \toprule
 \textbf{Name} & \textbf{Match criterion} & \textbf{Example}\\
 \midrule
-variant key & Specific variant & 1\_8364773\_8364773\_A\_AC (NM\_001042681.2:c.1512dup) \\
-variant effect & Leads to the target effect & START\_LOST \\
-variant class & Variant has the target type & SNV, DEL, DUP, INS, INV \\
-gene & Variant affects gene & Affects \textit{RERE} \\
-transcript & Variant affects transcript & Overlaps NM\_12345.01 \\
-exon & Variant overlaps exon & Located in exon 3 \\
-region & Variant overlaps region on protein & Located between amino acid residues 1 to 77 \\
-is large imprecise sv & Variant is structural variant without exact breakpoint coordinates & -- \\
-is structural variant & The variant affects at least n base pairs (n=50 by default) or is a large imprecise SV or a translocation & -- \\
-structural type & The target ontology class for a variant with imprecise/unknown breakpoints & Chromosomal deletion (SO:1000029) \\
+variant key            & Specific variant                                                                                                                                   & 1\_8364773\_8364773\_A\_AC (NM\_001042681.2:c.1512dup) \\
+variant effect         & Leads to the target effect                                                                                                                         & START\_LOST \\
+variant class          & Variant has the target type                                                                                                                        & SNV, DEL, DUP, INS, INV \\
+gene                   & Variant affects gene                                                                                                                               & Affects \textit{RERE} \\
+transcript             & Variant affects transcript                                                                                                                         & Overlaps NM\_12345.01 \\
+exon                   & Variant overlaps exon                                                                                                                              & Located in exon 3 \\
+region                 & Variant overlaps region on protein                                                                                                                 & Located between amino acid residues 1 to 77 \\
+is large imprecise sv  & Variant is structural variant without exact breakpoint coordinates                                                                                 & -- \\
+is structural variant  & The variant affects at least n base pairs (n=50 by default) or is a large imprecise SV or a translocation                                          & -- \\
+structural type        & The target ontology class for a variant with imprecise/unknown breakpoints                                                                         & Chromosomal deletion (SO:1000029) \\
 is structural deletion & Variant is a Chromosomal deletion (SO:1000029) or an SV with known breakpoints that deletes at least a $n$ base pairs (\texttt{n=50bp} by default) & -- \\
-ref length & Length of the reference sequence is above, below, or (not) equal to $n$ bases & $n>50$ for variants affecting more than 50 bp \\
-change length & Change of length between the REF/ALT is above, below, or (not) equal to \texttt{n} bases & $n\leq-50$ for testing if a variant removes at least 50 base pairs  \\
-protein feature type & Variant affects protein feature type & DOMAIN \\
-protein feature & Variant region overlaps a protein feature & Overlaps with "Bipartite nuclear localization signal" \\
-allof & Logical AND for two or more predicates to test if \textit{all} predicates match & missense AND exon 7 \\
-anyof & Logical OR for two or more predicates to test if \textit{any} predicate matches & START\_LOST OR STOP\_GAINED \\
-not & Logical NOT & NOT(missense) \\
+ref length             & Length of the reference sequence is above, below, or (not) equal to $n$ bases                                                                      & $n>50$ for variants affecting more than 50 bp \\
+change length          & Change of length between the REF/ALT is above, below, or (not) equal to \texttt{n} bases                                                           & $n\leq-50$ for testing if a variant removes at least 50 base pairs  \\
+protein feature type   & Variant affects protein feature type                                                                                                               & DOMAIN \\
+protein feature        & Variant region overlaps a protein feature                                                                                                          & Overlaps with "Bipartite nuclear localization signal" \\
+allof                  & Logical AND for two or more predicates to test if \textit{all} predicates match                                                                    & missense AND exon 7 \\
+anyof                  & Logical OR for two or more predicates to test if \textit{any} predicate matches                                                                    & START\_LOST OR STOP\_GAINED \\
+not                    & Logical NOT                                                                                                                                        & NOT(missense) \\
 \bottomrule
 \end{tabular}
 \caption{\textbf{Variant predicates.} Version 0.9.11 of GPSEA offers the variant predicates shown in this table. Each predicate evaluates a variant and returns \texttt{True} or \texttt{False}.}
@@ -49,6 +49,8 @@ not & Logical NOT & NOT(missense) \\
 % Table S3 - Phenotype severity scores
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/phenoscore_table.tex`
+% and manually update the rows below.
 \begin{table}
 \centering
 \begin{tabular}{l>{\raggedright}p{2.5cm}>{\raggedright}p{2.5cm}l>{\raggedright}p{2.5cm}l}
@@ -58,14 +60,19 @@ not & Logical NOT & NOT(missense) \\
 ANKRD11 & FEMALE & MALE & HPO Group Count & 0.007 & - \\
 ANKRD11	& SV & $^{\complement}$ & HPO Group Count & $2.64\times 10^{-4}$ & \cite{PMID_36446582} \\
 CHD8 & FEMALE & MALE & De Vries Score & 0.006 & - \\
-CHD8 & missense & $^{\complement}$ & De Vries Score & 	$8.99\times 10^{-04}$ & - \\
+CHD8 & missense & $^{\complement}$ & De Vries Score & 	$9.0 \times 10^{-4}$ & - \\
 CTCF & missense & $^{\complement}$ & De Vries Score & 0.009 & - \\ 
 LMNA & Upstream of NLS & $^{\complement}$ & HPO Group Count & $1.83\times 10^{-16}$ & - \\
-RERE & LoF & Atrophin & HPO Group Count & 0.001 & -  \\
+RERE & LoF & Atrophin & HPO Group Count & $1.0 \times 10^{-3}$ & -  \\
 \hline
 \end{tabular}
 \caption{Phenotype severity scores. Mann-Whitney U tests performed using GPSEA to assess the association between a genotype and the total value of a phenotype severity score.
-The references in the xrefs column show previous publications that have presented similar findings. HPO Group Count scorer assigns a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants. DeVries scorer is an adaption of the DeVries score \cite{PMID_34521999} using HPO. $\complement$: set complement of a variant predicate. See Table \ref{tab:hpo_fet} for a definition.} 
+The references in the xrefs column show previous publications that have presented similar findings.
+HPO Group Count scorer assigns a phenotype score that is equivalent to the count of present phenotypes
+that are either an exact match to the query terms or their descendants.
+DeVries scorer is an adaption of the DeVries score \cite{PMID_34521999} using HPO.
+$\complement$: set complement of a variant predicate.
+See Table \ref{tab:hpo_fet} for the definition.} 
 \label{tab:sevscores}
 \end{table}
 
@@ -76,6 +83,8 @@ The references in the xrefs column show previous publications that have presente
 % Table S4 - Student t tests
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/t_test_table.tex`
+% and manually update the rows below.
 \begin{table}
 \centering
 \begin{tabular}{l>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4.5cm}lr}
@@ -83,11 +92,16 @@ The references in the xrefs column show previous publications that have presente
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Outcome Variable} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
 ACADM & K329Q: 1/1 &  $1/\complement$ OR $\complement/\complement$ & MCAD Activity\% [LOINC:74892-1] & $6.1 \times 10^{-10}$ & \cite{PMID_33580884}\\
-ACADM & Y67H: 1/1 OR $1/\complement$  & $\complement/\complement$ & MCAD Activity\% [LOINC:74892-1] & $2.0 \times 10^{-05}$ & \cite{PMID_33580884}\\
-CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-Hydroxyprogesterone [LOINC:1668-3] & $7.9 \times 10^{-06}$ & -\\
+ACADM & Y67H: 1/1 OR $1/\complement$  & $\complement/\complement$ & MCAD Activity\% [LOINC:74892-1] & $2.0 \times 10^{-5}$ & \cite{PMID_33580884}\\
+CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-Hydroxyprogesterone [LOINC:1668-3] & $7.9 \times 10^{-6}$ & -\\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Student t-tests performed using GPSEA}. $\complement$: set complement of a variant predicate. See Table \ref{tab:hpo_fet} for a definition. Citations in the xrefs column show previous publications that have presented similar findings.}
+\caption{
+  \textbf{Student t-tests performed using GPSEA}.
+  $\complement$: set complement of a variant predicate.
+  See Table \ref{tab:hpo_fet} for the definition.
+  Citations in the xrefs column show previous publications that have presented similar findings.
+}
 \label{tab:t_test}
 \end{table}
 
@@ -98,6 +112,9 @@ CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-H
 % Table S5 - Age of onset - phenotypic feature
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/hpo_onsets.tex`
+% and manually update the rows below.
+
 \begin{table}
 \centering
 \begin{tabular}{l>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4cm}lr}
@@ -106,14 +123,17 @@ CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-H
 \midrule
 AIRE & R257*/R257* OR R257*/$\complement$ & $\complement$/$\complement$ & Survival analysis: Chronic mucocutaneous candidiasis & 0.019 & -\\
 CLDN16 & missense/missense OR missense/$\complement$ & $\complement$/$\complement$ & Survival analysis: Stage 5 chronic kidney disease & 0.034 & -\\
-SCO2 & Glu140Lys/Glu140Lys & $\complement$/$\complement$ OR Glu140Lys/$\complement$ & Survival analysis: Hypertrophic cardiomyopathy & 0.219 & -\\
-UMOD & 278\_289delins & $\complement$ & Survival analysis: Stage 5 chronic kidney disease & 0.835 & -\\
-UMOD & Cys248Trp & Gln316Pro & Survival analysis: Stage 5 chronic kidney disease & $4.1 \times 10^{-04}$ & -\\
-UMOD & EGF & $\complement$ & Survival analysis: Stage 5 chronic kidney disease & 0.284 & -\\
+UMOD & Cys248Trp & Gln316Pro & Survival analysis: Stage 5 chronic kidney disease & $4.1 \times 10^{-4}$ & -\\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Age of onset of phenotypic abnormality}. Logrank tests performed using GPSEA to assess association between a genotype and the 
-age of onset of a phenotypic feature represented by an HPO term. $\complement$: set complement of a variant predicate. See Table \ref{tab:hpo_fet} for a definition. Citations in the xrefs column show previous publications that have presented similar findings.}
+\caption{
+  \textbf{Age of onset of phenotypic abnormality}.
+  Logrank tests performed using GPSEA to assess association between a genotype
+  and the age of onset of a phenotypic feature represented by an HPO term.
+  $\complement$: set complement of a variant predicate.
+  See Table \ref{tab:hpo_fet} for the definition.
+  Citations in the xrefs column show previous publications that have presented similar findings.
+}
 \label{tab:hpo_onset}
 \end{table}
 
@@ -124,6 +144,9 @@ age of onset of a phenotypic feature represented by an HPO term. $\complement$: 
 % Table S6 - Age of onset - Disease onset
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/disease_onsets.tex`
+% and manually update the rows below.
+
 \begin{table}
 \centering
 \begin{scriptsize}
@@ -131,30 +154,26 @@ age of onset of a phenotypic feature represented by an HPO term. $\complement$: 
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Disease onset} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
-ATP6V0C & missense & $\complement$ & Compute time until OMIM:620465 onset & 0.193 & -\\
-CLDN16 & missense/missense OR missense/$\complement$ & $\complement$/$\complement$ & Compute time until OMIM:248250 onset & 0.333 & -\\
-CNTNAP2 & 1 allele & 2 alleles & Compute time until OMIM:610042 onset & $6.2 \times 10^{-06}$ & -\\
-COL3A1 & missense & $\complement$ & Compute time until OMIM:130050 onset & 0.317 & -\\
+CNTNAP2 & 1 allele & 2 alleles & Compute time until OMIM:610042 onset & $6.2 \times 10^{-6}$ & -\\
 FBXL4 & missense/$\complement$ OR $\complement$/$\complement$ & missense/missense & Compute time until OMIM:615471 onset & 0.031 & -\\
 HMGCS2 & missense/missense OR missense/$\complement$ & $\complement$/$\complement$ & Compute time until OMIM:605911 onset & 0.038 & -\\
 MPV17 & missense/missense OR missense/$\complement$ & $\complement$/$\complement$ & Compute time until OMIM:256810 onset & 0.002 & -\\
-SCO2 & Glu140Lys/Glu140Lys & $^{\complement}$/$^{\complement}$ OR Glu140Lys/$\complement$ & Compute time until OMIM:604377 onset & 0.415 & -\\
-SETD2 & Missense & $^{\complement}$ & Compute time until OMIM:616831 onset & $8.5 \times 10^{-05}$ & -\\
-SUOX & Missense/Missense OR Missense/$^{\complement}$ & $^{\complement}$/$^{\complement}$ & Compute time until OMIM:272300 onset & $9.2 \times 10^{-06}$ & -\\
-SUOX & homodimerization/homodimerization OR homodimerization/$^{\complement}$ & $^{\complement}$/$^{\complement}$ & Compute time until OMIM:272300 onset & 0.853 & -\\
+SETD2 & Missense & $^{\complement}$ & Compute time until OMIM:616831 onset & $8.5 \times 10^{-5}$ & -\\
+SUOX & Missense/Missense OR Missense/$^{\complement}$ & $^{\complement}$/$^{\complement}$ & Compute time until OMIM:272300 onset & $9.2 \times 10^{-6}$ & -\\
 \bottomrule
 \end{tabular}
 \end{scriptsize}
-\caption{\textbf{Age of onset of disease}. Log rank tests performed using GPSEA to assess association between a genotype and the age of onset of a disease. 1/1, $1/\complement$, $\complement/\complement$: See Table \ref{tab:hpo_fet} for definitions. Citations in the xrefs column show previous publications that have presented similar findings. \texttt{hdim}: homodimerization;
-   \texttt{ OMIM:620465}: Epilepsy, early-onset, 3, with or without developmental delay; 
-   \texttt{OMIM:248250}: Hypomagnesemia 3, renal;
-   \texttt{OMIM:610042}: Pitt-Hopkins like syndrome 1;
-   \texttt{OMIM:130050}: Ehlers-Danlos syndrome, vascular type;
-   \texttt{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
-   \texttt{OMIM:605911}:  HMG-CoA synthase-2 deficiency;
-   \texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
-   \texttt{OMIM:604377}: Mitochondrial complex IV deficiency, nuclear type 2;
-   \texttt{OMIM:616831}: Luscan-Lumish syndrome;
+\caption{
+  \textbf{Age of onset of disease}.
+  Log rank tests performed using GPSEA to assess association between a genotype and the age of onset of a disease.
+  1/1, $1/\complement$, $\complement/\complement$: See Table \ref{tab:hpo_fet} for definitions.
+  Citations in the xrefs column show previous publications that have presented similar findings.
+  \texttt{hdim}: homodimerization;
+  \texttt{OMIM:610042}: Pitt-Hopkins like syndrome 1;
+  \texttt{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
+  \texttt{OMIM:605911}: HMG-CoA synthase-2 deficiency;
+  \texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
+  \texttt{OMIM:616831}: Luscan-Lumish syndrome;
   \texttt{OMIM:272300}: Sulfite oxidase deficiency.
 }
 \label{tab:disease_onset}
@@ -167,23 +186,25 @@ SUOX & homodimerization/homodimerization OR homodimerization/$^{\complement}$ & 
 % Table S7 - Age of onset - Mortality
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/mortality_table.tex`
+% and manually update the rows below.
+
 \begin{table}
 \centering
 \begin{tabular}{lp{3.5cm}p{3.5cm}>{\raggedright\arraybackslash}p{3cm}lr}
 \toprule
 \textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Disease} & \textbf{p-val} & \textbf{xrefs}\\
 \midrule
-FBXL4 & missense: $1/\complement$ or $\complement/\complement$& missense: 1/1 & OMIM:615471 & 0.080 & -\\
 MPV17 & Pro98Leu: 1/1 & Pro98Leu: $1/\complement$ or $\complement/\complement$ & OMIM:256810 & 0.010 & -\\
-NBAS & missense: 1/1 & missense: $1/\complement$ or $\complement/\complement$ & OMIM:614800 & 0.125 & -\\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Age of death}. Log rank tests performed using GPSEA to assess association between a genotype and the age of
-    death of individuals with a disease. 1/1, $1/\complement$, $\complement/\complement$: See Table \ref{tab:hpo_fet} for definitions.
-    Citations in the xrefs column show previous publications that have presented similar findings.
-\texttt{OMIM:615471}: Mitochondrial DNA depletion syndrome 13 (encephalomyopathic type);
-\texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type);
-\texttt{OMIM:614800}: Short stature, optic nerve atrophy, and Pelger-Huet anomaly.
+\caption{
+  \textbf{Age of death}.
+  Log rank tests performed using GPSEA to assess association between a genotype
+  and the age of death of individuals with a disease.
+  1/1, $1/\complement$, $\complement/\complement$: See Table \ref{tab:hpo_fet} for definitions.
+  Citations in the xrefs column show previous publications that have presented similar findings.
+  \texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type).
 }
 \label{tab:mortality}
 \end{table}
@@ -195,22 +216,31 @@ NBAS & missense: 1/1 & missense: $1/\complement$ or $\complement/\complement$ & 
 % Table S8 - Disease diagnosis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/disease_table.tex`
+% and manually update the rows below.
+
 \begin{table}
 \centering
 \begin{scriptsize}
-\begin{tabular}{l>{\raggedright}p{2.5cm}llllrr}
+\begin{tabular}{l>{\raggedright}p{2.5cm}llllll}
 \toprule
 \textbf{Cohort} & \textbf{HPO} & \textbf{disease A} & \textbf{} & \textbf{disease B} & \textbf{} & \textbf{p-val} & \textbf{adj. p}\\
 \midrule
-ANKRD11 & SV & $^{\complement}$ & ANKRD11 phenotypical score(*) & $2.6 \times 10^{-04}$ & \cite{PMID_36446582}\\
-ANKRD11 & FEMALE & MALE & ANKRD11 phenotypical score(*) & 0.007 & -\\
-CHD8 & missense & $\complement$ & DeVries score & $9.0 \times 10^{-04}$ & -\\
-CHD8 & FEMALE & MALE & DeVries score & 0.006 & -\\
-CTCF & missense & $\complement$ & DeVries score & 0.009 & -\\
-LMNA & NLS Upstream & $\complement$ & Cardiac phenotype score(*)& $1.8 \times 10^{-16}$ & -\\
-POGZ & Missense & $\complement$ &  Nagy et al. Phenotypic  score(*)  & 0.429 & \cite{PMID_35052493}\\
-POGZ & Missense & $\complement$ &  DeVries score & 0.429 & -\\
-RERE & LoF & Atrophin & Jordan et al.  phenotype score(*)  & $1.0 \times 10^{-03}$ & \cite{PMID_29330883}\\
+ATP13A2     & Bradykinesia [HP:0002067]             & OMIM:606693 & 30/32 (94\%)  & OMIM:617225 &  4/10 (40\%) & $9.2 \times 10^{-4}$ & 0.013 \\
+ATP13A2     & Parkinsonism [HP:0001300]             & OMIM:606693 & 28/28 (100\%) & OMIM:617225 &  3/11 (27\%) & $2.7 \times 10^{-6}$ & $7.8 \times 10^{-5}$ \\
+Kabuki      & Feeding difficulties [HP:0011968]     & OMIM:147920 &  8/25 (32\%)  & OMIM:300867 & 55/63 (87\%) & $7.4 \times 10^{-7}$ & $2.5 \times 10^{-5}$ \\
+Kabuki      & Motor delay [HP:0001270]              & OMIM:147920 &  4/10 (40\%)  & OMIM:300867 & 58/61 (95\%) & $1.0 \times 10^{-4}$ & 0.002 \\
+LDS 1 and 3 & Aortic aneurysm [HP:0004942]          & OMIM:609192 & 11/11 (100\%) & OMIM:613795 & 26/48 (54\%) & 0.004                & 0.027 \\
+LDS 1 and 3 & Hypertelorism [HP:0000316]            & OMIM:609192 & 15/19 (79\%)  & OMIM:613795 & 13/35 (37\%) & 0.004                & 0.027 \\
+LDS 1 and 3 & Osteoarthritis [HP:0002758]           & OMIM:609192 &  0/11 (0\%)   & OMIM:613795 & 26/38 (68\%) & $4.6 \times 10^{-5}$ & $1.0 \times 10^{-3}$ \\
+LDS 1 and 3 & Scoliosis [HP:0002650]                & OMIM:609192 & 18/21 (86\%)  & OMIM:613795 & 20/43 (47\%) & 0.003                & 0.027 \\
+LDS 3 and 6 & Thoracic aortic aneurysm [HP:0012727] & OMIM:613795 &  0/22 (0\%)   & OMIM:619656 & 10/16 (62\%) & $1.7 \times 10^{-5}$ & $4.2 \times 10^{-4}$ \\
+RPGRIP1     & Nystagmus [HP:0000639]                & OMIM:613826 & 64/66 (97\%)  & OMIM:608194 & 11/16 (69\%) & 0.003                & 0.020 \\
+RPGRIP1     & Very low visual acuity [HP:0032122]   & OMIM:613826 & 35/39 (90\%)  & OMIM:608194 &  4/16 (25\%) & $5.2 \times 10^{-6}$ & $7.8 \times 10^{-5}$ \\
+Robinow     & Cleft palate [HP:0000175]             & OMIM:268310 &  0/17 (0\%)   & OMIM:616331 &  5/8  (62\%) & $1.0 \times 10^{-3}$ & 0.031 \\
+Robinow     & Hearing impairment [HP:0000365]       & OMIM:268310 &  3/22 (14\%)  & OMIM:616331 &  7/7 (100\%) & $7.7 \times 10^{-5}$ & 0.003 \\
+Robinow     & Mesomelia [HP:0003027]                & OMIM:268310 & 31/31 (100\%) & OMIM:616331 & 10/15 (67\%) & 0.002                & 0.048 \\
+Robinow     & Short stature [HP:0004322]            & OMIM:268310 & 29/29 (100\%) & OMIM:616331 &  3/11 (27\%) & $2.2 \times 10^{-6}$ & $1.9 \times 10^{-4}$ \\
 \bottomrule
 \end{tabular}
 \end{scriptsize}
@@ -237,6 +267,9 @@ RERE & LoF & Atrophin & Jordan et al.  phenotype score(*)  & $1.0 \times 10^{-03
 % Table S9 - Sex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Take entries from `supplement/generated/v9_6/mf_table.tex`
+% and manually update the rows below.
+
 \begin{table}
 \centering
 \begin{scriptsize}
@@ -248,7 +281,10 @@ KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MA
 \bottomrule
 \end{tabular}
 \end{scriptsize}
-\caption{\textbf{Fischer exact test for association between  between phenotypic features and sex (male, female)}. Adj. p: p value adjusted with Benjamini-Hochberg method.}
+\caption{
+  \textbf{Fischer exact test for association between phenotypic features and sex (male, female)}.
+  Adj. p: p value adjusted with Benjamini-Hochberg method.
+}
 \label{tab:mf_hpo}
 \end{table}
 
@@ -267,77 +303,81 @@ KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MA
   \textbf{Sig}: number of significant associations.
   \textbf{Pub}: Number of these identified in the literature.
   \textbf{Categorical}: Association of genotypes with phenotypes by Fisher exact test.
-  \textbf{t test}: Test of means of continuous values by student t test.
+  \textbf{t test}: Test of means of continuous values by Student t test.
   \textbf{HPO}: Logrank test for association of genotypes with age of onset of a phenotypic abnormality represented by an HPO term.
   \textbf{Disease}: Logrank test for association of genotypes with age of onset of a disease.
   \textbf{Mortality}: Logrank test for association of genotypes with age of death.
-  \textbf{Score}: Mann Whitney U test for association of genotypes with magnitude of a phenotype severity score.
+  \textbf{Phenotype score}: Mann Whitney U test for association of genotypes with magnitude of a phenotype severity score.
   Cohorts with no found significant associations are not reported.
 }
 \label{tab:all_association_counts} \\
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Score}}\\ \hline
+\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Phenotype score}} \\ \hline
 \endfirsthead
-\multicolumn{9}{c}%
+\multicolumn{9}{c}
 
 {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\ 
 
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Score}}\\ \hline
+\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{Sig}} & \multicolumn{1}{c}{\textbf{Pub}} & \multicolumn{1}{c}{\textbf{Categorical}} & \multicolumn{1}{c}{\textbf{t test}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Disease}} & \multicolumn{1}{c}{\textbf{Mortality}} & \multicolumn{1}{c}{\textbf{Phenotype score}} \\ \hline
 \endhead 
 \hline \multicolumn{9}{|r|}{{Continued on next page}} \\ \hline 
 
 \endfoot 
 \hline \hline 
 \endlastfoot 
-ACADM & 2 & 2 & - & 2/2 & - & - & - & -\\
-AIRE & 1 & 1 & - & - & 1/1 & - & - & -\\
-ANKRD11 & 2 & 1 & - & - & - & - & - & 1/2\\
-ATP13A2 & 2 & 2 & 2/2 & - & - & - & - & -\\
-BRD4 & 1 & 0 & 0/1 & - & - & - & - & -\\
-CHD8 & 2 & 1 & - & - & - & - & - & 1/2\\
-CLDN16 & 1 & 1 & - & - & 1/1 & - & - & -\\
-CNTNAP2 & 1 & 0 & - & - & - & 0/1 & - & -\\
-CTCF & 1 & 0 & - & - & - & - & - & 0/1\\
-CYP21A2 & 1 & 1 & - & 1/1 & - & - & - & -\\
-EHMT1 & 1 & 1 & 1/1 & - & - & - & - & -\\
-FBN1 & 14 & 14 & 14/14 & - & - & - & - & -\\
-FBXL4 & 2 & 0 & 0/1 & - & - & 0/1 & - & -\\
-FGD1 & 1 & 1 & 1/1 & - & - & - & - & -\\
-GLI3 & 14 & 14 & 14/14 & - & - & - & - & -\\
-HMGCS2 & 1 & 0 & - & - & - & 0/1 & - & -\\
-IKZF1 & 2 & 2 & 2/2 & - & - & - & - & -\\
-ITPR1 & 21 & 0 & 0/21 & - & - & - & - & -\\
-Kabuki & 2 & 2 & 2/2 & - & - & - & - & -\\
-KCNH5 & 1 & 1 & 1/1 & - & - & - & - & -\\
-KDM6A & 2 & 1 & 1/2 & - & - & - & - & -\\
-LDS 1 and 3 & 4 & 4 & 4/4 & - & - & - & - & -\\
-LDS 3 and 6 & 1 & 1 & 1/1 & - & - & - & - & -\\
-LMNA & 24 & 24 & 23/23 & - & - & - & - & 1/1\\
-MPV17 & 3 & 1 & 0/1 & - & - & 0/1 & 1/1 & -\\
-NBAS & 1 & 0 & 0/1 & - & - & - & - & -\\
-NF1 & 21 & 21 & 21/21 & - & - & - & - & -\\
-PTPN11 & 4 & 0 & 0/4 & - & - & - & - & -\\
-RERE & 1 & 1 & - & - & - & - & - & 1/1\\
-Robinow syndrome & 4 & 4 & 4/4 & - & - & - & - & -\\
-RPGRIP1 & 3 & 3 & 3/3 & - & - & - & - & -\\
-SAMD9L & 3 & 0 & 0/3 & - & - & - & - & -\\
-SCN2A & 9 & 9 & 9/9 & - & - & - & - & -\\
-SCO2 & 1 & 0 & 0/1 & - & - & - & - & -\\
-SETD2 & 9 & 8 & 8/8 & - & - & 0/1 & - & -\\
-SMAD3 & 1 & 0 & 0/1 & - & - & - & - & -\\
-SMARCB1 & 6 & 0 & 0/6 & - & - & - & - & -\\
-SMARCC2 & 1 & 1 & 1/1 & - & - & - & - & -\\
-SPTAN1 & 35 & 35& 35/35 & - & - & - & - & -\\
-SUOX & 2 & 2 & 1/1 & - & - & 0/1 & - & -\\
-TBCK & 2 & 0 & 0/2 & - & - & - & - & -\\
-TBX1 & 2 & 0 & 0/2 & - & - & - & - & -\\
-TBX5  & 3 & 3 & 3/3 & - & - & - & - & -\\
-TGFBR1 & 4 & 1 & 1/4 & - & - & - & - & -\\
-UMOD & 3 & 3 & 2/2 & - & 1/1 & - & - & -\\
-WWOX & 1 & 1 & 1/1 & - & - & - & - & -\\
-ZFX & 1 & 1 & 1/1 & - & - & - & - & -\\
-ZMYM3 & 1 & 0 & 0/1 & - & - & - & - & -\\
+
+% Catg. represents HPO vs. all genotype classes (incl. disease diagnoses predicate)
+%
+%                                         |    Survival    |
+% Cohort           Sig  Pub  Catg   t tst   HPO  Dis. Mort.  Pscore 
+ACADM       &  2 &  2 &    -  & 2/2 &   - &   - &   - &    - \\
+AIRE        &  1 &  1 &    -  &   - & 1/1 &   - &   - &    - \\
+ANKRD11     &  2 &  1 &    -  &   - &   - &   - &   - &  1/2 \\
+ATP13A2     &  2 &  2 &  2/2  &   - &   - &   - &   - &    - \\
+CHD8        &  2 &  1 &    -  &   - &   - &   - &   - &  1/2 \\
+CLDN16      &  1 &  1 &    -  &   - & 1/1 &   - &   - &    - \\
+CNTNAP2     &  1 &  0 &    -  &   - &   - & 0/1 &   - &    - \\
+CTCF        &  1 &  0 &    -  &   - &   - &   - &   - &  0/1 \\
+CYP21A2     &  1 &  1 &    -  & 1/1 &   - &   - &   - &    - \\
+EHMT1       &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+FBN1        & 14 & 14 & 14/14 &   - &   - &   - &   - &    - \\
+FBXL4       &  2 &  0 &  0/1  &   - &   - & 0/1 &   - &    - \\
+FGD1        &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+GLI3        & 14 & 14 & 14/14 &   - &   - &   - &   - &    - \\
+HMGCS2      &  1 &  0 &    -  &   - &   - & 0/1 &   - &    - \\
+IKZF1       &  2 &  2 &  2/2  &   - &   - &   - &   - &    - \\
+ITPR1       & 21 &  0 &  0/21 &   - &   - &   - &   - &    - \\
+Kabuki      &  2 &  2 &  2/2  &   - &   - &   - &   - &    - \\
+KCNH5       &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+KDM6A       &  2 &  1 &  1/2  &   - &   - &   - &   - &    - \\
+LDS 1 and 3 &  4 &  4 &  4/4  &   - &   - &   - &   - &    - \\
+LDS 3 and 6 &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+LMNA        & 24 & 24 & 23/23 &   - &   - &   - &   - &  1/1 \\
+MPV17       &  3 &  1 &  0/1  &   - &   - & 0/1 & 1/1 &    - \\
+NBAS        &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
+NF1         & 37 & 37 & 37/37 &   - &   - &   - &   - &    - \\
+PTPN11      &  4 &  0 &  0/4  &   - &   - &   - &   - &    - \\
+RERE        &  1 &  1 &    -  &   - &   - &   - &   - &  1/1 \\
+Robinow     &  4 &  4 &  4/4  &   - &   - &   - &   - &    - \\
+RPGRIP1     &  3 &  3 &  3/3  &   - &   - &   - &   - &    - \\
+SAMD9L      &  3 &  0 &  0/3  &   - &   - &   - &   - &    - \\
+SCN2A       &  9 &  9 &  9/9  &   - &   - &   - &   - &    - \\
+SCO2        &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
+SETD2       &  9 &  8 &  8/8  &   - &   - & 0/1 &   - &    - \\
+SMAD3       &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
+SMARCB1     &  6 &  0 &  0/6  &   - &   - &   - &   - &    - \\
+SMARCC2     &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+SPTAN1      & 35 & 35 & 35/35 &   - &   - &   - &   - &    - \\
+SUOX        &  2 &  2 &  1/1  &   - &   - & 0/1 &   - &    - \\
+TBCK        &  2 &  0 &  0/2  &   - &   - &   - &   - &    - \\
+TBX1        &  2 &  0 &  0/2  &   - &   - &   - &   - &    - \\
+TBX5        &  3 &  3 &  3/3  &   - &   - &   - &   - &    - \\
+TGFBR1      &  4 &  1 &  1/4  &   - &   - &   - &   - &    - \\
+UMOD        &  3 &  3 &  2/2  &   - & 1/1 &   - &   - &    - \\
+WWOX        &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+ZFX         &  1 &  1 &  1/1  &   - &   - &   - &   - &    - \\
+ZMYM3       &  1 &  0 &  0/1  &   - &   - &   - &   - &    - \\
 \hline
 \end{longtable}
 \end{center}
