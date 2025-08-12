@@ -1,0 +1,55 @@
+\begin{figure}[htbp]
+\section*{ SATB2}
+\centering
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\includegraphics[width=\textwidth]{ img/SATB2_protein_diagram.pdf} 
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{Distribution of variants in SATB2}
+\end{subfigure}
+
+\vspace{2em}
+
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+HPO term & Missense & Other & p-value & adj. p-value\\
+\midrule
+Cleft palate [HP:0000175] & 11/49 (22\%) & 59/105 (56\%) & $1.11\times 10^{-4}$ & 0.002\\
+\bottomrule
+\end{tabular}
+}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{         Fisher Exact Test performed to compare HPO annotation frequency with respect to Missense and Other. Total of
+        20 tests were performed. }
+\end{subfigure}
+\vspace{2em}
+\begin{subfigure}[b]{0.95\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llllrr}
+\toprule
+Genotype (A) & Genotype (B) & total tests performed & significant results\\
+\midrule
+ULD & Other & 20 & 0\\
+FEMALE & MALE & 20 & 0\\
+transcript ablation & other & 20 & 0\\
+\bottomrule
+\end{tabular}
+}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\caption{             Fisher Exact Test performed to compare HPO annotation frequency with respect to genotypes. }
+\end{subfigure}
+
+\vspace{2em}
+
+\caption{ The cohort comprised 158 individuals (62 females, 90 males, 6 with unknown sex). A total of 11 HPO terms were used to annotate the cohort. Disease diagnosis: Glass syndrome (OMIM:612313). 
+Individuals with large chromosomal deletions were diagnosed at earlier ages (mean 2.5 years, $p \leq 0.0006$).
+Individuals with missense or disruptive pathogenic variants were more commonly reported to have sialorrhea (p = 0.0115),
+and those with large deletions were more likely to have a history of growth retardation (p = 0.0033).
+The authors reported a higher prevalence of chronic mucocutanous candidiasis with the variant Arg357Ter
+than with other variants. We did not identify a significant difference in prevalence \cite{PMID_29436146}.
+A total of 92 unique variant alleles were found in \textit{SATB2} (transcript: \texttt{NM\_001172509.2}, protein id: \texttt{NP\_001165980.1}).}
+\end{figure}

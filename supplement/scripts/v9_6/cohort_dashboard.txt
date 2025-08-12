@@ -52,7 +52,7 @@ ROR2	32	3	7	22	81	0	2025-01-16	0.9.6	32	32	0	0	0	10	1	Robinow syndrome, autosoma
 RPGRIP1	100	45	49	6	45	0	2025-01-16	0.9.6	100	100	0	0	0	95	2	Cone-rod dystrophy 13;Leber congenital amaurosis 6
 Robinow	48	10	14	24	103	0	2025-01-16	0.9.6	48	48	0	0	0	20	2	Robinow syndrome, autosomal recessive;Robinow syndrome, autosomal dominant 2
 SAMD9L	31	15	16	0	41	0	2025-01-16	0.9.6	31	19	5	7	5	22	2	Ataxia-pancytopenia syndrome;Spinocerebellar ataxia 49
-SATB2	158	62	90	6	11	0	2025-01-16	0.9.6	158	0	0	158	0	89	1	Glass syndrome
+SATB2	158	62	90	6	11	0	2025-08-11	0.9.11	158	0	0	158	0	89	1	Glass syndrome
 SCN2A	393	0	0	393	289	0	2025-01-16	0.9.6	393	0	0	393	0	277	2	Seizures, benign familial infantile, 3;Developmental and epileptic encephalopathy 11
 SCO2	37	10	23	4	107	0	2025-01-16	0.9.6	37	7	24	6	24	33	2	Mitochondrial complex IV deficiency, nuclear type 2;Myopia 6
 SEC61A1	19	8	11	0	76	0	2025-01-16	0.9.6	19	6	1	12	1	16	3	Tubulointerstitial kidney disease, autosomal dominant, 5;Immunodeficiency, common variable, 15;Neutropenia, severe congenital, 11, autosomal dominant
