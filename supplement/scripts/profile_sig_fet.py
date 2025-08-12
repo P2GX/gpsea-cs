@@ -60,8 +60,8 @@ mapped_items = map(lambda item: item, top_level_count.items())
 sorted_items = sorted(mapped_items, key=lambda item: item[1], reverse=True)
 sorted_dict = dict(sorted_items)
 
-print(sorted_dict)
-
+#print(sorted_dict)
+print("Will output counts to ", OUTFILE)
 with open(OUTFILE, "wt") as fh:
     fh.write("Organ system\tCount\n")
     for k, v in sorted_dict.items():
