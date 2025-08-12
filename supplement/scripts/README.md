@@ -52,3 +52,9 @@ Total unique diseases tested 122
 This script only contains the version for analysis.
 
 
+### Propotions
+The script ``profile_sig_fet.py" creates the file ``top_level_counts.txt`` (at the location
+``/gpsea-cs/supplement/generated/v9_6/top_level_counts.txt``). 
+These counts are entered into HpoTools (https://github.com/P2GX/hpotools), HpoDistCommand. This command performs the statistical
+analysis described in the manuscript and outputs the results in the file  ``distribution-hpo.txt`` (this is checked into the repository under'/generated/v9_6/distribution-hpo.txt'). 
+Finally, we run the script ``make_proportions_table.py`` to create the LaTeX table that is included in the Supplement. This was created with version 0.1.4 of HPO Tools.
