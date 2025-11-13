@@ -1,4 +1,5 @@
 import csv
+import io
 import os
 import typing
 
@@ -19,7 +20,9 @@ SIG_FISHER_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "sig_fisher_exact_test_dashb
 FISHER_DASHBOARD = os.path.join(SUPPLEMENT_DIR, "fisher_exact_test_dashboard.txt")
 
 GENERATED_DIR = os.path.join(THIS_DIR, os.pardir, 'generated', ANALYSIS_VERSION)
-HPO_FET_OUT = os.path.join(GENERATED_DIR, "hpo_fet.tex")
+# 👇 Commenting out because Table S2 will be submitted as an Excel file.
+# HPO_FET_TEX_OUT = os.path.join(GENERATED_DIR, "hpo_fet.tex")
+HPO_FET_CSV_OUT = os.path.join(GENERATED_DIR, "hpo_fet.csv")
 SIG_FISHER_SUMMARY = os.path.join(GENERATED_DIR, "sig_fet_test_summary.txt")
 DISEASE_TABLE_OUT = os.path.join(GENERATED_DIR, "disease_table.tex")
 MF_TABLE_OUT = os.path.join(GENERATED_DIR, "mf_table.tex")
@@ -134,6 +137,26 @@ def create_sig_fisher_table(list_of_rows,
         table.add_row(items)
     return table.get_latex()
 
+def create_sig_fisher_csv(
+    list_of_rows, 
+    header: typing.Sequence[str],
+    out: io.IOBase,
+):
+    dw = csv.DictWriter(out, header)
+    dw.writeheader()
+    for row in list_of_rows:
+        record = {
+            "Cohort": row["#cohort_name"],
+            "HPO": row["hpo_item"],
+            "Genotype A": row["a_genotype"],
+            "Counts A": row["with_geno_a"],
+            "Genotype B": row["b_genotype"],
+            "Counts B": row["with_geno_b"],
+            "p-val": row["pval"],
+            "adj. p": row["adj_pval"],
+        }
+        dw.writerow(record)
+
 
 def print_mf_table(mf_rows):
     header = ["cohort", "HPO", "genotype (A)", "Counts (A)",  "genotype (B)", "Counts (B)", "p-val", "adj. p"]
@@ -163,20 +186,31 @@ def print_disease_table(disease_rows):
     print(f"Wrote{DISEASE_TABLE_OUT}")
 
 def print_hpo_table(hpo_terms):
-    header = ["Cohort", "HPO", "Genotype A", "",  "Genotype B", "", "p-val", "adj. p"]
-    header_field_formats = "l>{\\raggedright}p{2.5cm}>{\\raggedright}p{1.5cm}l>{\\raggedright}p{1.5cm}lll" # need to import array package for raggedright
-    caption = """Fischer exact test for association between genotypes and phenotypic features."""
-    table = create_sig_fisher_table(list_of_rows=hpo_terms,
-                               header=header,
-                               header_format=header_field_formats,
-                               useLongTable=True,
-                               caption=caption)
+    header = ["Cohort", "HPO", "Genotype A", "Counts A",  "Genotype B", "Counts B", "p-val", "adj. p"]
     print(f"Table with {len(hpo_terms)} HPO entry lines")
-    with open(HPO_FET_OUT, "wt") as fh:
-        fh.write(table)
+    with open(HPO_FET_CSV_OUT, "wt") as fh:
+        create_sig_fisher_csv(
+            list_of_rows=hpo_terms,
+            header=header,
+            out=fh,
+        )
+    print(f"Wrote {HPO_FET_CSV_OUT}")
+    print("Don't forget to convert the CSV into XLSX format!")
 
-    print(f"Wrote {HPO_FET_OUT}")
-    print("Don't forget to update the table caption!".capitalize())
+    # 👇 Commenting out because Table S2 will be submitted as an Excel file.
+    # header_field_formats = "l>{\\raggedright}p{2.5cm}>{\\raggedright}p{1.5cm}l>{\\raggedright}p{1.5cm}lll" # need to import array package for raggedright
+    # caption = """Fischer exact test for association between genotypes and phenotypic features."""
+    # table = create_sig_fisher_table(list_of_rows=hpo_terms,
+    #                            header=header,
+    #                            header_format=header_field_formats,
+    #                            useLongTable=True,
+    #                            caption=caption)
+    
+    # with open(HPO_FET_TEX_OUT, "wt") as fh:
+    #     fh.write(table)
+
+    # print(f"Wrote {HPO_FET_TEX_OUT}")
+    # print("Don't forget to update the table caption!".capitalize())
 
 
    

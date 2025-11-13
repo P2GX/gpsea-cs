@@ -40,10 +40,12 @@ not                    & Logical NOT                                            
 % Table S2 - Fisher exact test
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{generated/v9_6/hpo_fet}
+% 👇 Commenting out because Table S2 will be submitted as an Excel file.
+% \input{generated/v9_6/hpo_fet}
 
-\clearpage
-\newpage
+% \clearpage
+% \newpage
+\addtocounter{table}{1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table S3 - Phenotype severity scores
@@ -66,13 +68,12 @@ LMNA & Upstream of NLS & $^{\complement}$ & HPO Group Count & $1.83\times 10^{-1
 RERE & LoF & Atrophin & HPO Group Count & $1.0 \times 10^{-3}$ & -  \\
 \hline
 \end{tabular}
-\caption{Phenotype severity scores. Mann-Whitney U tests performed using GPSEA to assess the association between a genotype and the total value of a phenotype severity score.
+\caption{\textbf{Phenotype severity scores.} Mann-Whitney U tests performed using GPSEA to assess the association between a genotype and the total value of a phenotype severity score.
 The references in the xrefs column show previous publications that have presented similar findings.
 HPO Group Count scorer assigns a phenotype score that is equivalent to the count of present phenotypes
 that are either an exact match to the query terms or their descendants.
 DeVries scorer is an adaption of the DeVries score \cite{PMID_34521999} using HPO.
-$\complement$: set complement of a variant predicate.
-See Table \ref{tab:hpo_fet} for the definition.} 
+$\complement$: set complement of a variant predicate.}
 \label{tab:sevscores}
 \end{table}
 
@@ -99,7 +100,6 @@ CYP21A2 & missense:  $1/\complement$  OR $\complement/\complement$ &  1/1 & 17-H
 \caption{
   \textbf{Student t-tests performed using GPSEA}.
   $\complement$: set complement of a variant predicate.
-  See Table \ref{tab:hpo_fet} for the definition.
   Citations in the xrefs column show previous publications that have presented similar findings.
 }
 \label{tab:t_test}
@@ -131,7 +131,6 @@ UMOD & Cys248Trp & Gln316Pro & Survival analysis: Stage 5 chronic kidney disease
   Logrank tests performed using GPSEA to assess association between a genotype
   and the age of onset of a phenotypic feature represented by an HPO term.
   $\complement$: set complement of a variant predicate.
-  See Table \ref{tab:hpo_fet} for the definition.
   Citations in the xrefs column show previous publications that have presented similar findings.
 }
 \label{tab:hpo_onset}
@@ -166,7 +165,7 @@ SUOX & Missense/Missense OR Missense/$^{\complement}$ & $^{\complement}$/$^{\com
 \caption{
   \textbf{Age of onset of disease}.
   Log rank tests performed using GPSEA to assess association between a genotype and the age of onset of a disease.
-  1/1, $1/\complement$, $\complement/\complement$: See Table \ref{tab:hpo_fet} for definitions.
+  $\complement$: set complement of a variant predicate.
   Citations in the xrefs column show previous publications that have presented similar findings.
   \texttt{hdim}: homodimerization;
   \texttt{OMIM:610042}: Pitt-Hopkins like syndrome 1;
@@ -202,7 +201,7 @@ MPV17 & Pro98Leu: 1/1 & Pro98Leu: $1/\complement$ or $\complement/\complement$ &
   \textbf{Age of death}.
   Log rank tests performed using GPSEA to assess association between a genotype
   and the age of death of individuals with a disease.
-  1/1, $1/\complement$, $\complement/\complement$: See Table \ref{tab:hpo_fet} for definitions.
+  $\complement$: set complement of a variant predicate.
   Citations in the xrefs column show previous publications that have presented similar findings.
   \texttt{OMIM:256810}: Mitochondrial DNA depletion syndrome 6 (hepatocerebral type).
 }
@@ -300,7 +299,7 @@ KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MA
 \begin{longtable}
 {lllllllllll}
 \caption{
-  Detailed results for Table 1 of the main manuscript.
+  \textbf{Detailed results for Table 1 of the main manuscript.}
   \textbf{Sig}: Number of significant associations.
   \textbf{Pub}: Number of these identified in the literature.
   \textbf{Categorical}: Association of genotypes with phenotypes by Fisher exact test.
