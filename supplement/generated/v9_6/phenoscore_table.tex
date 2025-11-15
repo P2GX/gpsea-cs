@@ -1,0 +1,25 @@
+\begin{fontsize}
+\begin{table}
+\centering
+\begin{tabular}{lp{3.5cm}p{3.5cm}>{\raggedright}p{3cm}lr}
+\toprule
+\textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{Scorer} & \textbf{p-val} & \textbf{xrefs}\\
+\midrule
+ANKRD11 & FEMALE & MALE & Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants & 0.007 & -\\
+ANKRD11 & SV & other & Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants & $2.6 \times 10^{-04}$ & PMID: 36446582\\
+CHD8 & FEMALE & MALE & A phenotypic severity score for individuals with intellectual disability & 0.006 & -\\
+CHD8 & missense & other & A phenotypic severity score for individuals with intellectual disability & $9.0 \times 10^{-04}$ & -\\
+CTCF & missense & other & A phenotypic severity score for individuals with intellectual disability & 0.009 & -\\
+LMNA & Upstream of NLS & other & Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants & $1.8 \times 10^{-16}$ & -\\
+POGZ & Missense & Other & A phenotypic severity score for individuals with intellectual disability & 0.429 & -\\
+POGZ & Missense & Other & A phenotypic severity score according to Nagy et al. 2022 & 0.429 & -\\
+RERE & LoF & Atrophin & Assign a phenotype score that is equivalent to the count of present phenotypes that are either an exact match to the query terms or their descendants & $1.0 \times 10^{-03}$ & -\\
+\bottomrule
+\end{tabular}
+\caption{Mann-Whitney U tests performed using GPSEA to assess association between a genotype and a phenotype score.
+    1/1: biallelic with reference to the indicate variant; 
+    0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
+    Citations in the xrefs column show previous publications that have presented similar findings.}
+\label{tab:to_do}
+\end{table}
+\end{fontsize}

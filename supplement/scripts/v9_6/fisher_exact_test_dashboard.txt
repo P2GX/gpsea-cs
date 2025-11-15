@@ -15,8 +15,8 @@ ATP13A2	209	30	missense/missense OR missense/other	other/other	0
 ATP6V0C	273	80	1-100	100+	0
 ATP6V0C	273	80	FEMALE	MALE	0
 ATP6V0C	273	80	missense	other	0
-BRD4	207	27	ablation	other	0
-BRD4	207	34	NIPBL	BRD4	1
+BRD4	206	27	ablation	other	0
+BRD4	206	41	NIPBL	BRD4	0
 CHD8	256	36	FEMALE	MALE	0
 CHD8	256	36	missense	other	0
 CLDN16	189	23	missense/missense OR missense/other	other/other	0
@@ -96,11 +96,11 @@ MPV17	404	29	Arg50Gln/Arg50Gln OR Arg50Gln/other	other/other	0
 MPV17	404	32	FEMALE	MALE	0
 MPV17	404	32	missense/missense OR missense/other	other/other	0
 NBAS	364	22	missense/missense	other/other OR missense/other	1
-NF1	170	13	Met992del	other	5
-NF1	170	17	SV	other	1
-NF1	170	21	Missense	other	0
-NF1	170	22	Leu847Pro	other	6
-NF1	170	22	p.Arg1830	other	9
+NF1	170	16	Met992del	other	6
+NF1	170	23	SV	other	5
+NF1	170	26	Missense	other	5
+NF1	170	27	Leu847Pro	other	9
+NF1	170	27	p.Arg1830	other	12
 NIPBL	332	81	FEMALE	MALE	0
 NIPBL	332	86	disordered	other	0
 NIPBL	332	86	missense	other	0

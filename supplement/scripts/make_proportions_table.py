@@ -1,13 +1,20 @@
-from os.path import dirname, abspath, join
-from csv import DictReader
+import csv
+import os
+from analysis import ANALYSIS_VERSION
 from mylatextable import  MyLatexTable
 
 # Create tables to summarize the total number of tests performed and their results
 # We will use this for Table 1.
 
-THIS_DIR = dirname(abspath(__file__))
-DISTRIBUTION_FILE = join(THIS_DIR, "../../../hpotools/distribution-hpo.txt")
-PROPORTIONS_FILE = join(THIS_DIR, "proportions.tex")
+from analysis import ANALYSIS_VERSION
+
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# TODO(pnrobinson) - add the file into the repo.
+DISTRIBUTION_FILE = os.path.join(THIS_DIR, f"../generated/{ANALYSIS_VERSION}/distribution-hpo.txt")
+
+GENERATED_DIR = os.path.join(THIS_DIR, os.pardir, 'generated', ANALYSIS_VERSION)
+PROPORTIONS_FILE = os.path.join(GENERATED_DIR, "proportions.tex")
 
 
 
@@ -15,7 +22,8 @@ header = ["HPO", "id", "Count", "Observed (\\%)", "Expected (\\%)" ]
 caption = "Distribution of significant Fisher exact test results according to top-level HPO term"
 table = MyLatexTable(header_fields=header, use_booktabs=True,  caption=caption)
 with open(DISTRIBUTION_FILE) as f:
-    reader = DictReader(f, delimiter="\t")
+    filtered_lines = (line for line in f if not line.lstrip().startswith("!"))
+    reader = csv.DictReader(filtered_lines, delimiter="\t")
     for row in reader:
         hpo = row["HPO"]
         ident = row["ID"]
@@ -24,10 +32,7 @@ with open(DISTRIBUTION_FILE) as f:
         e = row["Expected"].replace("%","\\%")
         items = [hpo, ident, count, o, e]
         table.add_row(items)
-fh = open(PROPORTIONS_FILE, "wt")
-fh.write(table.get_latex())
-fh.close()
 
-
-
+with open(PROPORTIONS_FILE, "wt") as fh:
+    fh.write(table.get_latex())
 

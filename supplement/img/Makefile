@@ -1,0 +1,3 @@
+.phoney: clean
+
+clean: ;

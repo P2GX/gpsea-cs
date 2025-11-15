@@ -1,0 +1,18 @@
+Organ system	Count
+Abnormality of the nervous system	40
+Abnormality of the musculoskeletal system	38
+Abnormality of limbs	19
+Neoplasm	16
+Abnormality of the cardiovascular system	11
+Abnormality of the integument	10
+Abnormality of head or neck	8
+Abnormality of blood and blood-forming tissues	6
+Abnormality of the eye	6
+Abnormality of the immune system	5
+Growth abnormality	5
+Abnormality of the digestive system	3
+Abnormality of metabolism/homeostasis	2
+Abnormality of the ear	2
+Abnormality of the respiratory system	1
+Abnormal cellular phenotype	1
+Abnormality of the endocrine system	1

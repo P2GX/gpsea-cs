@@ -1,0 +1,22 @@
+\begin{fontsize}
+\begin{table}
+\centering
+\begin{tabular}{lp{2cm}p{2cm}>{\raggedright}p{4.5cm}lr}
+\toprule
+\textbf{cohort} & \textbf{genotype (A)} & \textbf{genotype (B)} & \textbf{HPO Term} & \textbf{p-val} & \textbf{xrefs}\\
+\midrule
+AIRE & R257*/R257* OR R257*/other & other/other & Survival analysis: Chronic mucocutaneous candidiasis & 0.019 & -\\
+CLDN16 & missense/missense OR missense/other & other/other & Survival analysis: Stage 5 chronic kidney disease & 0.034 & -\\
+SCO2 & Glu140Lys/Glu140Lys & other/other OR Glu140Lys/other & Survival analysis: Hypertrophic cardiomyopathy & 0.219 & -\\
+UMOD & 278_289delins & other & Survival analysis: Stage 5 chronic kidney disease & 0.835 & -\\
+UMOD & Cys248Trp & Gln316Pro & Survival analysis: Stage 5 chronic kidney disease & $4.1 \times 10^{-04}$ & -\\
+UMOD & EGF & other & Survival analysis: Stage 5 chronic kidney disease & 0.284 & -\\
+\bottomrule
+\end{tabular}
+\caption{Log rank tests performed using GPSEA to assess association between a genotype and the age of
+    onset of a phenotypic feature represented by an HPO term. 1/1: biallelic with reference to the indicate variant; 
+    0/1: heterozygous with reference to the indicated variant; 0/0: Neither allele has the indicated variant.
+    Citations in the xrefs column show previous publications that have presented similar findings.}
+\label{tab:to_do}
+\end{table}
+\end{fontsize}

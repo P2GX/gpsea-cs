@@ -1,24 +1,25 @@
 \begin{center}
 \begin{scriptsize}
 \begin{longtable}
-{l>{\raggedright}p{2.5cm}>{\raggedright}p{1.5cm}l>{\raggedright}p{1.5cm}lll}
-\caption{Fischer exact test for association between genotypes and phenotypic features.}\label{tab:to_do} \\
+{p{1cm}p{3cm}p{2cm}p{1cm}p{2cm}p{1cm}p{1.5cm}p{1.5cm}}
+\caption{to do}\label{tab:to_do} \\
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Genotype A}} & \multicolumn{1}{c}{\textbf{}} & \multicolumn{1}{c}{\textbf{Genotype B}} & \multicolumn{1}{c}{\textbf{}} & \multicolumn{1}{c}{\textbf{p-val}} & \multicolumn{1}{c}{\textbf{adj. p}}\\ \hline
+\multicolumn{1}{c}{\textbf{cohort}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{genotype (A)}} & \multicolumn{1}{c}{\textbf{Counts (A)}} & \multicolumn{1}{c}{\textbf{genotype (B)}} & \multicolumn{1}{c}{\textbf{Counts (B)}} & \multicolumn{1}{c}{\textbf{p-val}} & \multicolumn{1}{c}{\textbf{adj. p-val}}\\ \hline
 \endfirsthead
 \multicolumn{8}{c}%
 
 {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\ 
 
 \hline
-\multicolumn{1}{c}{\textbf{Cohort}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{Genotype A}} & \multicolumn{1}{c}{\textbf{}} & \multicolumn{1}{c}{\textbf{Genotype B}} & \multicolumn{1}{c}{\textbf{}} & \multicolumn{1}{c}{\textbf{p-val}} & \multicolumn{1}{c}{\textbf{adj. p}}\\ \hline
+\multicolumn{1}{c}{\textbf{cohort}} & \multicolumn{1}{c}{\textbf{HPO}} & \multicolumn{1}{c}{\textbf{genotype (A)}} & \multicolumn{1}{c}{\textbf{Counts (A)}} & \multicolumn{1}{c}{\textbf{genotype (B)}} & \multicolumn{1}{c}{\textbf{Counts (B)}} & \multicolumn{1}{c}{\textbf{p-val}} & \multicolumn{1}{c}{\textbf{adj. p-val}}\\ \hline
 \endhead 
 \hline \multicolumn{8}{|r|}{{Continued on next page}} \\ \hline 
 
 \endfoot 
 \hline \hline 
 \endlastfoot 
-BRD4 & Intrauterine growth retardation [HP:0001511] & NIPBL & 37/45 (82\%) & BRD4 & 2/9 (22\%) & $9.4 \times 10^{-04}$ & 0.032\\
+ATP13A2 & Bradykinesia [HP:0002067] & OMIM:606693 & 30/32 (94\%) & OMIM:617225 & 4/10 (40\%) & $9.2 \times 10^{-04}$ & 0.013\\
+ATP13A2 & Parkinsonism [HP:0001300] & OMIM:606693 & 28/28 (100\%) & OMIM:617225 & 3/11 (27\%) & $2.7 \times 10^{-06}$ & $7.8 \times 10^{-05}$\\
 EHMT1 & Attention deficit hyperactivity disorder [HP:0007018] & N Term Frameshift & 4/8 (50\%) & other & 3/96 (3\%) & $4.8 \times 10^{-04}$ & 0.029\\
 FBN1 & Disproportionate tall stature [HP:0001519] & TB domain & 2/40 (5\%) & cbEGF & 12/43 (28\%) & 0.007 & 0.029\\
 FBN1 & Ectopia lentis [HP:0001083] & TB domain & 9/18 (50\%) & cbEGF & 48/59 (81\%) & 0.013 & 0.038\\
@@ -74,7 +75,15 @@ ITPR1 & Motor delay [HP:0001270] & SV Deletion & 0/19 (0\%) & other & 87/94 (93\
 ITPR1 & Neurodevelopmental delay [HP:0012758] & SV Deletion & 0/19 (0\%) & other & 99/100 (99\%) & $4.1 \times 10^{-21}$ & $9.0 \times 10^{-20}$\\
 ITPR1 & Nystagmus [HP:0000639] & SV Deletion & 17/17 (100\%) & other & 61/87 (70\%) & 0.006 & 0.016\\
 KCNH5 & Epileptic encephalopathy [HP:0200134] & Arg327His & 15/15 (100\%) & Arg333His & 0/3 (0\%) & $1.0 \times 10^{-03}$ & 0.032\\
+KDM6A & Intellectual disability, severe [HP:0010864] & FEMALE & 7/25 (28\%) & MALE & 14/18 (78\%) & 0.002 & 0.008\\
 KDM6A & Pulmonic stenosis [HP:0001642] & p.Asn891ValfsTer27 & 2/2 (100\%) & Other & 0/59 (0\%) & $5.5 \times 10^{-04}$ & 0.016\\
+Kabuki & Feeding difficulties [HP:0011968] & OMIM:147920 & 8/25 (32\%) & OMIM:300867 & 55/63 (87\%) & $7.4 \times 10^{-07}$ & $2.5 \times 10^{-05}$\\
+Kabuki & Motor delay [HP:0001270] & OMIM:147920 & 4/10 (40\%) & OMIM:300867 & 58/61 (95\%) & $1.0 \times 10^{-04}$ & 0.002\\
+LDS 1 and 3 & Aortic aneurysm [HP:0004942] & OMIM:609192 & 11/11 (100\%) & OMIM:613795 & 26/48 (54\%) & 0.004 & 0.027\\
+LDS 1 and 3 & Hypertelorism [HP:0000316] & OMIM:609192 & 15/19 (79\%) & OMIM:613795 & 13/35 (37\%) & 0.004 & 0.027\\
+LDS 1 and 3 & Osteoarthritis [HP:0002758] & OMIM:609192 & 0/11 (0\%) & OMIM:613795 & 26/38 (68\%) & $4.6 \times 10^{-05}$ & $1.0 \times 10^{-03}$\\
+LDS 1 and 3 & Scoliosis [HP:0002650] & OMIM:609192 & 18/21 (86\%) & OMIM:613795 & 20/43 (47\%) & 0.003 & 0.027\\
+LDS 3 and 6 & Thoracic aortic aneurysm [HP:0012727] & OMIM:613795 & 0/22 (0\%) & OMIM:619656 & 10/16 (62\%) & $1.7 \times 10^{-05}$ & $4.2 \times 10^{-04}$\\
 LMNA & Distal muscle weakness [HP:0002460] & Gly608= & 0/15 (0\%) & Other & 36/97 (37\%) & 0.002 & 0.004\\
 LMNA & Elevated hemoglobin A1c [HP:0040217] & Gly608= & 0/15 (0\%) & Other & 79/110 (72\%) & $5.7 \times 10^{-08}$ & $6.8 \times 10^{-07}$\\
 LMNA & Limb muscle weakness [HP:0003690] & Gly608= & 0/15 (0\%) & Other & 38/99 (38\%) & 0.002 & 0.004\\
@@ -112,32 +121,54 @@ LMNA & Elevated hemoglobin A1c [HP:0040217] & missense & 73/101 (72\%) & other &
 LMNA & Loss of truncal subcutaneous adipose tissue [HP:0009002] & missense & 104/104 (100\%) & other & 4/11 (36\%) & $7.5 \times 10^{-09}$ & $2.9 \times 10^{-07}$\\
 MPV17 & Peripheral axonal neuropathy [HP:0003477] & Pro98Leu/Pro98Leu & 3/3 (100\%) & other/other OR Pro98Leu/other & 1/22 (5\%) & 0.002 & 0.037\\
 NBAS & Decreased circulating IgG concentration [HP:0004315] & missense/missense & 1/12 (8\%) & other/other OR missense/other & 15/23 (65\%) & 0.002 & 0.035\\
-NF1 & Axillary freckling [HP:0000997] & Leu847Pro & 50/61 (82\%) & other & 75/193 (39\%) & $3.5 \times 10^{-09}$ & $7.8 \times 10^{-08}$\\
-NF1 & Freckling [HP:0001480] & Leu847Pro & 54/54 (100\%) & other & 223/301 (74\%) & $5.3 \times 10^{-07}$ & $5.8 \times 10^{-06}$\\
-NF1 & Inguinal freckling [HP:0030052] & Leu847Pro & 34/60 (57\%) & other & 58/189 (31\%) & $3.9 \times 10^{-04}$ & 0.002\\
-NF1 & Lisch nodules [HP:0009737] & Leu847Pro & 22/42 (52\%) & other & 61/242 (25\%) & $7.5 \times 10^{-04}$ & 0.003\\
-NF1 & Optic nerve glioma [HP:0009734] & Leu847Pro & 15/33 (45\%) & other & 24/143 (17\%) & $8.6 \times 10^{-04}$ & 0.003\\
-NF1 & Plexiform neurofibroma [HP:0009732] & Leu847Pro & 24/66 (36\%) & other & 44/329 (13\%) & $4.6 \times 10^{-05}$ & $3.4 \times 10^{-04}$\\
-NF1 & Axillary freckling [HP:0000997] & Met992del & 0/14 (0\%) & other & 125/240 (52\%) & $8.6 \times 10^{-05}$ & $1.0 \times 10^{-03}$\\
+NF1 & Axillary freckling [HP:0000997] & Leu847Pro & 50/61 (82\%) & other & 75/193 (39\%) & $3.5 \times 10^{-09}$ & $9.6 \times 10^{-08}$\\
+NF1 & Freckling [HP:0001480] & Leu847Pro & 54/64 (84\%) & other & 223/331 (67\%) & 0.007 & 0.023\\
+NF1 & Glioma [HP:0009733] & Leu847Pro & 18/67 (27\%) & other & 28/242 (12\%) & 0.003 & 0.013\\
+NF1 & Inguinal freckling [HP:0030052] & Leu847Pro & 34/60 (57\%) & other & 58/189 (31\%) & $3.9 \times 10^{-04}$ & 0.003\\
+NF1 & Lisch nodules [HP:0009737] & Leu847Pro & 22/42 (52\%) & other & 61/242 (25\%) & $7.5 \times 10^{-04}$ & 0.004\\
+NF1 & Neurofibroma [HP:0001067] & Leu847Pro & 47/67 (70\%) & other & 111/341 (33\%) & $1.6 \times 10^{-08}$ & $2.1 \times 10^{-07}$\\
+NF1 & Neurofibroma by anatomical location [HP:0034761] & Leu847Pro & 6/26 (23\%) & other & 17/247 (7\%) & 0.014 & 0.041\\
+NF1 & Optic nerve glioma [HP:0009734] & Leu847Pro & 15/65 (23\%) & other & 24/287 (8\%) & 0.002 & 0.008\\
+NF1 & Plexiform neurofibroma [HP:0009732] & Leu847Pro & 24/65 (37\%) & other & 44/325 (14\%) & $4.4 \times 10^{-05}$ & $4.0 \times 10^{-04}$\\
+NF1 & Axillary freckling [HP:0000997] & Met992del & 0/14 (0\%) & other & 125/240 (52\%) & $8.6 \times 10^{-05}$ & $6.9 \times 10^{-04}$\\
 NF1 & Inguinal freckling [HP:0030052] & Met992del & 0/14 (0\%) & other & 92/235 (39\%) & 0.003 & 0.008\\
 NF1 & Lipoma [HP:0012032] & Met992del & 5/44 (11\%) & other & 4/284 (1\%) & 0.003 & 0.008\\
 NF1 & Lisch nodules [HP:0009737] & Met992del & 3/36 (8\%) & other & 80/248 (32\%) & 0.003 & 0.008\\
-NF1 & Plexiform neurofibroma [HP:0009732] & Met992del & 0/44 (0\%) & other & 68/351 (19\%) & $2.0 \times 10^{-04}$ & $1.0 \times 10^{-03}$\\
-NF1 & Scoliosis [HP:0002650] & SV & 18/57 (32\%) & other & 38/308 (12\%) & $9.7 \times 10^{-04}$ & 0.017\\
-NF1 & Axillary freckling [HP:0000997] & p.Arg1830 & 20/79 (25\%) & other & 105/175 (60\%) & $3.7 \times 10^{-07}$ & $2.0 \times 10^{-06}$\\
-NF1 & Freckling [HP:0001480] & p.Arg1830 & 76/133 (57\%) & other & 201/222 (91\%) & $6.3 \times 10^{-13}$ & $6.9 \times 10^{-12}$\\
-NF1 & Inguinal freckling [HP:0030052] & p.Arg1830 & 8/79 (10\%) & other & 84/170 (49\%) & $4.9 \times 10^{-10}$ & $3.6 \times 10^{-09}$\\
-NF1 & Lisch nodules [HP:0009737] & p.Arg1830 & 11/91 (12\%) & other & 72/193 (37\%) & $6.6 \times 10^{-06}$ & $2.9 \times 10^{-05}$\\
-NF1 & Neurofibroma [HP:0001067] & p.Arg1830 & 5/8 (62\%) & other & 153/162 (94\%) & 0.012 & 0.030\\
-NF1 & Optic nerve glioma [HP:0009734] & p.Arg1830 & 0/39 (0\%) & other & 39/137 (28\%) & $1.7 \times 10^{-05}$ & $6.3 \times 10^{-05}$\\
-NF1 & Plexiform neurofibroma [HP:0009732] & p.Arg1830 & 0/135 (0\%) & other & 68/260 (26\%) & $1.7 \times 10^{-14}$ & $3.8 \times 10^{-13}$\\
-NF1 & Pulmonic stenosis [HP:0001642] & p.Arg1830 & 13/105 (12\%) & other & 5/162 (3\%) & 0.005 & 0.013\\
-NF1 & Scoliosis [HP:0002650] & p.Arg1830 & 8/125 (6\%) & other & 48/240 (20\%) & $4.0 \times 10^{-04}$ & $1.0 \times 10^{-03}$\\
+NF1 & Neurofibroma [HP:0001067] & Met992del & 0/44 (0\%) & other & 158/364 (43\%) & $1.7 \times 10^{-10}$ & $2.7 \times 10^{-09}$\\
+NF1 & Plexiform neurofibroma [HP:0009732] & Met992del & 0/44 (0\%) & other & 68/346 (20\%) & $2.0 \times 10^{-04}$ & $1.0 \times 10^{-03}$\\
+NF1 & Freckling [HP:0001480] & Missense & 181/278 (65\%) & other & 96/117 (82\%) & $7.2 \times 10^{-04}$ & 0.009\\
+NF1 & Glioma [HP:0009733] & Missense & 35/282 (12\%) & other & 11/27 (41\%) & $5.3 \times 10^{-04}$ & 0.009\\
+NF1 & Lipoma [HP:0012032] & Missense & 4/277 (1\%) & other & 5/51 (10\%) & 0.006 & 0.030\\
+NF1 & Neurofibroma by anatomical location [HP:0034761] & Missense & 23/206 (11\%) & other & 0/67 (0\%) & 0.002 & 0.015\\
+NF1 & Spinal neurofibroma [HP:0009735] & Missense & 23/228 (10\%) & other & 0/67 (0\%) & 0.003 & 0.021\\
+NF1 & Freckling [HP:0001480] & SV & 53/60 (88\%) & other & 224/335 (67\%) & $6.4 \times 10^{-04}$ & 0.005\\
+NF1 & Glioma [HP:0009733] & SV & 8/11 (73\%) & other & 38/298 (13\%) & $1.6 \times 10^{-05}$ & $1.8 \times 10^{-04}$\\
+NF1 & Neurofibroma [HP:0001067] & SV & 41/60 (68\%) & other & 117/348 (34\%) & $6.0 \times 10^{-07}$ & $1.4 \times 10^{-05}$\\
+NF1 & Plexiform neurofibroma [HP:0009732] & SV & 16/50 (32\%) & other & 52/340 (15\%) & 0.008 & 0.037\\
+NF1 & Scoliosis [HP:0002650] & SV & 18/57 (32\%) & other & 38/308 (12\%) & $9.7 \times 10^{-04}$ & 0.006\\
+NF1 & Axillary freckling [HP:0000997] & p.Arg1830 & 20/79 (25\%) & other & 105/175 (60\%) & $3.7 \times 10^{-07}$ & $1.4 \times 10^{-06}$\\
+NF1 & Freckling [HP:0001480] & p.Arg1830 & 76/133 (57\%) & other & 201/262 (77\%) & $1.1 \times 10^{-04}$ & $3.0 \times 10^{-04}$\\
+NF1 & Glioma [HP:0009733] & p.Arg1830 & 2/136 (1\%) & other & 44/173 (25\%) & $2.4 \times 10^{-10}$ & $2.1 \times 10^{-09}$\\
+NF1 & Inguinal freckling [HP:0030052] & p.Arg1830 & 8/79 (10\%) & other & 84/170 (49\%) & $4.9 \times 10^{-10}$ & $3.3 \times 10^{-09}$\\
+NF1 & Lisch nodules [HP:0009737] & p.Arg1830 & 11/91 (12\%) & other & 72/193 (37\%) & $6.6 \times 10^{-06}$ & $2.0 \times 10^{-05}$\\
+NF1 & Neurofibroma [HP:0001067] & p.Arg1830 & 5/133 (4\%) & other & 153/275 (56\%) & $2.5 \times 10^{-28}$ & $6.7 \times 10^{-27}$\\
+NF1 & Neurofibroma by anatomical location [HP:0034761] & p.Arg1830 & 0/128 (0\%) & other & 23/145 (16\%) & $2.0 \times 10^{-07}$ & $9.2 \times 10^{-07}$\\
+NF1 & Optic nerve glioma [HP:0009734] & p.Arg1830 & 0/135 (0\%) & other & 39/217 (18\%) & $1.9 \times 10^{-09}$ & $1.0 \times 10^{-08}$\\
+NF1 & Plexiform neurofibroma [HP:0009732] & p.Arg1830 & 0/135 (0\%) & other & 68/255 (27\%) & $1.5 \times 10^{-14}$ & $2.0 \times 10^{-13}$\\
+NF1 & Pulmonic stenosis [HP:0001642] & p.Arg1830 & 13/105 (12\%) & other & 5/162 (3\%) & 0.005 & 0.011\\
+NF1 & Scoliosis [HP:0002650] & p.Arg1830 & 8/125 (6\%) & other & 48/240 (20\%) & $4.0 \times 10^{-04}$ & $9.9 \times 10^{-04}$\\
+NF1 & Spinal neurofibroma [HP:0009735] & p.Arg1830 & 0/128 (0\%) & other & 23/167 (14\%) & $1.9 \times 10^{-06}$ & $6.4 \times 10^{-06}$\\
 PTPN11 & Hypertelorism [HP:0000316] & Missense & 37/41 (90\%) & Other & 0/12 (0\%) & $6.8 \times 10^{-09}$ & $2.7 \times 10^{-08}$\\
 PTPN11 & Intellectual disability, mild [HP:0001256] & Missense & 8/23 (35\%) & Other & 0/12 (0\%) & 0.032 & 0.032\\
 PTPN11 & Pulmonic stenosis [HP:0001642] & Missense & 18/34 (53\%) & Other & 0/12 (0\%) & $1.0 \times 10^{-03}$ & 0.002\\
 PTPN11 & Webbed neck [HP:0000465] & Missense & 15/20 (75\%) & Other & 0/12 (0\%) & $2.9 \times 10^{-05}$ & $5.9 \times 10^{-05}$\\
 RPGRIP1 & Eye poking [HP:0001483] & 1107del/1107del OR 1107del/other & 16/16 (100\%) & other/other & 19/41 (46\%) & $1.3 \times 10^{-04}$ & 0.002\\
+RPGRIP1 & Nystagmus [HP:0000639] & OMIM:613826 & 64/66 (97\%) & OMIM:608194 & 11/16 (69\%) & 0.003 & 0.020\\
+RPGRIP1 & Very low visual acuity [HP:0032122] & OMIM:613826 & 35/39 (90\%) & OMIM:608194 & 4/16 (25\%) & $5.2 \times 10^{-06}$ & $7.8 \times 10^{-05}$\\
+Robinow & Cleft palate [HP:0000175] & OMIM:268310 & 0/17 (0\%) & OMIM:616331 & 5/8 (62\%) & $1.0 \times 10^{-03}$ & 0.031\\
+Robinow & Hearing impairment [HP:0000365] & OMIM:268310 & 3/22 (14\%) & OMIM:616331 & 7/7 (100\%) & $7.7 \times 10^{-05}$ & 0.003\\
+Robinow & Mesomelia [HP:0003027] & OMIM:268310 & 31/31 (100\%) & OMIM:616331 & 10/15 (67\%) & 0.002 & 0.048\\
+Robinow & Short stature [HP:0004322] & OMIM:268310 & 29/29 (100\%) & OMIM:616331 & 3/11 (27\%) & $2.2 \times 10^{-06}$ & $1.9 \times 10^{-04}$\\
 SAMD9L & Neutropenia [HP:0001875] & Arg986Cys & 7/9 (78\%) & Ser626Leu & 0/9 (0\%) & 0.002 & 0.008\\
 SAMD9L & Pancytopenia [HP:0001876] & Arg986Cys & 4/6 (67\%) & Ser626Leu & 0/9 (0\%) & 0.011 & 0.026\\
 SAMD9L & Thrombocytopenia [HP:0001873] & Arg986Cys & 7/9 (78\%) & Ser626Leu & 0/9 (0\%) & 0.002 & 0.008\\

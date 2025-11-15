@@ -3,6 +3,7 @@
 \usepackage{times}
 \usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{pdflscape}
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{subcaption}  % For subfigures (panels A, B, C)% Adds support for breaklines
@@ -22,9 +23,7 @@
 
 \begin{document}
 \thispagestyle{empty}
-
-\include{generated/supplement_tables}
-
+\pagenumbering{gobble}
 
 \include{tex/ABCB7_summary}
 \include{tex/ACADM_summary}
@@ -79,6 +78,7 @@
 \include{tex/ROR2_summary}
 \include{tex/RPGRIP1_summary} 
 \include{tex/SAMD9L_summary}
+\include{tex/SATB2_summary}
 \include{tex/SCN2A_summary}
 \include{tex/SCO2_summary}
 \include{tex/SEC61A1_summary}
@@ -112,10 +112,12 @@
 \include{tex/ZSWIM6_summary}
 
 
+\include{supplement_tables}
+
 \bibliographystyle{unsrt}  
-\begin{tiny}
+\begin{small}
 \bibliography{references} 
-\end{tiny}
+\end{small}
 
 
 
