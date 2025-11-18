@@ -1,5 +1,15 @@
 \documentclass[12pt]{article}
 
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=none,
+  minnames=9,
+  maxnames=10,
+]{biblatex}
+
+\addbibresource{references.bib}
+
 \usepackage{times}
 \usepackage{graphicx}
 \usepackage{longtable}
@@ -114,9 +124,9 @@
 
 \include{supplement_tables}
 
-\bibliographystyle{unsrt}  
+%\bibliographystyle{unsrt10}  
 \begin{small}
-\bibliography{references} 
+\printbibliography
 \end{small}
 
 
