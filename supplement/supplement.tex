@@ -2,11 +2,75 @@
 
 \usepackage[
   backend=biber,
-  style=gpsea-ajhg,
+  style=numeric,
   sorting=none,
-  minnames=9,
+  minnames=10,
   maxnames=10,
+  giveninits=true,        % Use initials instead of full first names
+  doi=true,               % Include DOIs
+  url=false,              % Don't show URLs (except DOI)
+  isbn=false,             % Don't show ISBN
+  eprint=false,           % Don't show eprint
 ]{biblatex}
+
+% Move year right after authors in parentheses
+\renewbibmacro*{author}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{author}}
+  }
+    {\printnames{author}%
+     \setunit{\addspace}%
+     \printtext[parens]{\usebibmacro{date}}}
+    {\usebibmacro{labeltitle}}%
+}
+
+% Remove date from its normal position (after title)
+\renewbibmacro*{issue+date}{%
+  \iffieldundef{issue}
+    {}
+    {\printfield{issue}%
+     \setunit{\addspace}}%
+  \newunit}
+
+% Format volume in italics
+\DeclareFieldFormat[article]{volume}{\mkbibemph{#1}}
+
+% Use comma and space after volume, skip issue number
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit{\addcomma\addspace}%
+  \printfield{eid}}
+
+% Remove quotes from article titles
+\DeclareFieldFormat[article]{title}{#1}
+
+% Format DOI as full URL
+\DeclareFieldFormat{doi}{%
+  \url{https://doi.org/#1}%
+}
+
+% Remove "pp." before page numbers
+\DeclareFieldFormat{pages}{#1}
+\renewbibmacro{in:}{}
+
+% Add comma after journal name
+% Journal name in plain font (not italic) with comma after
+\DeclareFieldFormat{journaltitle}{#1}
+\renewbibmacro*{journal}{%
+  \iffieldundef{journaltitle}
+    {}
+    {\printfield[journaltitle]{journaltitle}%
+     \setunit{\subtitlepunct}%
+     \printfield{journalsubtitle}%
+     \setunit{\addcomma\addspace}}%
+}
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryBibitem{\clearfield{number}}
+\AtEveryBibitem{\clearfield{issue}}
+\AtEveryBibitem{\clearfield{pubstate}}
+
 
 \addbibresource{references.bib}
 
