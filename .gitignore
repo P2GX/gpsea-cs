@@ -176,7 +176,9 @@ venv/
 supplement/supplement.pdf
 supplement/supplement.bbl
 supplement/supplement.blg
+supplement/supplement.bcf
 supplement/supplement.aux
+supplement/supplement.run.xml
 supplement/supplement.synctex.gz
 
 supplement/*.aux
